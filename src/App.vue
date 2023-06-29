@@ -1,6 +1,6 @@
 <template>
     <div class="app d-flex">
-        <TheSideBar/>
+        <TheSideBar @show-modal="showModal"/>
         
 
         <div class="container-fluid">
@@ -11,15 +11,29 @@
         </router-view>
             
         </div>
+
+        <ModalMain :type="type"/>
     </div>
 </template>
 
 <script>
 import TheSideBar from './components/interface/TheSideBar.vue'
+import ModalMain from './components/modal/ModalMain.vue'
 
 export default {
     components: {
-        TheSideBar
+        TheSideBar,
+        ModalMain
+    },
+    data() {
+        return {
+            type: ''
+        }
+    },
+    methods: {
+        showModal(type) {
+            this.type = type
+        }
     }    
 }
 </script>

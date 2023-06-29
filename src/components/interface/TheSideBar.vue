@@ -9,7 +9,9 @@
                     class="btn btn-secondary w-75">
                     {{item.title}}</router-link>
 
-                    <button type="button" class="btn btn-secondary w-25">
+                    <button type="button" class="btn btn-secondary w-25"
+                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                    @click="$emit('show-modal', item.type)">
                         +</button>
                 </div>
             </div>
@@ -20,6 +22,7 @@
 import {dataModels} from './../../data/dataModels'
 
 export default {
+    emits: ['show-modal'],
     computed: {
         menuItems() {
             return dataModels.filter(item => item.menu)
@@ -28,12 +31,13 @@ export default {
 }
 </script>
 
+
 <style scoped>
 .side-bar {
     width: 200px;
     
 }
-
+/* 
 .item {
     text-decoration: none;
     color: aliceblue;
@@ -41,5 +45,5 @@ export default {
 }
 .item:hover {
     background-color: dimgrey;
-}
+} */
 </style>
