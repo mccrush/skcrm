@@ -3,9 +3,15 @@
             <div class="text-center bg-light p-3">SKCRM</div>
 
             <div class="list-items p-2">
-                <router-link v-for="item in menuItems" 
-                :key="item.id" :to="'/list/'+item.type" 
-                class="item d-block rounded-2 p-1 ps-2">{{item.title}}</router-link>
+                <div v-for="item in menuItems" 
+                    :key="item.id"  class="btn-group btn-group-sm w-100 mt-1">
+                    <router-link :to="'/list/'+item.type"
+                    class="btn btn-secondary w-75">
+                    {{item.title}}</router-link>
+
+                    <button type="button" class="btn btn-secondary w-25">
+                        +</button>
+                </div>
             </div>
         </div>
 </template>
