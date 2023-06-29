@@ -1,6 +1,6 @@
 // Класс Основной с общими свойствами
-import getId from './../scripts/getId'
-import getDateNow from './../scripts/getDateNow'
+import getId from './../helpers/getId'
+import getDateNow from './../helpers/getDateNow'
 
 export default class ClassBasic {
   constructor() {

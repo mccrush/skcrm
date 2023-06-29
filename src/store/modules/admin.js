@@ -2,18 +2,12 @@ import fireApp from './../../firebase'
 import { getFirestore, doc, setDoc, updateDoc, deleteDoc, collection, query, getDocs } from "firebase/firestore"
 const db = getFirestore(fireApp)
 
+import { dataModels } from './../../data/dataModels'
+
 export default {
   state: {
-    about: [],
     client: [],
-    naprav: [],
-    naprav_vid: [],
-    partner: [],
-    product: [],
-    resh: [],
-
-    loading: false,
-    uid: false
+    order: []
   },
 
   mutations: {
@@ -87,22 +81,8 @@ export default {
   },
 
   getters: {
-    about: state => state.about,
     client: state => state.client,
-    naprav: state => state.naprav,
-    naprav_vid: state => state.naprav_vid,
-    partner: state => state.partner,
-    product: state => state.product,
-    resh: state => state.resh,
+    order: state => state.order,
 
-    loading: state => state.loading,
-    uid: state => state.uid,
   }
 }
-
-// Возможно достаточно всего 7 моделей
-// можно избавится от razdel, version
-// подумать можм ли обойтись без config?
-
-// логично, гетерры сделать динамичными
-// из массива dataModels

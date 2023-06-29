@@ -1,10 +1,10 @@
 import ClassBasic from './ClassBasic'
 
-export default class ClassClient extends ClassBasic {
-  type = 'client'
+export default class order extends ClassBasic {
+  type = 'order'
   city = ''
   phone= ''
   name = ''
-  size = 0
+  area = 0
   sours = ''
 }

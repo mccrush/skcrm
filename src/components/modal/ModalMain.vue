@@ -11,7 +11,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <component :is="myComponent" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -23,9 +23,36 @@
 </template>
 
 <script>
+import {modelsFactory} from './../../helpers/modelsFactory'
+import clientForm from './../forms/clientForm.vue'
+
 export default {
+    components: {
+        clientForm
+    },
     props: {
-        type: String
+        type: String,
+        mod: String,
+        id: String
+    },
+    computed: {
+        myComponent() {
+            return this.type+'Form'
+        },
+
+        item() {
+            if(this.type) {
+                if (this.mod === 'create') {
+                    const item = modelsFactory(this.type)
+                return 
+           } else {
+                const items = this.$store.getters[this.type]
+                return items.find(item => item.id === this.id)
+           }
+            } 
+            return null
+           
+        }
     }
 }
 </script>

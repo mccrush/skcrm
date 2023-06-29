@@ -12,7 +12,7 @@
             
         </div>
 
-        <ModalMain :type="type"/>
+        <ModalMain :type="type" :mod="mod"/>
     </div>
 </template>
 
@@ -27,12 +27,14 @@ export default {
     },
     data() {
         return {
-            type: ''
+            type: '',
+            mod: ''
         }
     },
     methods: {
-        showModal(type) {
+        showModal({type, mod}) {
             this.type = type
+            this.mod = mod
         }
     }    
 }

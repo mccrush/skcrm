@@ -11,7 +11,7 @@
 
                     <button type="button" class="btn btn-secondary w-25"
                     data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                    @click="$emit('show-modal', item.type)">
+                    @click="$emit('show-modal', {type: item.type, mod: 'create'})">
                         +</button>
                 </div>
             </div>
