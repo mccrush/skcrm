@@ -1,17 +1,28 @@
 <template>
     <div class="app d-flex">
-        <div class="side-bar">
-            Sidebar
-        </div>
+        <TheSideBar/>
+        
 
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">Header</div>
-                <div class="col-12">Content</div>
-            </div>
+            <router-view v-slot="{ Component }">
+          <transition name="fade" mode="out-in">
+            <component :is="Component" />
+          </transition>
+        </router-view>
+            
         </div>
     </div>
 </template>
+
+<script>
+import TheSideBar from './components/interface/TheSideBar.vue'
+
+export default {
+    components: {
+        TheSideBar
+    }    
+}
+</script>
 
 <style>
 .side-bar {

@@ -2,11 +2,15 @@ import { createRouter, createWebHistory } from 'vue-router'
 import store from './../store'
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'index',
-  //   component: () => import('../pages/PageIndex.vue')
-  // },
+  {
+    path: '/',
+    name: 'index',
+    component: () => import('../pages/PageIndex.vue')
+  },
+   {  path: '/list/:type',
+    name: 'list',
+    component: () => import('../pages/PageListItems.vue')
+  },
   // {
   //   path: '/404', // Первая, для перекрытия остальных
   //   name: '404',
