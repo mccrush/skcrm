@@ -1,5 +1,5 @@
 <template>
-    <div v-if="item" class="row">
+    <div class="row">
         <!-- имя клиента -->
         <div class="col-6 pe-1">
         <form @submit.prevent class="form-floating">
@@ -84,7 +84,9 @@ import {dataSourses} from './../../data/dataSourses'
 
 export default {
     props: {
-        item: Object
+        item: { type: Object,
+        require: true
+        }
     },
     emits: ['save-item'],
     data() {

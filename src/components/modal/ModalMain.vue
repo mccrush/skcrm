@@ -4,14 +4,16 @@
         tabindex="-1" aria-labelledby="staticBackdropLabel" 
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content  border-0">
+            <div v-if="item" class="modal-content  border-0">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">
                         {{type}}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <component :is="myComponent" />
+                    {{mod}}
+                    <pre>{{item}}</pre>
+                    <component :is="myComponent" :item="item"/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -23,7 +25,6 @@
 </template>
 
 <script>
-import {modelsFactory} from './../../helpers/modelsFactory'
 import clientForm from './../forms/clientForm.vue'
 
 export default {
@@ -33,25 +34,13 @@ export default {
     props: {
         type: String,
         mod: String,
-        id: String
+        item: Object
     },
     computed: {
         myComponent() {
-            return this.type+'Form'
-        },
-
-        item() {
-            if(this.type) {
-                if (this.mod === 'create') {
-                    const item = modelsFactory(this.type)
-                return 
-           } else {
-                const items = this.$store.getters[this.type]
-                return items.find(item => item.id === this.id)
-           }
-            } 
-            return null
-           
+            const component = this.type+'Form'
+            console.log('component = ', component);
+            return component
         }
     }
 }
