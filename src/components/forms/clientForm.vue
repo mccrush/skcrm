@@ -3,76 +3,83 @@
 
     <!-- город клиента -->
     <div class="col-6  pe-1">
-      <form @submit.prevent class="form-floating">
+      <div class="form-floating">
         <input type="text" class="form-control form-control-sm" id="inputCity" v-model.trim="item.city"
           @change="$emit('save-item')" />
         <label for="inputCity">Город</label>
-      </form>
+      </div>
     </div>
 
     <!-- имя клиента -->
     <div class="col-6 ps-2">
-      <form @submit.prevent class="form-floating">
+      <div class="form-floating">
         <input type="text" class="form-control form-control-sm" id="inputName" v-model.trim="item.name"
           @change="$emit('save-item')" />
         <label for="inputName">Имя</label>
-      </form>
+      </div>
     </div>
-
-
 
     <!-- телефон клиента -->
     <div class="col-6 mt-2 pe-1">
-      <form @submit.prevent class="form-floating">
+      <div class="form-floating">
         <input type="text" class="form-control form-control-sm" id="inputPhone" v-model.trim="item.phone"
           @change="$emit('save-item')" />
         <label for="inputPhone">Телефон</label>
-      </form>
+      </div>
     </div>
 
-    <!-- источник контакта -->
+    <!-- Дата общения -->
     <div class="col-6 mt-2 ps-2">
-      <form @submit.prevent class="form-floating">
-        <select class="form-select" id="inputSours" v-model="item.sours" @change="$emit('save-item')">
-          <option v-for="sours in dataSourses" :key="sours" :value="sours">
-            {{ sours }}
-          </option>
-        </select>
-        <label for="inputSours">Источник</label>
-      </form>
+      <div class="form-floating">
+        <input @change="$emit('save-item')" type="datetime-local" id="dateCreate" class="form-control form-control-sm"
+          v-model="item.dateCreate" />
+        <label for="dateCreate">Дата общения</label>
+      </div>
     </div>
 
     <!-- Тип котла -->
-    <div class="col-6 mt-2 pe-1">
-      <form @submit.prevent class="form-floating">
+    <div class="col-4 mt-2 pe-1">
+      <div class="form-floating">
         <select class="form-select" id="inputKotelType" v-model="item.typek" @change="$emit('save-item')">
           <option v-for="typek in dataKotelType" :key="typek" :value="typek">
             {{ typek }}
           </option>
         </select>
         <label for="inputKotelType">Тип котла</label>
-      </form>
+      </div>
     </div>
 
     <!-- Мощность котла -->
-    <div class="col-6 mt-2 ps-2">
-      <form @submit.prevent class="form-floating">
+    <div class="col-4 mt-2 ps-2 pe-2">
+      <div class="form-floating">
         <select class="form-select" id="inputPower" v-model="item.power" @change="$emit('save-item')">
           <option v-for="power in dataPower" :key="power" :value="power">
             {{ power }}
           </option>
         </select>
         <label for="inputPower">Мощность</label>
-      </form>
+      </div>
+    </div>
+
+    <!-- источник контакта -->
+    <div class="col-4 mt-2 ps-1">
+      <div class="form-floating">
+        <select class="form-select" id="inputSours" v-model="item.sours" @change="$emit('save-item')">
+          <option v-for="sours in dataSourses" :key="sours" :value="sours">
+            {{ sours }}
+          </option>
+        </select>
+        <label for="inputSours">Источник</label>
+      </div>
     </div>
 
     <!-- Комментарий -->
     <div class="col-12 mt-2">
-      <form class="form-floating">
-        <textarea class="form-control form-control-sm border-0" id="inputDescription" rows="5"
+      <div class="form-floating">
+        <textarea class="form-control form-control-sm border-0 h-auto" id="inputDescription" rows="4"
           v-model.trim="item.description" @change="$emit('save-item')"></textarea>
         <label for="inputDescription">Комментарий</label>
-      </form>
+      </div>
     </div>
   </div>
 </template>
