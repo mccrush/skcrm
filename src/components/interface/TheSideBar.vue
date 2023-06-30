@@ -1,13 +1,9 @@
 <template>
   <div class="side-bar bg-dark vh-100">
-    <div class="text-center bg-white fw-bold p-3">SKCRM</div>
+    <div class="text-center bg-dark text-light fw-bold p-3">S K C R M</div>
 
     <div class="list-items">
-      <div
-        v-for="item in menuItems"
-        :key="item.id"
-        class="btn-group btn-group-sm w-100"
-      >
+      <div v-for="item in menuItems" :key="item.id" class="btn-group w-100">
         <router-link
           :to="'/list/' + item.type"
           class="btn btn-dark rounded-0 w-75"
