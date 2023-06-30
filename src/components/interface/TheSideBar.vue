@@ -2,19 +2,22 @@
   <div class="side-bar bg-dark vh-100">
     <div class="text-center bg-white fw-bold p-3">SKCRM</div>
 
-    <div class="list-items p-2">
+    <div class="list-items">
       <div
         v-for="item in menuItems"
         :key="item.id"
-        class="btn-group btn-group-sm w-100 mt-1"
+        class="btn-group btn-group-sm w-100"
       >
-        <router-link :to="'/list/' + item.type" class="btn btn-secondary w-75">
+        <router-link
+          :to="'/list/' + item.type"
+          class="btn btn-dark rounded-0 w-75"
+        >
           {{ item.title }}</router-link
         >
 
         <button
           type="button"
-          class="btn btn-secondary w-25"
+          class="btn btn-dark rounded-0 w-25"
           data-bs-toggle="modal"
           data-bs-target="#staticBackdrop"
           @click="$emit('show-modal', { type: item.type, mod: 'create' })"
