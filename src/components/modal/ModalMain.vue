@@ -13,7 +13,8 @@
                 </div>
                 <div class="modal-footer p-2">
                     <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Удалить</button> -->
-                    <button type="button" class="btn btn-sm btn-success">Создать</button>
+                    <button type="button" class="btn btn-sm btn-success" data-bs-dismiss="modal"
+                        @click="createItem">Создать</button>
                 </div>
             </div>
         </div>
@@ -37,6 +38,11 @@ export default {
             const component = this.type + 'Form'
             console.log('component = ', component);
             return component
+        }
+    },
+    methods: {
+        createItem() {
+            this.$store.dispatch('addItem', { item: this.item })
         }
     }
 }
