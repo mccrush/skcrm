@@ -1,9 +1,9 @@
 <template>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog">
             <div v-if="item" class="modal-content  border-0">
-                <div class="modal-header">
+                <div class="modal-header p-2 ps-3 pe-3">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">
                         {{ type }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -11,10 +11,10 @@
                 <div class="modal-body">
                     <component :is="myForm" :item="item" />
                 </div>
-                <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
-                </div> -->
+                <div class="modal-footer p-2">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Удалить</button> -->
+                    <button type="button" class="btn btn-sm btn-success">Создать</button>
+                </div>
             </div>
         </div>
     </div>

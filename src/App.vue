@@ -51,7 +51,32 @@ export default {
 </script>
 
 <style>
-.side-bar {
-    width: 220px;
+.btn:focus,
+.btn-close:focus,
+.btn-check:focus+.btn-outline-dark,
+.form-control:focus,
+.form-select:focus,
+.accordion-button:focus,
+.navbar-toggler:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-default {
+    cursor: default;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
 }
 </style>

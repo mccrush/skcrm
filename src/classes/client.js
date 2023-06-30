@@ -4,6 +4,8 @@ export default class client extends ClassBasic {
   type = 'client'
   name = ''
   city = ''
-  phone= '' 
+  phone = ''
   sours = ''
+  typek = ''
+  power = 0
 }
