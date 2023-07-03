@@ -73,6 +73,7 @@
         :sours="item.sours"
         :dateLastContact="getLocaleDateFromDateDigit(item.dateCreate)"
         @edit-item="editItem"
+        @set-filter-method="setFilterMethod"
       />
     </tbody>
   </table>
@@ -90,11 +91,15 @@ export default {
     listItems: Array,
     sortUp: String
   },
-  emits: ['show-modal', 'set-sort-method'],
+  emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
   methods: {
     getLocaleDateFromDateDigit,
     editItem({ type, item }) {
       this.$emit('show-modal', { type, item, mod: 'edit' })
+    },
+    setFilterMethod({ filterType, filterValue }) {
+      console.log('filterType, filterValue', filterType, filterValue)
+      this.$emit('set-filter-method', { filterType, filterValue })
     },
     setSortMethod(type) {
       const sortUp = this.sortUp === 'desc' ? 'asc' : 'desc'

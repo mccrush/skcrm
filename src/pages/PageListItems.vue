@@ -10,6 +10,7 @@
         :listItems="sortItems"
         :sortUp="sortUp"
         @show-modal="showModal"
+        @set-filter-method="setFilterMethod"
         @set-sort-method="setSortMethod"
       />
     </div>
@@ -27,6 +28,8 @@ export default {
   emits: ['show-modal'],
   data() {
     return {
+      filterType: '',
+      filterValue: '',
       sortUp: 'desc',
       sortBy: 'dateCreate'
     }
@@ -35,8 +38,15 @@ export default {
     listItems() {
       return this.$store.getters[this.$route.params.type]
     },
+    filterItems() {
+      if (this.filterType && this.filterValue)
+        return this.listItems.filter(
+          item => item[this.filterType] === this.filterValue
+        )
+      return this.listItems
+    },
     sortItems() {
-      return sortMethod(this.listItems, this.sortUp, this.sortBy)
+      return sortMethod(this.filterItems, this.sortUp, this.sortBy)
 
       // return this.listItems
     }
@@ -44,6 +54,10 @@ export default {
   methods: {
     showModal({ type, item, mod }) {
       this.$emit('show-modal', { type, item, mod })
+    },
+    setFilterMethod({ filterType, filterValue }) {
+      this.filterType = filterType
+      this.filterValue = filterValue
     },
     setSortMethod({ sortUp, sortBy }) {
       this.sortUp = sortUp

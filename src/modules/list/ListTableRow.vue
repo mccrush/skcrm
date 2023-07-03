@@ -1,18 +1,58 @@
 <template>
   <tr>
     <td class="ps-2">
-      <button class="btn btn-sm btn-light p-0 ps-2 pe-2">{{ city }}</button>
+      <button
+        class="btn btn-sm btn-light p-0 ps-2 pe-2"
+        @click="
+          $emit('set-filter-method', {
+            filterType: 'city',
+            filterValue: city
+          })
+        "
+      >
+        {{ city }}
+      </button>
     </td>
     <td class="lh-1">{{ name }}</td>
     <td class="text-center">
-      <button class="btn btn-sm btn-light p-0 ps-2 pe-2">{{ typek }}</button>
+      <button
+        class="btn btn-sm btn-light p-0 ps-2 pe-2"
+        @click="
+          $emit('set-filter-method', {
+            filterType: 'typek',
+            filterValue: typek
+          })
+        "
+      >
+        {{ typek }}
+      </button>
     </td>
     <td class="text-center">
-      <button class="btn btn-sm btn-light p-0 ps-2 pe-2">{{ power }}</button>
+      <button
+        class="btn btn-sm btn-light p-0 ps-2 pe-2"
+        @click="
+          $emit('set-filter-method', {
+            filterType: 'power',
+            filterValue: power
+          })
+        "
+      >
+        {{ power }}
+      </button>
     </td>
     <td class="text-center">{{ phone }}</td>
     <td class="text-center">
-      <button class="btn btn-sm btn-light p-0 ps-2 pe-2">{{ sours }}</button>
+      <button
+        class="btn btn-sm btn-light p-0 ps-2 pe-2"
+        @click="
+          $emit('set-filter-method', {
+            filterType: 'sours',
+            filterValue: sours
+          })
+        "
+      >
+        {{ sours }}
+      </button>
     </td>
     <td class="text-center">{{ dateLastContact }}</td>
     <td class="text-center">
@@ -40,6 +80,6 @@ export default {
     sours: String,
     dateLastContact: String
   },
-  emits: ['edit-item']
+  emits: ['edit-item', 'set-filter-method']
 }
 </script>
