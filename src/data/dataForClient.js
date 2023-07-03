@@ -1,4 +1,4 @@
-const dataSourses = ['Авито', 'Реклама', 'Соцсети', 'Знакомые']
+const dataSourses = ['Авито', 'Реклама', 'Соцсети', 'Знакомые', 'Телефон']
 const dataKotelType = ['А', 'П']
 const dataPower = [5, 10, 15, 25, 30, 60, 100, 150, 250]
 

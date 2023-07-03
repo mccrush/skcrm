@@ -1,9 +1,9 @@
 <template>
   <tr>
-    <td class="ps-3">
+    <td class="ps-2">
       <button class="btn btn-sm btn-light p-0 ps-2 pe-2">{{ city }}</button>
     </td>
-    <td>{{ name }}</td>
+    <td class="lh-1">{{ name }}</td>
     <td class="text-center">
       <button class="btn btn-sm btn-light p-0 ps-2 pe-2">{{ typek }}</button>
     </td>

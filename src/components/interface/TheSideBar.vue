@@ -41,7 +41,7 @@ export default {
 
 <style scoped>
 .side-bar {
-  width: 200px;
+  width: 160px;
 }
 
 /* 
