@@ -39,10 +39,10 @@ export default {
 
       if (this.mod === 'create') {
         this.item = modelsFactory(this.type)
-        console.log('this.item = ', this.item)
+        // console.log('this.item = ', this.item)
       } else if (this.mod === 'edit') {
         this.item = item
-        console.log('this.item = ', this.item)
+        // console.log('this.item = ', this.item)
       }
     }
   }

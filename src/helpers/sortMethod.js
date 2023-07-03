@@ -1,8 +1,8 @@
 // v2.1
 // Это вторая улучшенная версия метода сортировки, универсальная
 
-const numberFields = ['position', 'price', 'sum', 'time']
-const stringFields = ['title', 'client']
+const numberFields = ['position', 'price', 'sum', 'time', 'power']
+const stringFields = ['title', 'client', 'name', 'city', 'phone', 'typek', 'sours']
 const stringFieldsNested = ['client.name']
 const dateFields = ['dateCreate', 'deadline', 'dateForReady', 'dateFinish']
 
@@ -12,7 +12,7 @@ export const sortMethod = (array, sortUp = 'desc', sortBy = 'dateCreate') => {
       return sortUp === 'asc' ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy]
 
     } else if (stringFields.includes(sortBy)) {
-      return sortUp === 'asc' ? a['title'][0].charCodeAt(0) - b['title'][0].charCodeAt(0) : b['title'][0].charCodeAt(0) - a['title'][0].charCodeAt(0)
+      return sortUp === 'asc' ? a[sortBy][0].charCodeAt(0) - b[sortBy][0].charCodeAt(0) : b[sortBy][0].charCodeAt(0) - a[sortBy][0].charCodeAt(0)
 
     } else if (stringFieldsNested.includes(sortBy)) {
       if ((a[sortBy.split('.')[0]][sortBy.split('.')[1]]) && (b[sortBy.split('.')[0]][sortBy.split('.')[1]])) {

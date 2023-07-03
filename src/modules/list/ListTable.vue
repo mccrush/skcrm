@@ -3,23 +3,59 @@
     <thead>
       <tr>
         <th scope="col" class="small ps-3" width="20%">
-          Город <button class="btn btn-sm btn-light p-0 ps-2 pe-2">⇅</button>
+          Город
+          <button
+            class="btn btn-sm btn-light p-0 ps-2 pe-2"
+            @click="setSortMethod('city')"
+          >
+            ⇅
+          </button>
         </th>
         <th scope="col" class="small" width="15%">
-          Имя <button class="btn btn-sm btn-light p-0 ps-2 pe-2">⇅</button>
+          Имя
+          <button
+            class="btn btn-sm btn-light p-0 ps-2 pe-2"
+            @click="setSortMethod('name')"
+          >
+            ⇅
+          </button>
         </th>
         <th scope="col" class="text-center small" width="12%">
-          Тип <button class="btn btn-sm btn-light p-0 ps-2 pe-2">⇅</button>
+          Тип
+          <button
+            class="btn btn-sm btn-light p-0 ps-2 pe-2"
+            @click="setSortMethod('typek')"
+          >
+            ⇅
+          </button>
         </th>
         <th scope="col" class="text-center small" width="12%">
-          Мощ <button class="btn btn-sm btn-light p-0 ps-2 pe-2">⇅</button>
+          Мощ
+          <button
+            class="btn btn-sm btn-light p-0 ps-2 pe-2"
+            @click="setSortMethod('power')"
+          >
+            ⇅
+          </button>
         </th>
         <th scope="col" class="text-center small lh-lg" width="15%">Телефон</th>
         <th scope="col" class="text-center small" width="10%">
-          Источ <button class="btn btn-sm btn-light p-0 ps-2 pe-2">⇅</button>
+          Источ
+          <button
+            class="btn btn-sm btn-light p-0 ps-2 pe-2"
+            @click="setSortMethod('sours')"
+          >
+            ⇅
+          </button>
         </th>
         <th scope="col" class="text-center small" width="10%">
-          Дата <button class="btn btn-sm btn-light p-0 ps-2 pe-2">⇅</button>
+          Дата
+          <button
+            class="btn btn-sm btn-light p-0 ps-2 pe-2"
+            @click="setSortMethod('dateCreate')"
+          >
+            ⇅
+          </button>
         </th>
         <th scope="col" class="text-center" width="6%">---</th>
       </tr>
@@ -51,13 +87,18 @@ export default {
     ListTableRow
   },
   props: {
-    listItems: Array
+    listItems: Array,
+    sortUp: String
   },
-  emits: ['show-modal'],
+  emits: ['show-modal', 'set-sort-method'],
   methods: {
     getLocaleDateFromDateDigit,
     editItem({ type, item }) {
       this.$emit('show-modal', { type, item, mod: 'edit' })
+    },
+    setSortMethod(type) {
+      const sortUp = this.sortUp === 'desc' ? 'asc' : 'desc'
+      this.$emit('set-sort-method', { sortUp: sortUp, sortBy: type })
     }
   }
 }

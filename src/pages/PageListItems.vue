@@ -8,7 +8,9 @@
       <ListTable
         v-if="listItems.length"
         :listItems="sortItems"
+        :sortUp="sortUp"
         @show-modal="showModal"
+        @set-sort-method="setSortMethod"
       />
     </div>
   </div>
@@ -40,6 +42,10 @@ export default {
   methods: {
     showModal({ type, item, mod }) {
       this.$emit('show-modal', { type, item, mod })
+    },
+    setSortMethod({ sortUp, sortBy }) {
+      this.sortUp = sortUp
+      this.sortBy = sortBy
     }
   }
 }
