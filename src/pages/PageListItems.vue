@@ -1,13 +1,43 @@
 <template>
   <div class="row">
     <div class="col-12 bg-white p-3">
-      {{ $route.name }} - {{ $route.params.type }}
+      <div class="row">
+        <div class="col-3">{{ $route.name }} - {{ $route.params.type }}</div>
+        <div class="col-4">
+          <div v-if="filterType && filterValue" class="btn-group btn-group-sm">
+            <button class="btn btn-light p-0 ps-2 pe-2">
+              {{ filterType }} - {{ filterValue }}
+            </button>
+            <button
+              class="btn btn-light p-0 ps-2 pe-2"
+              @click=";(filterType = ''), (filterValue = '')"
+            >
+              x
+            </button>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="input-group">
+            <input
+              type="text"
+              v-model="filterValue"
+              class="form-control form-control-sm"
+            />
+            <button
+              class="btn btn-light p-0 ps-2 pe-2"
+              @click="filterValue = ''"
+            >
+              x
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="col-12 p-3">
       <ListTable
         v-if="listItems.length"
-        :listItems="sortItems"
+        :listItems="filterItems"
         :sortUp="sortUp"
         @show-modal="showModal"
         @set-filter-method="setFilterMethod"
@@ -39,16 +69,18 @@ export default {
       return this.$store.getters[this.$route.params.type]
     },
     filterItems() {
-      if (this.filterType && this.filterValue)
+      if (this.filterValue && !this.filterType) {
+        this.listItems.filter(item => item.city.includes(this.filterValue))
+      } else if (this.filterType && this.filterValue) {
         return this.listItems.filter(
           item => item[this.filterType] === this.filterValue
         )
-      return this.listItems
+      } else {
+        return this.listItems
+      }
     },
     sortItems() {
       return sortMethod(this.filterItems, this.sortUp, this.sortBy)
-
-      // return this.listItems
     }
   },
   methods: {
