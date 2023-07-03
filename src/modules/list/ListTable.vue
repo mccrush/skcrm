@@ -2,23 +2,23 @@
   <table class="table table-striped table-light shadow-sm">
     <thead>
       <tr>
-        <th scope="col" class="ps-3">
+        <th scope="col" class="small ps-3">
           Город <button class="btn btn-sm btn-light p-0 ps-2 pe-2">⇅</button>
         </th>
-        <th scope="col">
+        <th scope="col" class="small">
           Имя <button class="btn btn-sm btn-light p-0 ps-2 pe-2">⇅</button>
         </th>
-        <th scope="col" class="text-center">
+        <th scope="col" class="text-center small">
           Тип <button class="btn btn-sm btn-light p-0 ps-2 pe-2">⇅</button>
         </th>
-        <th scope="col" class="text-center">
+        <th scope="col" class="text-center small">
           Мощность <button class="btn btn-sm btn-light p-0 ps-2 pe-2">⇅</button>
         </th>
-        <th scope="col" class="text-center">Телефон</th>
-        <th scope="col" class="text-center">
+        <th scope="col" class="text-center small">Телефон</th>
+        <th scope="col" class="text-center small">
           Источник <button class="btn btn-sm btn-light p-0 ps-2 pe-2">⇅</button>
         </th>
-        <th scope="col" class="text-center">
+        <th scope="col" class="text-center small">
           Дата <button class="btn btn-sm btn-light p-0 ps-2 pe-2">⇅</button>
         </th>
         <th scope="col" class="text-center">---</th>
