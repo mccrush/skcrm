@@ -7,7 +7,7 @@
     <div class="col-12 p-3">
       <ListTable
         v-if="listItems.length"
-        :listItems="listItems"
+        :listItems="sortItems"
         @show-modal="showModal"
       />
     </div>
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { sortMethod } from './../helpers/sortMethod'
 import ListTable from './../modules/list/ListTable.vue'
 
 export default {
@@ -22,9 +23,18 @@ export default {
     ListTable
   },
   emits: ['show-modal'],
+  data() {
+    return {
+      sortUp: 'desc',
+      sortBy: 'dateCreate'
+    }
+  },
   computed: {
     listItems() {
       return this.$store.getters[this.$route.params.type]
+    },
+    sortItems() {
+      return sortMethod(this.listItems, this.sortUp, this.sortBy)
     }
   },
   methods: {
