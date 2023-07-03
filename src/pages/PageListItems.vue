@@ -37,6 +37,8 @@ export default {
     },
     sortItems() {
       return sortMethod(this.listItems, this.sortUp, this.sortBy)
+
+      // return this.listItems
     }
   },
   methods: {

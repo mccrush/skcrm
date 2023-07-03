@@ -7,7 +7,9 @@ import { dataModels } from './../../data/dataModels'
 export default {
   state: {
     client: [],
-    order: []
+    order: [],
+    kotel: [],
+    ograda: []
   },
 
   mutations: {
@@ -83,6 +85,8 @@ export default {
   getters: {
     client: state => state.client,
     order: state => state.order,
+    ograda: state => state.order,
+    kotel: state => state.order
 
   }
 }
