@@ -1,49 +1,85 @@
 <template>
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div v-if="item" class="modal-content  border-0">
-                <div class="modal-header p-2 ps-3 pe-3">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                        {{ type }}</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <component :is="myForm" :item="item" />
-                </div>
-                <div class="modal-footer p-2">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Удалить</button> -->
-                    <button type="button" class="btn btn-sm btn-success" data-bs-dismiss="modal"
-                        @click="createItem">Создать</button>
-                </div>
-            </div>
+  <div
+    class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div v-if="item" class="modal-content border-0">
+        <div class="modal-header p-2 ps-3 pe-3">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            {{ type }}
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
+        <div class="modal-body">
+          <component :is="myForm" :item="item" @save-item="saveItem" />
+        </div>
+        <div class="modal-footer p-2">
+          <button
+            v-if="mod === 'edit'"
+            type="button"
+            class="btn btn-sm btn-danger"
+            data-bs-dismiss="modal"
+            @click="removeItem"
+          >
+            Удалить
+          </button>
+          <button
+            v-if="mod === 'create'"
+            type="button"
+            class="btn btn-sm btn-success ms-2"
+            data-bs-dismiss="modal"
+            @click="createItem"
+          >
+            Создать
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 import clientForm from './../forms/clientForm.vue'
 
 export default {
-    components: {
-        clientForm
-    },
-    props: {
-        type: String,
-        mod: String,
-        item: Object
-    },
-    computed: {
-        myForm() {
-            const component = this.type + 'Form'
-            console.log('component = ', component);
-            return component
-        }
-    },
-    methods: {
-        createItem() {
-            this.$store.dispatch('addItem', { item: this.item })
-        }
+  components: {
+    clientForm
+  },
+  props: {
+    type: String,
+    mod: String,
+    item: Object
+  },
+  computed: {
+    myForm() {
+      const component = this.type + 'Form'
+      console.log('component = ', component)
+      return component
     }
+  },
+  methods: {
+    createItem() {
+      this.$store.dispatch('addItem', { item: this.item })
+    },
+    removeItem() {
+      this.$store.dispatch('removeItem', { item: this.item })
+    },
+    saveItem() {
+      if (this.mod === 'edit') {
+        this.$store.dispatch('updateItem', { item: this.item })
+      }
+    }
+  }
 }
 </script>

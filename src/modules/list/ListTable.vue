@@ -21,12 +21,14 @@
         <th scope="col" class="text-center">
           Дата <button class="btn btn-sm btn-light p-0 ps-2 pe-2">⇅</button>
         </th>
+        <th scope="col" class="text-center">---</th>
       </tr>
     </thead>
     <tbody>
       <ListTableRow
         v-for="item in listItems"
         :key="item.id"
+        :item="item"
         :city="item.city"
         :name="item.name"
         :typek="item.typek"
@@ -34,6 +36,7 @@
         :phone="item.phone"
         :sours="item.sours"
         :dateLastContact="getLocaleDateFromDateDigit(item.dateCreate)"
+        @edit-item="editItem"
       />
     </tbody>
   </table>
@@ -50,8 +53,12 @@ export default {
   props: {
     listItems: Array
   },
+  emits: ['show-modal'],
   methods: {
-    getLocaleDateFromDateDigit
+    getLocaleDateFromDateDigit,
+    editItem({ type, item }) {
+      this.$emit('show-modal', { type, item, mod: 'edit' })
+    }
   }
 }
 </script>

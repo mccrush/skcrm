@@ -5,7 +5,11 @@
     </div>
 
     <div class="col-12 p-3">
-      <ListTable v-if="listItems.length" :listItems="listItems" />
+      <ListTable
+        v-if="listItems.length"
+        :listItems="listItems"
+        @show-modal="showModal"
+      />
     </div>
   </div>
 </template>
@@ -17,9 +21,15 @@ export default {
   components: {
     ListTable
   },
+  emits: ['show-modal'],
   computed: {
     listItems() {
       return this.$store.getters[this.$route.params.type]
+    }
+  },
+  methods: {
+    showModal({ type, item, mod }) {
+      this.$emit('show-modal', { type, item, mod })
     }
   }
 }
