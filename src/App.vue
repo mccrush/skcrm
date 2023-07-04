@@ -1,6 +1,6 @@
 <template>
   <div class="app d-flex">
-    <TheSideBar @show-modal="showModal" />
+    <TheSideBar v-if="currentUserId" @show-modal="showModal" />
 
     <div class="container-fluid">
       <router-view v-slot="{ Component }">
@@ -30,6 +30,11 @@ export default {
       type: '',
       mod: '',
       item: null
+    }
+  },
+  computed: {
+    currentUserId() {
+      return this.$store.getters.currentUserId
     }
   },
   methods: {

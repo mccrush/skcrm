@@ -7,7 +7,8 @@ const routes = [
     name: 'index',
     component: () => import('../pages/PageIndex.vue')
   },
-   {  path: '/list/:type',
+  {
+    path: '/list/:type',
     name: 'list',
     component: () => import('../pages/PageListItems.vue')
   },
@@ -16,11 +17,11 @@ const routes = [
   //   name: '404',
   //   component: () => import('../pages/PageNotFound.vue')
   // },
-  // {
-  //   path: '/login',
-  //   name: 'login',
-  //   component: () => import('../pages/PageLogin.vue')
-  // },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../pages/PageLogin.vue')
+  },
   // {
   //   path: '/translation',
   //   name: 'translation',
@@ -65,7 +66,7 @@ router.beforeEach((to, from, next) => {
   console.log('currentUserId = ', currentUserId)
   // Проверить, что будет если зайти на стр. логина авторизованному пользователю
   // Сделать так, чтобы перебрасывало в админку
-  if (to.name === 'admin' && !currentUserId) next({ name: 'login' })
+  if (to.name != 'login' && !currentUserId) next({ name: 'login' })
   else next()
 })
 
