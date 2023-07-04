@@ -8,10 +8,7 @@
             <button class="btn btn-light p-0 ps-2 pe-2">
               {{ filterType }} - {{ filterValue }}
             </button>
-            <button
-              class="btn btn-light p-0 ps-2 pe-2"
-              @click=";(filterType = ''), (filterValue = '')"
-            >
+            <button class="btn btn-light p-0 ps-2 pe-2" @click="clearFilter">
               x
             </button>
           </div>
@@ -37,7 +34,7 @@
     <div class="col-12 p-3">
       <ListTable
         v-if="listItems.length"
-        :listItems="filterItems"
+        :listItems="sortItems"
         :sortUp="sortUp"
         @show-modal="showModal"
         @set-filter-method="setFilterMethod"
@@ -69,9 +66,7 @@ export default {
       return this.$store.getters[this.$route.params.type]
     },
     filterItems() {
-      if (this.filterValue && !this.filterType) {
-        this.listItems.filter(item => item.city.includes(this.filterValue))
-      } else if (this.filterType && this.filterValue) {
+      if (this.filterType && this.filterValue) {
         return this.listItems.filter(
           item => item[this.filterType] === this.filterValue
         )
@@ -90,6 +85,10 @@ export default {
     setFilterMethod({ filterType, filterValue }) {
       this.filterType = filterType
       this.filterValue = filterValue
+    },
+    clearFilter() {
+      this.filterType = ''
+      this.filterValue = ''
     },
     setSortMethod({ sortUp, sortBy }) {
       this.sortUp = sortUp

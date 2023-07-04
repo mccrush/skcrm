@@ -98,7 +98,7 @@ export default {
       this.$emit('show-modal', { type, item, mod: 'edit' })
     },
     setFilterMethod({ filterType, filterValue }) {
-      console.log('filterType, filterValue', filterType, filterValue)
+      //console.log('filterType, filterValue', filterType, filterValue)
       this.$emit('set-filter-method', { filterType, filterValue })
     },
     setSortMethod(type) {
