@@ -10,12 +10,14 @@
       <h5 class="offcanvas-title" id="staticBackdropLabel">Меню</h5>
       <button
         type="button"
-        class="btn-close border border-lite"
+        class="btn btn-sm btn-outline-secondary p-1 ps-3 pe-3"
         data-bs-dismiss="offcanvas"
         aria-label="Close"
-      ></button>
+      >
+        x
+      </button>
     </div>
-    <div class="offcanvas-body p-0">
+    <div class="offcanvas-body overflow-y-hidden p-0">
       <TheSideBar />
     </div>
   </div>
