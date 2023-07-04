@@ -59,7 +59,7 @@
       <button
         class="btn btn-sm btn-light p-0 ps-2 pe-2"
         data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"
+        data-bs-target="#modalWindow"
         @click="$emit('edit-item', { type: item.type, item })"
       >
         Ed

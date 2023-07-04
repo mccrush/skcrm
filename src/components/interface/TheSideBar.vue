@@ -15,7 +15,7 @@
           type="button"
           class="btn btn-dark rounded-0 w-25"
           data-bs-toggle="modal"
-          data-bs-target="#staticBackdrop"
+          data-bs-target="#modalWindow"
           @click="$emit('show-modal', { type: item.type, mod: 'create' })"
         >
           +
@@ -26,6 +26,7 @@
     <button
       type="button"
       class="btn btn-dark rounded-0 w-100 mt-5"
+      data-bs-dismiss="offcanvas"
       @click="logOut"
     >
       Выйти

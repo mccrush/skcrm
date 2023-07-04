@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12 bg-white p-3">
       <div class="row">
-        <div class="col-1 d-md-none">
+        <div class="col-2 d-md-none">
           <button
             class="btn btn-sm btn-light ps-3 pe-3"
             type="button"
@@ -13,18 +13,20 @@
             ≡
           </button>
         </div>
-        <div class="col-3">{{ $route.name }} - {{ $route.params.type }}</div>
-        <div class="col-4">
+        <!-- <div class="col-10 col-md-3">
+          {{ $route.name }} - {{ $route.params.type }}
+        </div> -->
+        <div class="col-12 col-md-4 mt-2 mt-md-0">
           <div v-if="filterType && filterValue" class="btn-group btn-group-sm">
             <button class="btn btn-light p-0 ps-2 pe-2">
-              {{ filterType }} - {{ filterValue }}
+              {{ filterValue }}
             </button>
             <button class="btn btn-light p-0 ps-2 pe-2" @click="clearFilter">
               x
             </button>
           </div>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-md-4 mt-2 mt-md-0">
           <div class="input-group">
             <input
               type="text"
@@ -42,7 +44,7 @@
       </div>
     </div>
 
-    <div class="col-12 p-3">
+    <div class="list-container col-12 p-3 overflow-y-scroll">
       <ListTable
         v-if="listItems.length"
         :listItems="sortItems"
@@ -108,3 +110,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.list-container {
+  height: calc(100vh - 64px);
+}
+</style>

@@ -69,7 +69,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const currentUserId = store.getters.currentUserId
-  console.log('currentUserId = ', currentUserId)
+  //console.log('currentUserId = ', currentUserId)
   // Проверить, что будет если зайти на стр. логина авторизованному пользователю
   // Сделать так, чтобы перебрасывало в админку
   if (to.meta.requiresAuth && !currentUserId) next({ name: 'login' })
