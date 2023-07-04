@@ -22,6 +22,14 @@
         </button>
       </div>
     </div>
+
+    <button
+      type="button"
+      class="btn btn-dark rounded-0 w-100 mt-5"
+      @click="logOut"
+    >
+      Выйти
+    </button>
   </div>
 </template>
 
@@ -33,6 +41,12 @@ export default {
   computed: {
     menuItems() {
       return dataModels.filter(item => item.menu)
+    }
+  },
+  methods: {
+    async logOut() {
+      const res = await this.$store.dispatch('logOut')
+      if (res) this.$router.push('/login')
     }
   }
 }

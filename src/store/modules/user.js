@@ -35,6 +35,7 @@ export default {
     async logOut({ commit }) {
       try {
         await signOut(auth)
+        return true
       } catch (err) {
         console.error('store user.js logOut(): Ошибка при выходе из системы, err:', err)
       }

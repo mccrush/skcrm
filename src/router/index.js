@@ -5,12 +5,18 @@ const routes = [
   {
     path: '/',
     name: 'index',
-    component: () => import('../pages/PageIndex.vue')
+    component: () => import('../pages/PageIndex.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/list/:type',
     name: 'list',
-    component: () => import('../pages/PageListItems.vue')
+    component: () => import('../pages/PageListItems.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
   // {
   //   path: '/404', // Первая, для перекрытия остальных
@@ -66,7 +72,7 @@ router.beforeEach((to, from, next) => {
   console.log('currentUserId = ', currentUserId)
   // Проверить, что будет если зайти на стр. логина авторизованному пользователю
   // Сделать так, чтобы перебрасывало в админку
-  if (to.name != 'login' && !currentUserId) next({ name: 'login' })
+  if (to.meta.requiresAuth && !currentUserId) next({ name: 'login' })
   else next()
 })
 
