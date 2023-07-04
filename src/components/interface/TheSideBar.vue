@@ -51,20 +51,3 @@ export default {
   }
 }
 </script>
-
-
-<style scoped>
-.side-bar {
-  width: 160px;
-}
-
-/* 
-.item {
-    text-decoration: none;
-    color: aliceblue;
-    transition: .3s;
-}
-.item:hover {
-    background-color: dimgrey;
-} */
-</style>

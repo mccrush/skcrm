@@ -1,6 +1,13 @@
 <template>
   <div class="app d-flex">
-    <TheSideBar v-if="currentUserId" @show-modal="showModal" />
+    <TheOffcanvas
+      v-if="currentUserId"
+      @show-modal="showModal"
+      class="d-md-none"
+    />
+    <div class="col-2 d-none d-md-block">
+      <TheSideBar v-if="currentUserId" @show-modal="showModal" />
+    </div>
 
     <div class="container-fluid">
       <router-view v-slot="{ Component }">
@@ -17,11 +24,13 @@
 <script>
 import { modelsFactory } from './helpers/modelsFactory'
 
+import TheOffcanvas from './components/interface/TheOffcanvas.vue'
 import TheSideBar from './components/interface/TheSideBar.vue'
 import ModalMain from './components/modal/ModalMain.vue'
 
 export default {
   components: {
+    TheOffcanvas,
     TheSideBar,
     ModalMain
   },
