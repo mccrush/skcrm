@@ -30,12 +30,12 @@
           <div class="input-group">
             <input
               type="text"
-              v-model="filterValue"
+              v-model="searchValue"
               class="form-control form-control-sm"
             />
             <button
               class="btn btn-light p-0 ps-2 pe-2"
-              @click="filterValue = ''"
+              @click="searchValue = ''"
             >
               x
             </button>
@@ -70,6 +70,7 @@ export default {
     return {
       filterType: '',
       filterValue: '',
+      searchValue: '',
       sortUp: 'desc',
       sortBy: 'dateCreate'
     }
@@ -87,8 +88,16 @@ export default {
         return this.listItems
       }
     },
+    searchItems() {
+      return this.filterItems.filter(
+        item =>
+          item.city.toLowerCase().includes(this.searchValue.toLowerCase()) ||
+          item.name.toLowerCase().includes(this.searchValue.toLowerCase()) ||
+          item.phone.toLowerCase().includes(this.searchValue.toLowerCase())
+      )
+    },
     sortItems() {
-      return sortMethod(this.filterItems, this.sortUp, this.sortBy)
+      return sortMethod(this.searchItems, this.sortUp, this.sortBy)
     }
   },
   methods: {
