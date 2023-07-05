@@ -7,9 +7,17 @@
 
       <div class="list-items">
         <div v-for="item in menuItems" :key="item.id" class="btn-group w-100">
+          <button
+            class="btn btn-dark rounded-0 w-75 d-md-none"
+            data-bs-dismiss="offcanvas"
+            @click="$router.push('/list/' + item.type)"
+          >
+            {{ item.title }}
+          </button>
+
           <router-link
             :to="'/list/' + item.type"
-            class="btn btn-dark rounded-0 w-75"
+            class="btn btn-dark rounded-0 w-75 d-none d-md-block"
           >
             {{ item.title }}</router-link
           >
@@ -29,8 +37,15 @@
 
     <button
       type="button"
-      class="btn btn-dark rounded-0 w-100 mt-5"
+      class="btn btn-dark rounded-0 w-100 d-md-none mt-5"
       data-bs-dismiss="offcanvas"
+      @click="logOut"
+    >
+      Выйти
+    </button>
+    <button
+      type="button"
+      class="btn btn-dark rounded-0 w-100 d-none d-md-block mt-5"
       @click="logOut"
     >
       Выйти
