@@ -108,9 +108,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-/* th {
-  border: 1px solid black;
-} */
-</style>

@@ -34,7 +34,17 @@
     </div>
 
     <div class="list-container col-12 p-3 overflow-y-scroll">
+      <ListCard
+        class="d-md-none"
+        v-if="listItems.length"
+        :listItems="sortItems"
+        :sortUp="sortUp"
+        @show-modal="showModal"
+        @set-filter-method="setFilterMethod"
+        @set-sort-method="setSortMethod"
+      />
       <ListTable
+        class="d-none d-md-block"
         v-if="listItems.length"
         :listItems="sortItems"
         :sortUp="sortUp"
@@ -50,11 +60,13 @@
 import { sortMethod } from './../helpers/sortMethod'
 
 import TheNavbar from './../components/interface/TheNavbar.vue'
+import ListCard from './../modules/list/ListCard.vue'
 import ListTable from './../modules/list/ListTable.vue'
 
 export default {
   components: {
     TheNavbar,
+    ListCard,
     ListTable
   },
   emits: ['show-modal'],

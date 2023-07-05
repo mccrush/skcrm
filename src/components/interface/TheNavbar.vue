@@ -1,5 +1,5 @@
 <template>
-  <div class="row bg-white p-2 pt-3 pb-3">
+  <div class="row bg-white shadow-sm z-2 p-2 pt-3 pb-3">
     <div class="col-12 d-md-none d-flex justify-content-between">
       <button
         class="btn btn-sm btn-light ps-3 pe-3"
