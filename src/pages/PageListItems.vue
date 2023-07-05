@@ -1,22 +1,11 @@
 <template>
   <div class="row">
-    <div class="col-12 bg-white p-3">
-      <div class="row">
-        <div class="col-2 d-md-none">
-          <button
-            class="btn btn-sm btn-light ps-3 pe-3"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#staticBackdrop"
-            aria-controls="staticBackdrop"
-          >
-            ≡
-          </button>
-        </div>
+    <div class="col-12">
+      <TheNavbar>
         <!-- <div class="col-10 col-md-3">
           {{ $route.name }} - {{ $route.params.type }}
         </div> -->
-        <div class="col-12 col-md-4 mt-2 mt-md-0">
+        <div class="col-12 col-md-6 mt-2 mt-md-0">
           <div v-if="filterType && filterValue" class="btn-group btn-group-sm">
             <button class="btn btn-light p-0 ps-2 pe-2">
               {{ filterValue }}
@@ -26,7 +15,7 @@
             </button>
           </div>
         </div>
-        <div class="col-12 col-md-4 mt-2 mt-md-0">
+        <div class="col-12 col-md-6 mt-2 mt-md-0">
           <div class="input-group">
             <input
               type="text"
@@ -41,7 +30,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </TheNavbar>
     </div>
 
     <div class="list-container col-12 p-3 overflow-y-scroll">
@@ -59,10 +48,13 @@
 
 <script>
 import { sortMethod } from './../helpers/sortMethod'
+
+import TheNavbar from './../components/interface/TheNavbar.vue'
 import ListTable from './../modules/list/ListTable.vue'
 
 export default {
   components: {
+    TheNavbar,
     ListTable
   },
   emits: ['show-modal'],

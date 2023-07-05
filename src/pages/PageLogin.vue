@@ -1,6 +1,5 @@
 <template>
   <div class="row">
-    <div class="col-12 bg-white p-3">Header</div>
     <div class="col-12 col-md-5 m-auto p-3">
       <LoginForm />
     </div>
