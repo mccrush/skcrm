@@ -1,7 +1,10 @@
 <template>
   <div class="side-bar bg-dark d-flex flex-column justify-content-between">
     <div>
-      <div class="d-none d-md-block text-center bg-dark text-light fw-bold p-3">
+      <div
+        class="logo cursor-pointer d-none d-md-block text-center bg-dark text-secondary fw-bolder fs-4 p-3"
+        @click="$router.push('/')"
+      >
         S K C R M
       </div>
 
@@ -34,30 +37,41 @@
         </div>
       </div>
     </div>
-
-    <button
-      type="button"
-      class="btn btn-dark rounded-0 w-100 d-md-none mt-5"
-      data-bs-dismiss="offcanvas"
-      @click="logOut"
-    >
-      Выйти
-    </button>
-    <button
-      type="button"
-      class="btn btn-dark rounded-0 w-100 d-none d-md-block mt-5"
-      @click="logOut"
-    >
-      Выйти
-    </button>
+    <div>
+      <button
+        type="button"
+        class="btn btn-dark rounded-0 w-100 d-md-none mt-5"
+        data-bs-dismiss="offcanvas"
+        @click="logOut"
+      >
+        Выйти
+      </button>
+      <button
+        type="button"
+        class="btn btn-dark rounded-0 w-100 d-none d-md-block mt-5"
+        @click="logOut"
+      >
+        Выйти
+      </button>
+      <code
+        class="border-top border-secondary text-secondary text-center small w-100 d-block p-1"
+        >v{{ version }}</code
+      >
+    </div>
   </div>
 </template>
 
 <script>
 import { dataModels } from './../../data/dataModels'
+import { version } from './../../../package.json'
 
 export default {
   emits: ['show-modal'],
+  data() {
+    return {
+      version
+    }
+  },
   computed: {
     menuItems() {
       return dataModels.filter(item => item.menu)
@@ -73,6 +87,15 @@ export default {
 </script>
 
 <style scoped>
+.logo {
+  height: 61px;
+}
+
+.logo:hover {
+  background: -webkit-linear-gradient(#e85d04, #d00000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 /* Ширина экрана меньше или равна 768 */
 @media (max-width: 767px) {
   .side-bar {
