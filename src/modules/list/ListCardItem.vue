@@ -5,7 +5,7 @@
     <div class="type-power-phone d-flex justify-content-between">
       <span> {{ typek + '  ' + power }}</span>
       <span
-        ><a :href="'tel:+' + phone">{{ phone }}</a></span
+        >{{ phone.substr(0, 10) }}<strong>{{ phone.substr(10) }}</strong></span
       >
     </div>
     <div class="sours-date d-flex justify-content-between">

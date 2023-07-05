@@ -8,7 +8,7 @@
       :name="item.name"
       :typek="item.typek"
       :power="item.power"
-      :phone="item.phone"
+      :phone="getPhoneFormat(item.phone)"
       :sours="item.sours"
       :dateLastContact="getLocaleDateFromDateDigit(item.dateCreate)"
       data-bs-toggle="modal"
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { getPhoneFormat } from './../../helpers/getPhoneFormat'
 import { getLocaleDateFromDateDigit } from './../../helpers/getDateFormat'
 import ListCardItem from './ListCardItem.vue'
 
@@ -32,6 +33,7 @@ export default {
   },
   emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
   methods: {
+    getPhoneFormat,
     getLocaleDateFromDateDigit,
     editItem({ type, item }) {
       //console.log('type, item ', type, item)
