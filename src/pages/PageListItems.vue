@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-12">
-      <TheNavbar>
+      <TheNavbar @show-modal="showModal">
         <!-- <div class="col-10 col-md-3">
           {{ $route.name }} - {{ $route.params.type }}
         </div> -->

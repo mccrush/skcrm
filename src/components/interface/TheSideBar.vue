@@ -16,7 +16,7 @@
 
           <button
             type="button"
-            class="btn btn-dark rounded-0 w-25"
+            class="btn btn-dark rounded-0 d-none d-md-block w-25"
             data-bs-toggle="modal"
             data-bs-target="#modalWindow"
             @click="$emit('show-modal', { type: item.type, mod: 'create' })"
