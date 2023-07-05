@@ -61,7 +61,7 @@ export default {
 /* Ширина экрана меньше или равна 768 */
 @media (max-width: 767px) {
   .side-bar {
-    height: calc(100vh - 64px);
+    height: calc(100vh - 66px);
   }
 }
 
