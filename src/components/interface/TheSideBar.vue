@@ -15,12 +15,12 @@
             {{ item.title }}
           </button>
 
-          <router-link
-            :to="'/list/' + item.type"
+          <button
             class="btn btn-dark rounded-0 w-75 d-none d-md-block"
+            @click="$router.push('/list/' + item.type)"
           >
-            {{ item.title }}</router-link
-          >
+            {{ item.title }}
+          </button>
 
           <button
             type="button"
