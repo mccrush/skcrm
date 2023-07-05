@@ -1,5 +1,5 @@
 <template>
-  <div class="card bg-white rounded mb-2 p-3">
+  <div class="card z-1 bg-white rounded mb-2 p-3">
     <div class="city fw-bold">{{ city }}</div>
     <div class="name">{{ name }}</div>
     <div class="type-power-phone d-flex justify-content-between">

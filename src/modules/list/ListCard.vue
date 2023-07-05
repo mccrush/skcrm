@@ -11,8 +11,9 @@
       :phone="item.phone"
       :sours="item.sours"
       :dateLastContact="getLocaleDateFromDateDigit(item.dateCreate)"
-      @edit-item="editItem"
-      @set-filter-method="setFilterMethod"
+      data-bs-toggle="modal"
+      data-bs-target="#modalWindow"
+      @click="editItem({ type: item.type, item })"
     />
   </div>
 </template>
@@ -33,6 +34,7 @@ export default {
   methods: {
     getLocaleDateFromDateDigit,
     editItem({ type, item }) {
+      //console.log('type, item ', type, item)
       this.$emit('show-modal', { type, item, mod: 'edit' })
     },
     setFilterMethod({ filterType, filterValue }) {
