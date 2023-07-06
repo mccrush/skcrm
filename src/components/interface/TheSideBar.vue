@@ -94,6 +94,7 @@ export default {
 .logo:hover {
   background: -webkit-linear-gradient(#e85d04, #d00000);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 /* Ширина экрана меньше или равна 768 */
