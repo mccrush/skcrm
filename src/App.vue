@@ -5,8 +5,8 @@
       @show-modal="showModal"
       class="d-md-none"
     />
-    <div class="col-2 d-none d-md-block">
-      <TheSideBar v-if="currentUserId" @show-modal="showModal" />
+    <div v-if="currentUserId" class="col-2 d-none d-md-block">
+      <TheSideBar @show-modal="showModal" />
     </div>
 
     <div class="container-fluid">
