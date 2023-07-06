@@ -51,10 +51,12 @@
 
 <script>
 import clientForm from './../forms/clientForm.vue'
+import kotelForm from './../forms/kotelForm.vue'
 
 export default {
   components: {
-    clientForm
+    clientForm,
+    kotelForm
   },
   props: {
     type: String,

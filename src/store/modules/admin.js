@@ -85,8 +85,8 @@ export default {
   getters: {
     client: state => state.client,
     order: state => state.order,
-    ograda: state => state.order,
-    kotel: state => state.order
+    ograda: state => state.ograda,
+    kotel: state => state.kotel
 
   }
 }
