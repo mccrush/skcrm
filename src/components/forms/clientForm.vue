@@ -41,7 +41,9 @@
           />
           <label for="inputPhone">Телефон</label>
         </div>
-        <a class="btn btn-white ps-3 pe-3 pt-3" :href="'tel:+' + item.phone"
+        <a
+          class="btn btn-white d-md-none ps-3 pe-3 pt-3"
+          :href="'tel:+' + item.phone"
           >↗</a
         >
       </div>
