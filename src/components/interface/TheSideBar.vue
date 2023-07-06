@@ -5,7 +5,7 @@
         class="logo cursor-pointer d-none d-md-block text-center bg-dark text-secondary fw-bolder fs-4 p-3"
         @click="$router.push('/')"
       >
-        S K C R M
+        SK CRM
       </div>
 
       <div class="list-items">
