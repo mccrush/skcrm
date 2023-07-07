@@ -1,0 +1,37 @@
+<template>
+  <tr>
+    <td class="ps-2">{{ typek }}</td>
+    <td class="lh-1">{{ power }}</td>
+    <td class="text-center">{{ square }}</td>
+    <td class="text-center">{{ size }}</td>
+    <td class="text-center">{{ weight }}</td>
+    <td class="text-center">{{ price3 + ', ' + price4 + ', ' + price5 }}</td>
+    <td class="text-center">
+      <button
+        class="btn btn-sm btn-light p-0 ps-2 pe-2"
+        data-bs-toggle="modal"
+        data-bs-target="#modalWindow"
+        @click="$emit('edit-item', { type: item.type, item })"
+      >
+        Ed
+      </button>
+    </td>
+  </tr>
+</template>
+
+<script>
+export default {
+  props: {
+    item: Object,
+    typek: String,
+    power: Number,
+    square: Number,
+    size: String,
+    weight: Number,
+    price3: Number,
+    price4: Number,
+    price5: Number
+  },
+  emits: ['edit-item']
+}
+</script>

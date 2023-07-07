@@ -34,7 +34,16 @@
     </div>
 
     <div class="list-container col-12 p-3 overflow-y-scroll">
-      <ListCard
+      <component
+        v-if="listItems.length"
+        :is="myList"
+        :listItems="sortItems"
+        :sortUp="sortUp"
+        @show-modal="showModal"
+        @set-filter-method="setFilterMethod"
+        @set-sort-method="setSortMethod"
+      />
+      <!-- <ListCard
         class="d-md-none"
         v-if="listItems.length"
         :listItems="sortItems"
@@ -42,8 +51,8 @@
         @show-modal="showModal"
         @set-filter-method="setFilterMethod"
         @set-sort-method="setSortMethod"
-      />
-      <ListTable
+      /> -->
+      <!-- <ListTable
         class="d-none d-md-block"
         v-if="listItems.length"
         :listItems="sortItems"
@@ -51,7 +60,7 @@
         @show-modal="showModal"
         @set-filter-method="setFilterMethod"
         @set-sort-method="setSortMethod"
-      />
+      /> -->
     </div>
   </div>
 </template>
@@ -60,14 +69,14 @@
 import { sortMethod } from './../helpers/sortMethod'
 
 import TheNavbar from './../components/interface/TheNavbar.vue'
-import ListCard from './../modules/list/ListCard.vue'
-import ListTable from './../modules/list/ListTable.vue'
+//import ListCard from './../modules/list/ListCard.vue'
+//import ListTable from './../modules/list/ListTable.vue'
+import clientList from './../modules/list/clientList.vue'
 
 export default {
   components: {
     TheNavbar,
-    ListCard,
-    ListTable
+    clientList
   },
   emits: ['show-modal'],
   data() {
@@ -80,6 +89,11 @@ export default {
     }
   },
   computed: {
+    myList() {
+      const component = this.$route.params.type + 'List'
+      console.log('component List= ', component)
+      return component
+    },
     listItems() {
       return this.$store.getters[this.$route.params.type]
     },
