@@ -1,4 +1,5 @@
 import client from './../classes/client'
+import kotel from './../classes/kotel'
 import order from './../classes/order'
 
 export const modelsFactory = (type) => {
@@ -7,6 +8,9 @@ export const modelsFactory = (type) => {
   switch (type) {
     case 'client':
       newObject = new client()
+      break
+    case 'kotel':
+      newObject = new kotel()
       break
     case 'order':
       newObject = new order()
