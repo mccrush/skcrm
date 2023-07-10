@@ -74,12 +74,14 @@ import TheNavbar from './../components/interface/TheNavbar.vue'
 //import ListTable from './../modules/list/ListTable.vue'
 import clientList from './../modules/list/clientList.vue'
 import kotelList from './../modules/list/kotelList.vue'
+import orderList from './../modules/list/orderList.vue'
 
 export default {
   components: {
     TheNavbar,
     clientList,
-    kotelList
+    kotelList,
+    orderList
   },
   emits: ['show-modal'],
   data() {
