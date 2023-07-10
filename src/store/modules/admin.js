@@ -9,7 +9,8 @@ export default {
     client: [],
     kotel: [],
     order: [],
-    ograda: []
+    ograda: [],
+    stage: []
   },
 
   mutations: {
@@ -86,7 +87,8 @@ export default {
     client: state => state.client,
     kotel: state => state.kotel,
     order: state => state.order,
-    ograda: state => state.ograda
+    ograda: state => state.ograda,
+    stage: state => state.stage
 
   }
 }
