@@ -66,7 +66,6 @@
 </template>
 
 <script>
-import { dataSearchFields } from './../data/dataSearchFields'
 import { searchMethod } from './../helpers/searchMethod'
 import { sortMethod } from './../helpers/sortMethod'
 
@@ -87,7 +86,6 @@ export default {
     return {
       filterType: '',
       filterValue: '',
-      dataSearchFields,
       searchValue: '',
       sortUp: 'desc',
       sortBy: 'dateCreate'
@@ -115,7 +113,7 @@ export default {
       //console.log('pre Search items = ', this.filterItems)
       return searchMethod(
         this.filterItems,
-        this.dataSearchFields[this.$route.params.type],
+        this.$route.params.type,
         this.searchValue
       )
       // return this.filterItems.filter(

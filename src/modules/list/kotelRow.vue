@@ -1,7 +1,7 @@
 <template>
   <tr>
-    <td class="ps-2">{{ typek }}</td>
-    <td class="lh-1">{{ power }}</td>
+    <td class="text-center ps-2">{{ typek }}</td>
+    <td class="text-center lh-1">{{ power }}</td>
     <td class="text-center">{{ square }}</td>
     <td class="text-center">{{ size }}</td>
     <td class="text-center">{{ weight }}</td>

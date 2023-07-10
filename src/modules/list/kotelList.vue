@@ -2,7 +2,7 @@
   <table class="table table-striped table-light shadow-sm small">
     <thead>
       <tr>
-        <th scope="col" class="small ps-3" width="20%">
+        <th scope="col" class="text-center small ps-3" width="12%">
           Тип
           <button
             class="btn btn-sm btn-light p-0 ps-2 pe-2"
@@ -11,8 +11,8 @@
             ⇅
           </button>
         </th>
-        <th scope="col" class="small" width="15%">
-          Мощность
+        <th scope="col" class="text-center small" width="12%">
+          Мощ.
           <button
             class="btn btn-sm btn-light p-0 ps-2 pe-2"
             @click="setSortMethod('power')"
@@ -21,7 +21,7 @@
           </button>
         </th>
         <th scope="col" class="text-center small" width="12%">
-          Площадь
+          Площ.
           <button
             class="btn btn-sm btn-light p-0 ps-2 pe-2"
             @click="setSortMethod('square')"
@@ -29,8 +29,8 @@
             ⇅
           </button>
         </th>
-        <th scope="col" class="text-center small" width="12%">Размеры</th>
-        <th scope="col" class="text-center small" width="10%">
+        <th scope="col" class="text-center small lh-lg" width="20%">Размеры</th>
+        <th scope="col" class="text-center small" width="12%">
           Вес
           <button
             class="btn btn-sm btn-light p-0 ps-2 pe-2"
@@ -39,7 +39,7 @@
             ⇅
           </button>
         </th>
-        <th scope="col" class="text-center small" width="10%">Цена</th>
+        <th scope="col" class="text-center small" width="26%">Цена</th>
         <th scope="col" class="text-center" width="6%">---</th>
       </tr>
     </thead>
