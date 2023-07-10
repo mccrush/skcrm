@@ -77,9 +77,6 @@ export default {
     sortUp: String
   },
   emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
-  created() {
-    console.log('in kotelList = ', this.listItems)
-  },
   methods: {
     editItem({ type, item }) {
       this.$emit('show-modal', { type, item, mod: 'edit' })
