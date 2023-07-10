@@ -53,11 +53,11 @@
     <div class="col-12 col-md-6 mt-2 ps-md-2">
       <div class="form-floating">
         <input
-          @change="$emit('save-item')"
           type="datetime-local"
           id="dateCreate"
           class="form-control form-control-sm"
           v-model="item.dateCreate"
+          @change="$emit('save-item')"
         />
         <label for="dateCreate">Дата общения</label>
       </div>

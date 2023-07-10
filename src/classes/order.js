@@ -5,4 +5,7 @@ export default class order extends ClassBasic {
   clientId = ''
   kotelId = ''
   stageId = ''
+  price = 0
+  prePrice = 0
+  dateFinish = ''
 }
