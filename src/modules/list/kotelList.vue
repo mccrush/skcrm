@@ -29,7 +29,9 @@
             ⇅
           </button>
         </th>
-        <th scope="col" class="text-center small lh-lg" width="20%">Размеры</th>
+        <th scope="col" class="text-center small lh-lg" width="20%">
+          Разм (ш*г*в)
+        </th>
         <th scope="col" class="text-center small" width="12%">
           Вес
           <button

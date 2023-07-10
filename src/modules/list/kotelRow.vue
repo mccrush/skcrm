@@ -1,7 +1,19 @@
 <template>
   <tr>
-    <td class="text-center ps-2">{{ typek }}</td>
-    <td class="text-center lh-1">{{ power }}</td>
+    <td class="text-center ps-2">
+      <button
+        class="btn btn-sm btn-light p-0 ps-2 pe-2"
+        @click="
+          $emit('set-filter-method', {
+            filterType: 'typek',
+            filterValue: typek
+          })
+        "
+      >
+        {{ typek }}
+      </button>
+    </td>
+    <td class="text-center">{{ power }}</td>
     <td class="text-center">{{ square }}</td>
     <td class="text-center">{{ size }}</td>
     <td class="text-center">{{ weight }}</td>
@@ -32,6 +44,6 @@ export default {
     price4: Number,
     price5: Number
   },
-  emits: ['edit-item']
+  emits: ['set-filter-method', 'edit-item']
 }
 </script>
