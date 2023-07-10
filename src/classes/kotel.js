@@ -7,8 +7,8 @@ export default class kotel extends ClassBasic {
   square = 0
   size = ''
   weight = 0
-  price3 = ''
-  price4 = ''
-  price5 = ''
+  price3 = 0
+  price4 = 0
+  price5 = 0
 
 }

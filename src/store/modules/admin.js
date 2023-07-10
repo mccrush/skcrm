@@ -7,8 +7,8 @@ import { dataModels } from './../../data/dataModels'
 export default {
   state: {
     client: [],
-    order: [],
     kotel: [],
+    order: [],
     ograda: []
   },
 
@@ -84,9 +84,9 @@ export default {
 
   getters: {
     client: state => state.client,
+    kotel: state => state.kotel,
     order: state => state.order,
-    ograda: state => state.ograda,
-    kotel: state => state.kotel
+    ograda: state => state.ograda
 
   }
 }

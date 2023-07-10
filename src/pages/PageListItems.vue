@@ -66,23 +66,28 @@
 </template>
 
 <script>
+import { dataSearchFields } from './../data/dataSearchFields'
+import { searchMethod } from './../helpers/searchMethod'
 import { sortMethod } from './../helpers/sortMethod'
 
 import TheNavbar from './../components/interface/TheNavbar.vue'
 //import ListCard from './../modules/list/ListCard.vue'
 //import ListTable from './../modules/list/ListTable.vue'
 import clientList from './../modules/list/clientList.vue'
+import kotelList from './../modules/list/kotelList.vue'
 
 export default {
   components: {
     TheNavbar,
-    clientList
+    clientList,
+    kotelList
   },
   emits: ['show-modal'],
   data() {
     return {
       filterType: '',
       filterValue: '',
+      dataSearchFields,
       searchValue: '',
       sortUp: 'desc',
       sortBy: 'dateCreate'
@@ -91,7 +96,7 @@ export default {
   computed: {
     myList() {
       const component = this.$route.params.type + 'List'
-      console.log('component List= ', component)
+      //console.log('component List= ', component)
       return component
     },
     listItems() {
@@ -107,14 +112,21 @@ export default {
       }
     },
     searchItems() {
-      return this.filterItems.filter(
-        item =>
-          item.city.toLowerCase().includes(this.searchValue.toLowerCase()) ||
-          item.name.toLowerCase().includes(this.searchValue.toLowerCase()) ||
-          item.phone.toLowerCase().includes(this.searchValue.toLowerCase())
+      //console.log('pre Search items = ', this.filterItems)
+      return searchMethod(
+        this.filterItems,
+        this.dataSearchFields[this.$route.params.type],
+        this.searchValue
       )
+      // return this.filterItems.filter(
+      //   item =>
+      //     item.city.toLowerCase().includes(this.searchValue.toLowerCase()) ||
+      //     item.name.toLowerCase().includes(this.searchValue.toLowerCase()) ||
+      //     item.phone.toLowerCase().includes(this.searchValue.toLowerCase())
+      // )
     },
     sortItems() {
+      //console.log('pre Sort items = ', this.filterItems)
       return sortMethod(this.searchItems, this.sortUp, this.sortBy)
     }
   },
