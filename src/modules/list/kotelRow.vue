@@ -16,6 +16,7 @@
     <td class="text-center">{{ power }}</td>
     <td class="text-center">{{ square }}</td>
     <td class="text-center">{{ size }}</td>
+    <td class="text-center">{{ bunker }}</td>
     <td class="text-center">{{ weight }}</td>
     <td class="text-center">{{ price3 + ', ' + price4 + ', ' + price5 }}</td>
     <td class="text-center">
@@ -39,6 +40,7 @@ export default {
     power: Number,
     square: Number,
     size: String,
+    bunker: Number,
     weight: Number,
     price3: Number,
     price4: Number,

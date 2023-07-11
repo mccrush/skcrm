@@ -52,7 +52,7 @@
     </div>
 
     <!-- Размеры котла -->
-    <div class="col-12 col-md-9 mt-2 pe-md-1">
+    <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="form-floating">
         <input
           type="text"
@@ -65,8 +65,22 @@
       </div>
     </div>
 
+    <!-- Бункер -->
+    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
+      <div class="form-floating">
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          id="inputBunker"
+          v-model.number="item.bunker"
+          @change="$emit('save-item')"
+        />
+        <label for="inputBunker">Бункер</label>
+      </div>
+    </div>
+
     <!-- Вес котла -->
-    <div class="col-12 col-md-3 mt-2 ps-md-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-1">
       <div class="form-floating">
         <input
           type="number"

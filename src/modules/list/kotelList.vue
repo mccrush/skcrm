@@ -29,9 +29,10 @@
             ⇅
           </button>
         </th>
-        <th scope="col" class="text-center small lh-lg" width="20%">
+        <th scope="col" class="text-center small lh-lg" width="14%">
           Разм (ш*г*в)
         </th>
+        <th scope="col" class="text-center small lh-lg" width="12%">Бункер</th>
         <th scope="col" class="text-center small" width="12%">
           Вес
           <button
@@ -41,7 +42,8 @@
             ⇅
           </button>
         </th>
-        <th scope="col" class="text-center small" width="26%">Цена</th>
+
+        <th scope="col" class="text-center small lh-lg" width="20%">Цена</th>
         <th scope="col" class="text-center" width="6%">---</th>
       </tr>
     </thead>
@@ -54,6 +56,7 @@
         :power="item.power"
         :square="item.square"
         :size="item.size"
+        :bunker="item.bunker"
         :weight="item.weight"
         :price3="item.price3"
         :price4="item.price4"
