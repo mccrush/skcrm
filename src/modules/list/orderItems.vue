@@ -8,13 +8,17 @@
       data-bs-target="#modalWindow"
       @click="$emit('show-modal', { type: item.type, item, mod: 'edit' })"
     >
-      {{
-        getClient(item.clientId) +
-        ' - ' +
-        getKotel(item.kotelId).typek +
-        ' - ' +
-        getKotel(item.kotelId).power
-      }}
+      <strong>№ {{ item.id }}</strong
+      ><br />
+      <span>
+        {{
+          getClient(item.clientId) +
+          ' - ' +
+          getKotel(item.kotelId).typek +
+          ' - ' +
+          getKotel(item.kotelId).power
+        }}</span
+      >
     </div>
   </div>
 </template>
