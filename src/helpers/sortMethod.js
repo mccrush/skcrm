@@ -1,7 +1,7 @@
 // v2.1
 // Это вторая улучшенная версия метода сортировки, универсальная
 
-const numberFields = ['position', 'price', 'sum', 'time', 'power']
+const numberFields = ['position', 'price', 'sum', 'time', 'power', 'square', 'weight']
 const stringFields = ['title', 'client', 'name', 'city', 'phone', 'typek', 'sours']
 const stringFieldsNested = ['client.name']
 const dateFields = ['dateCreate', 'deadline', 'dateForReady', 'dateFinish']

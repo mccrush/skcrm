@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <!-- Клиент -->
-    <div class="col-12 col-md-6 pe-md-1">
+    <div class="col-12">
       <div class="form-floating">
         <select
           class="form-select"
@@ -10,7 +10,7 @@
           @change="$emit('save-item')"
         >
           <option v-for="client in clients" :key="client.id" :value="client.id">
-            {{ client.city + ' - ' + client.name }}
+            {{ client.city + ' - ' + client.name + ' - ' + client.phone }}
           </option>
         </select>
         <label for="inputClientId">Клиент</label>
@@ -18,7 +18,7 @@
     </div>
 
     <!-- Котел -->
-    <div class="col-12 col-md-6 mt-2 mt-md-0 ps-md-1">
+    <div class="col-12 col-md-6 mt-2 pe-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -35,7 +35,7 @@
     </div>
 
     <!-- Стоимость -->
-    <div class="col-12 col-md-4 mt-2 pe-md-1">
+    <div class="col-12 col-md-6 mt-2 ps-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -52,7 +52,7 @@
     </div>
 
     <!-- Предоплата -->
-    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
+    <div class="col-12 col-md-6 mt-2 pe-md-1">
       <div class="form-floating">
         <input
           type="number"
@@ -66,7 +66,7 @@
     </div>
 
     <!-- Остаток -->
-    <div class="col-12 col-md-4 mt-2 ps-md-1">
+    <div class="col-12 col-md-6 mt-2 ps-md-1">
       <div class="form-floating">
         <input
           type="number"

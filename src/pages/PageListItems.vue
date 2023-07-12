@@ -127,7 +127,11 @@ export default {
     },
     sortItems() {
       //console.log('pre Sort items = ', this.filterItems)
-      return sortMethod(this.searchItems, this.sortUp, this.sortBy)
+      this.searchItems.forEach(item => {
+        if (this.sortBy in item)
+          return sortMethod(this.searchItems, this.sortUp, this.sortBy)
+      })
+      return this.searchItems
     }
   },
   methods: {

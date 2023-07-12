@@ -3,27 +3,34 @@
     <div
       v-for="item in items"
       :key="item.id"
-      class="list-item cursor-pointer rounded bg-white shadow-sm mt-2 p-2"
+      class="list-item cursor-pointer small rounded bg-white shadow-sm mt-2 p-2"
       data-bs-toggle="modal"
       data-bs-target="#modalWindow"
       @click="$emit('show-modal', { type: item.type, item, mod: 'edit' })"
     >
-      <strong>№ {{ item.id }}</strong
+      <span>№ {{ getClient(item.clientId).phone.substr(0, 7) }}-</span>
+      <strong>{{ getClient(item.clientId).phone.substr(7) }}</strong
       ><br />
       <span>
         {{
-          getClient(item.clientId) +
-          ' - ' +
+          getClient(item.clientId).city +
+          ' ' +
           getKotel(item.kotelId).typek +
-          ' - ' +
+          '-' +
           getKotel(item.kotelId).power
         }}</span
       >
+      <hr class="m-0 mt-1 mb-1" />
+      <span class="d-block text-end">{{
+        getLocaleDateFromDateDigit(item.dateFinish)
+      }}</span>
     </div>
   </div>
 </template>
 
 <script>
+import { getLocaleDateFromDateDigit } from './../../helpers/getDateFormat'
+
 export default {
   props: {
     items: Array
@@ -41,9 +48,10 @@ export default {
     }
   },
   methods: {
+    getLocaleDateFromDateDigit,
     getClient(clientId) {
       const client = this.clients.find(item => item.id === clientId)
-      return client.city
+      return client
     },
     getKotel(kotelId) {
       const kotel = this.kotels.find(item => item.id === kotelId)
