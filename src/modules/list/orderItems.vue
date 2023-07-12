@@ -1,5 +1,5 @@
 <template>
-  <div class="list mt-3">
+  <div class="list mt-3 ps-1 pe-2">
     <div
       v-for="item in items"
       :key="item.id"

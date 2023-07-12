@@ -1,6 +1,6 @@
 <template>
-  <div class="d-flex">
-    <div v-for="stage in stages" :key="stage.id" class="col-3 ps-1 pe-1">
+  <div class="cover-stage d-flex overflow-x-auto">
+    <div v-for="stage in stages" :key="stage.id" class="list-colum ps-1 pe-1">
       <div class="header text-center fw-bold">
         {{ stage.title }}
       </div>
@@ -50,17 +50,20 @@ export default {
 </script>
 
 <style scoped>
+.cover-stage {
+  height: calc(100vh - 96px);
+}
 /* Ширина экрана меньше или равна 768 */
-/* @media (max-width: 767px) {
-  .colum {
-    width: calc(100vw);
+@media (max-width: 767px) {
+  .list-colum {
+    min-width: calc(100vw);
   }
-} */
+}
 
 /* Ширина экрана больше или равна 768 */
-/* @media (min-width: 768px) {
-  .colum {
-    width: 220px;
+@media (min-width: 768px) {
+  .list-colum {
+    width: calc(25vw);
   }
-} */
+}
 </style>

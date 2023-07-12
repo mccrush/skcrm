@@ -5,11 +5,11 @@
       @show-modal="showModal"
       class="d-md-none"
     />
-    <div v-if="currentUserId" class="col-2 d-none d-md-block">
+    <div v-if="currentUserId" class="col-md-2 col-xxl-1 d-none d-md-block">
       <TheSideBar @show-modal="showModal" />
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid overflow-x-hidden">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" @show-modal="showModal" />

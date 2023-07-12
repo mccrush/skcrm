@@ -33,7 +33,7 @@
       </TheNavbar>
     </div>
 
-    <div class="list-container col-12 p-0 pt-2 p-md-3 overflow-y-scroll">
+    <div class="list-container col-12 p-0 pt-2 p-md-3 overflow-y-auto">
       <component
         v-if="listItems.length"
         :is="myList"
