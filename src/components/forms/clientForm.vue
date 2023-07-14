@@ -64,7 +64,7 @@
     </div>
 
     <!-- Дата общения -->
-    <div class="col-12 col-md-4 mt-2 ps-md-2 pe-md-1">
+    <div class="col-6 col-md-4 mt-2 ps-md-2 pe-1">
       <div class="form-floating">
         <input
           type="datetime-local"
@@ -78,7 +78,7 @@
     </div>
 
     <!-- Заказы -->
-    <div class="col-4 mt-2 ps-md-1">
+    <div class="col-6 col-md-4 mt-2 ps-md-1">
       <div v-if="clientOrders.length" class="dropdown">
         <button
           class="btn btn-light dropdown-toggle w-100"
