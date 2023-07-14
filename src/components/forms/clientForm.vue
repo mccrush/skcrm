@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <!-- город клиента -->
-    <div class="col-12 col-md-6 pe-md-1">
+    <div class="col-12 col-md-4 pe-md-1">
       <div class="form-floating">
         <input
           type="text"
@@ -15,7 +15,7 @@
     </div>
 
     <!-- имя клиента -->
-    <div class="col-12 col-md-6 mt-2 mt-md-0 ps-md-2">
+    <div class="col-12 col-md-8 mt-2 mt-md-0 ps-md-2">
       <div class="form-floating">
         <input
           type="text"
@@ -29,7 +29,7 @@
     </div>
 
     <!-- телефон клиента -->
-    <div class="col-12 col-md-6 mt-2 pe-md-1">
+    <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="input-group">
         <div class="form-floating">
           <input
@@ -50,7 +50,7 @@
     </div>
 
     <!-- Дата общения -->
-    <div class="col-12 col-md-6 mt-2 ps-md-2">
+    <div class="col-12 col-md-4 mt-2 ps-md-2 pe-md-1">
       <div class="form-floating">
         <input
           type="datetime-local"
@@ -63,6 +63,35 @@
       </div>
     </div>
 
+    <!-- Заказы -->
+    <div class="col-4 mt-2 ps-md-1">
+      <div v-if="clientOrders.length" class="dropdown">
+        <button
+          class="btn btn-light dropdown-toggle w-100"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Заказы
+        </button>
+        <ul class="dropdown-menu border-0">
+          <li v-for="order in clientOrders" :key="order.id">
+            <button
+              class="dropdown-item"
+              @click="
+                $emit('show-modal', {
+                  type: 'order',
+                  item: order,
+                  mod: 'edit'
+                })
+              "
+            >
+              {{ getLocaleDateFromDateDigit(order.dateCreate) }}
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
     <!-- Тип котла -->
     <div class="col-4 mt-2 pe-1">
       <div class="form-floating">
@@ -136,6 +165,7 @@ import {
   dataKotelType,
   dataPower
 } from './../../data/dataForClient'
+import { getLocaleDateFromDateDigit } from './../../helpers/getDateFormat'
 
 export default {
   props: {
@@ -144,13 +174,24 @@ export default {
       require: true
     }
   },
-  emits: ['save-item'],
+  emits: ['save-item', 'show-modal'],
   data() {
     return {
       dataSourses,
       dataKotelType,
       dataPower
     }
+  },
+  computed: {
+    orders() {
+      return this.$store.getters.order
+    },
+    clientOrders() {
+      return this.orders.filter(item => item.clientId === this.item.id)
+    }
+  },
+  methods: {
+    getLocaleDateFromDateDigit
   }
 }
 </script>
