@@ -1,7 +1,10 @@
 <template>
   <div class="cover-stage d-flex overflow-x-auto">
-    <div v-for="stage in stages" :key="stage.id" class="list-colum ps-1 pe-1">
-      <div class="header text-center fw-bold">
+    <div v-for="stage in stages" :key="stage.id" class="list-colum ps-2 pe-2">
+      <div
+        class="header text-center fw-bold border-bottom border-4 pb-3"
+        :class="stage.border"
+      >
         {{ stage.title }}
       </div>
       <orderItems :items="getItems(stage.id)" @show-modal="showModal" />
@@ -63,7 +66,7 @@ export default {
 /* Ширина экрана больше или равна 768 */
 @media (min-width: 768px) {
   .list-colum {
-    width: calc(25vw);
+    width: calc(20vw);
   }
 }
 </style>
