@@ -21,9 +21,14 @@
         }}</span
       >
       <hr class="m-0 mt-1 mb-1" />
-      <span class="d-block text-end">{{
-        getLocaleDateFromDateDigit(item.dateFinish)
-      }}</span>
+      <div class="d-flex justify-content-between">
+        <span class="d-block text-end">{{
+          getLocaleDateFromDateDigit(item.dateCreate)
+        }}</span>
+        <span class="d-block fw-bold text-end">{{
+          getLocaleDateFromDateDigit(item.dateFinish)
+        }}</span>
+      </div>
     </div>
   </div>
 </template>

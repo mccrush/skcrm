@@ -28,6 +28,20 @@
       </div>
     </div>
 
+    <!-- адрес -->
+    <div class="col-12 mt-2">
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          id="inputAdres"
+          v-model.trim="item.adres"
+          @change="$emit('save-item')"
+        />
+        <label for="inputAdres">Адрес</label>
+      </div>
+    </div>
+
     <!-- телефон клиента -->
     <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="input-group">
