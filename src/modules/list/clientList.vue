@@ -20,7 +20,7 @@
             ⇅
           </button>
         </th>
-        <th scope="col" class="text-center small" width="12%">
+        <th scope="col" class="text-center small" width="10%">
           Тип
           <button
             class="btn btn-sm btn-light p-0 ps-2 pe-2"
@@ -29,7 +29,7 @@
             ⇅
           </button>
         </th>
-        <th scope="col" class="text-center small" width="12%">
+        <th scope="col" class="text-center small" width="10%">
           Мощ
           <button
             class="btn btn-sm btn-light p-0 ps-2 pe-2"
@@ -39,7 +39,7 @@
           </button>
         </th>
         <th scope="col" class="text-center small lh-lg" width="15%">Телефон</th>
-        <th scope="col" class="text-center small" width="10%">
+        <th scope="col" class="text-center small" width="8%">
           Источ
           <button
             class="btn btn-sm btn-light p-0 ps-2 pe-2"
@@ -48,7 +48,7 @@
             ⇅
           </button>
         </th>
-        <th scope="col" class="text-center small" width="10%">
+        <th scope="col" class="text-center small" width="8%">
           Дата
           <button
             class="btn btn-sm btn-light p-0 ps-2 pe-2"
@@ -57,6 +57,7 @@
             ⇅
           </button>
         </th>
+        <th scope="col" class="text-center small lh-lg" width="8%">Заказ</th>
         <th scope="col" class="text-center" width="6%">---</th>
       </tr>
     </thead>
@@ -71,6 +72,7 @@
         :power="item.power"
         :phone="item.phone"
         :sours="item.sours"
+        :order="getOrder(item.id)"
         :dateLastContact="getLocaleDateFromDateDigit(item.dateCreate)"
         @edit-item="editItem"
         @set-filter-method="setFilterMethod"
@@ -92,8 +94,17 @@ export default {
     sortUp: String
   },
   emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
+  computed: {
+    orders() {
+      return this.$store.getters.order
+    }
+  },
   methods: {
     getLocaleDateFromDateDigit,
+    getOrder(itemId) {
+      const order = this.orders.find(item => item.clientId === itemId)
+      return order
+    },
     editItem({ type, item }) {
       this.$emit('show-modal', { type, item, mod: 'edit' })
     },
