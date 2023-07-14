@@ -17,7 +17,7 @@
       </router-view>
     </div>
 
-    <ModalMain :type="type" :mod="mod" :item="item" />
+    <ModalMain :type="type" :mod="mod" :item="item" @show-modal="showModal" />
   </div>
 </template>
 

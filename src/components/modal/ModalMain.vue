@@ -22,7 +22,12 @@
           ></button>
         </div>
         <div class="modal-body">
-          <component :is="myForm" :item="item" @save-item="saveItem" />
+          <component
+            :is="myForm"
+            :item="item"
+            @save-item="saveItem"
+            @show-modal="showModal"
+          />
         </div>
         <div class="modal-footer p-2">
           <button
@@ -60,6 +65,7 @@ export default {
     kotelForm,
     orderForm
   },
+  emits: ['show-modal'],
   props: {
     type: String,
     mod: String,
@@ -68,7 +74,7 @@ export default {
   computed: {
     myForm() {
       const component = this.type + 'Form'
-      console.log('component = ', component)
+      //console.log('component = ', component)
       return component
     }
   },
@@ -83,6 +89,9 @@ export default {
       if (this.mod === 'edit') {
         this.$store.dispatch('updateItem', { item: this.item })
       }
+    },
+    showModal({ type, item, mod }) {
+      this.$emit('show-modal', { type, item, mod })
     }
   }
 }

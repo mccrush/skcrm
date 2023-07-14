@@ -58,7 +58,7 @@
     <td class="text-center">
       <BtnCheckOrder
         v-if="order"
-        class="btn-sm btn-light text-success p-0 ps-1 pe-1"
+        class="btn-check-order btn-sm btn-light text-success lh-1 p-0 ps-1 pe-1"
         data-bs-toggle="modal"
         data-bs-target="#modalWindow"
         @click="$emit('edit-item', { type: 'order', item: order })"
@@ -98,3 +98,9 @@ export default {
   emits: ['edit-item', 'set-filter-method']
 }
 </script>
+
+<style scoped>
+.btn-check-order {
+  height: 23px;
+}
+</style>

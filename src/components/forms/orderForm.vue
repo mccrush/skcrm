@@ -1,20 +1,30 @@
 <template>
   <div class="row">
     <!-- Клиент -->
-    <div class="col-12">
-      <div class="form-floating">
-        <select
-          class="form-select"
-          id="inputClientId"
-          v-model="item.clientId"
-          @change="$emit('save-item')"
-        >
-          <option v-for="client in clients" :key="client.id" :value="client.id">
-            {{ client.city + ' - ' + client.name + ' - ' + client.phone }}
-          </option>
-        </select>
-        <label for="inputClientId">Клиент</label>
-      </div>
+    <div class="col-10 pe-md-1">
+      <select
+        class="form-select"
+        id="inputClientId"
+        v-model="item.clientId"
+        @change="$emit('save-item')"
+      >
+        <option v-for="client in clients" :key="client.id" :value="client.id">
+          {{ client.city + ' - ' + client.name + ' - ' + client.phone }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-2 ps-md-1">
+      <BtnOpenClient
+        class="btn btn-light text-secondary lh-1 p-2 w-100"
+        @click="
+          $emit('show-modal', {
+            type: 'client',
+            item: getClient(item.clientId),
+            mod: 'edit'
+          })
+        "
+      />
     </div>
 
     <!-- Котел -->
@@ -140,14 +150,19 @@
 </template>
 
 <script>
+import BtnOpenClient from './../buttons/BtnOpenClient.vue'
+
 export default {
+  components: {
+    BtnOpenClient
+  },
   props: {
     item: {
       type: Object,
       require: true
     }
   },
-  emits: ['save-item'],
+  emits: ['save-item', 'show-modal'],
   computed: {
     clients() {
       return this.$store.getters.client
@@ -165,6 +180,12 @@ export default {
         return prices
       }
       return [0]
+    }
+  },
+  methods: {
+    getClient(clientId) {
+      const client = this.clients.find(item => item.id === clientId)
+      return client
     }
   }
 }

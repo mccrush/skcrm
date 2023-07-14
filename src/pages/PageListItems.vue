@@ -118,12 +118,6 @@ export default {
         this.$route.params.type,
         this.searchValue
       )
-      // return this.filterItems.filter(
-      //   item =>
-      //     item.city.toLowerCase().includes(this.searchValue.toLowerCase()) ||
-      //     item.name.toLowerCase().includes(this.searchValue.toLowerCase()) ||
-      //     item.phone.toLowerCase().includes(this.searchValue.toLowerCase())
-      // )
     },
     sortItems() {
       //console.log('pre Sort items = ', this.filterItems)
