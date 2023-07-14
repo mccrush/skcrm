@@ -28,7 +28,7 @@
     </div>
 
     <!-- Котел -->
-    <div class="col-12 col-md-6 mt-2 pe-md-1">
+    <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -44,8 +44,40 @@
       </div>
     </div>
 
+    <!-- Бункер -->
+    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
+      <div class="form-floating">
+        <select
+          class="form-select"
+          id="inputBunkerPos"
+          v-model="item.bunkerPos"
+          @change="$emit('save-item')"
+        >
+          <option value="left">Слева</option>
+          <option value="right">Справа</option>
+        </select>
+        <label for="inputBunkerPos">Бункер</label>
+      </div>
+    </div>
+
+    <!-- Петли -->
+    <div class="col-12 col-md-4 mt-2 ps-md-1">
+      <div class="form-floating">
+        <select
+          class="form-select"
+          id="inputPetliPos"
+          v-model="item.petliPos"
+          @change="$emit('save-item')"
+        >
+          <option value="left">Слева</option>
+          <option value="right">Справа</option>
+        </select>
+        <label for="inputPetliPos">Петли</label>
+      </div>
+    </div>
+
     <!-- Стоимость -->
-    <div class="col-12 col-md-6 mt-2 ps-md-1">
+    <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -62,7 +94,7 @@
     </div>
 
     <!-- Предоплата -->
-    <div class="col-12 col-md-6 mt-2 pe-md-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
       <div class="form-floating">
         <input
           type="number"
@@ -76,7 +108,7 @@
     </div>
 
     <!-- Остаток -->
-    <div class="col-12 col-md-6 mt-2 ps-md-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-1">
       <div class="form-floating">
         <input
           type="number"
