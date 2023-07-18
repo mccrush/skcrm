@@ -19,6 +19,7 @@
           <div class="input-group">
             <input
               type="text"
+              id="inputSearchList"
               v-model="searchValue"
               class="form-control form-control-sm"
             />
@@ -73,7 +74,7 @@ import TheNavbar from './../components/interface/TheNavbar.vue'
 //import ListCard from './../modules/list/ListCard.vue'
 //import ListTable from './../modules/list/ListTable.vue'
 import clientList from './../modules/list/clientList.vue'
-import kotelList from './../modules/list/kotelList.vue'
+import kotelList from './../modules/list/kotelList2.vue'
 import orderList from './../modules/list/orderList.vue'
 
 export default {

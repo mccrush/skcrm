@@ -75,6 +75,28 @@ export default {
   box-shadow: none !important;
 }
 
+.form-floating > .form-control,
+.form-floating > .form-select {
+  border: none;
+  border-bottom: 1px solid #dee2e685;
+  /* border-radius: 0; */
+  background: #ffffff;
+  box-shadow: none;
+  height: auto;
+  min-height: 0;
+  padding-bottom: 4px;
+}
+
+.form-floating > .form-control:not(:placeholder-shown) ~ label::after,
+.form-floating > .form-select ~ label::after {
+  background-color: #ffff;
+}
+
+.form-floating > .form-control:not(:placeholder-shown) {
+  /* padding-top: 0; */
+  padding-bottom: 4px;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
