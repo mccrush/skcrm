@@ -69,7 +69,7 @@ export default {
   },
   emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
   mounted() {
-    this.setSortMethod('square')
+    this.$emit('set-sort-method', { sortUp: 'asc', sortBy: 'square' })
   },
   methods: {
     editItem({ type, item }) {
@@ -79,7 +79,7 @@ export default {
       this.$emit('set-filter-method', { filterType, filterValue })
     },
     setSortMethod(type) {
-      const sortUp = 'asc'
+      const sortUp = this.sortUp === 'desc' ? 'asc' : 'desc'
       this.$emit('set-sort-method', { sortUp: sortUp, sortBy: type })
     }
   }

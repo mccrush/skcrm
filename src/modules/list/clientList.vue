@@ -99,6 +99,9 @@ export default {
       return this.$store.getters.order
     }
   },
+  mounted() {
+    this.$emit('set-sort-method', { sortUp: 'desc', sortBy: 'dateCreate' })
+  },
   methods: {
     getLocaleDateFromDateDigit,
     getOrder(itemId) {
