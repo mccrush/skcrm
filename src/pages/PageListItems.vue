@@ -5,7 +5,7 @@
         <!-- <div class="col-10 col-md-3">
           {{ $route.name }} - {{ $route.params.type }}
         </div> -->
-        <div class="col-12 col-md-6 mt-2 mt-md-0">
+        <div class="col-12 col-md-6 col-xl-8 col-xxl-9 mt-2 mt-md-0">
           <div v-if="filterType && filterValue" class="btn-group btn-group-sm">
             <button class="btn btn-light p-0 ps-2 pe-2">
               {{ filterValue }}
@@ -15,7 +15,7 @@
             </button>
           </div>
         </div>
-        <div class="col-12 col-md-6 mt-2 mt-md-0">
+        <div class="col-12 col-md-6 col-xl-4 col-xxl-3 mt-2 mt-md-0">
           <div class="input-group">
             <input
               type="text"
@@ -24,7 +24,7 @@
               class="form-control form-control-sm"
             />
             <button
-              class="btn btn-light p-0 ps-2 pe-2"
+              class="btn btn-light p-0 ps-3 pe-3"
               @click="searchValue = ''"
             >
               x
