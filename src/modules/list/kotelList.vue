@@ -33,7 +33,7 @@
           Разм (ш*г*в)
         </th>
         <th scope="col" class="text-center small lh-lg" width="12%">Бункер</th>
-        <th scope="col" class="text-center small" width="12%">
+        <th scope="col" class="text-center small" width="10%">
           Вес
           <button
             class="btn btn-sm btn-light p-0 ps-2 pe-2"
@@ -43,7 +43,8 @@
           </button>
         </th>
 
-        <th scope="col" class="text-center small lh-lg" width="20%">Цена</th>
+        <th scope="col" class="text-center small lh-lg" width="12%">Автом.</th>
+        <th scope="col" class="text-center small lh-lg" width="10%">Цена</th>
         <th scope="col" class="text-center" width="6%">---</th>
       </tr>
     </thead>
@@ -58,6 +59,7 @@
         :size="item.size"
         :bunker="item.bunker"
         :weight="item.weight"
+        :automation="item.automation"
         :price3="item.price3"
         :price4="item.price4"
         :price5="item.price5"

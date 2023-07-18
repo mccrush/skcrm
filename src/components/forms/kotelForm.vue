@@ -93,6 +93,20 @@
       </div>
     </div>
 
+    <!-- Автоматика -->
+    <div class="col-12 mt-2">
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          id="inputAutomation"
+          v-model.trim="item.automation"
+          @change="$emit('save-item')"
+        />
+        <label for="inputAutomation">Автоматика</label>
+      </div>
+    </div>
+
     <!-- Прайс 3 -->
     <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="form-floating">

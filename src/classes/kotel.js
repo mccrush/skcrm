@@ -8,6 +8,7 @@ export default class kotel extends ClassBasic {
   size = ''
   bunker = 0
   weight = 0
+  automation = ''
   price3 = 0
   price4 = 0
   price5 = 0
