@@ -29,6 +29,9 @@ export default {
       return this.$store.getters.stage
     }
   },
+  mounted() {
+    this.$emit('set-sort-method', { sortUp: 'asc', sortBy: 'dateCreate' })
+  },
   methods: {
     getItems(stageId) {
       return this.listItems.filter(item => item.stageId === stageId)
