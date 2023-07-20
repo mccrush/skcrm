@@ -128,7 +128,7 @@
           id="dateCreate"
           class="form-control form-control-sm"
           v-model="item.dateCreate"
-          @change="$emit('save-item')"
+          @change="setDate"
         />
         <label for="dateCreate">Дата заказа</label>
       </div>
@@ -182,6 +182,7 @@
 </template>
 
 <script>
+import { getDueDate } from './../../helpers/getDueDate'
 import BtnOpenClient from './../buttons/BtnOpenClient.vue'
 
 export default {
@@ -215,9 +216,18 @@ export default {
     }
   },
   methods: {
+    setDate() {
+      this.item.dateFinish = getDueDate(this.item.dateCreate)
+      this.$emit('save-item')
+    },
     getClient(clientId) {
       const client = this.clients.find(item => item.id === clientId)
       return client
+    }
+  },
+  watch: {
+    item() {
+      if (!this.item.dateFinish) this.setDate()
     }
   }
 }
