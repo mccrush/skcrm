@@ -25,15 +25,24 @@
         <span class="d-block text-end">{{
           getLocaleDateFromDateDigit(item.dateCreate)
         }}</span>
-        <span class="d-block fw-bold text-end">{{
-          getLocaleDateFromDateDigit(item.dateFinish)
-        }}</span>
+        <span
+          class="d-block fw-bold text-end"
+          :class="{
+            'text-success': getCountLastDays(item.dateCreate) < 28,
+            'text-warning': getCountLastDays(item.dateCreate) >= 28,
+            'text-danger': getCountLastDays(item.dateCreate) > 35
+          }"
+          >{{ getLocaleDateFromDateDigit(item.dateFinish) }} ({{
+            getCountLastDays(item.dateCreate)
+          }})</span
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { getCountLastDays } from './../../helpers/getCountLastDays'
 import { getLocaleDateFromDateDigit } from './../../helpers/getDateFormat'
 
 export default {
@@ -53,6 +62,7 @@ export default {
     }
   },
   methods: {
+    getCountLastDays,
     getLocaleDateFromDateDigit,
     getClient(clientId) {
       const client = this.clients.find(item => item.id === clientId)

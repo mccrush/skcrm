@@ -4,6 +4,7 @@
 export const getCountLastDays = (dateCreate) => {
   let startDay = new Date(dateCreate)
   let toDay = new Date()
-  const lastDays = toDay.getDate() - startDay.getDate()
+  const lastMonths = toDay.getMonth() - startDay.getMonth()
+  const lastDays = toDay.getDate() - startDay.getDate() + (lastMonths * 30)
   return lastDays
 }
