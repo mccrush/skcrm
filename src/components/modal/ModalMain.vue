@@ -57,14 +57,16 @@
 
 <script>
 import clientForm from './../forms/clientForm.vue'
-import kotelForm from './../forms/kotelForm.vue'
+import kotelForm from './../forms/kotelFormModal.vue'
 import orderForm from './../forms/orderForm.vue'
+import stageForm from './../forms/stageForm.vue'
 
 export default {
   components: {
     clientForm,
     kotelForm,
-    orderForm
+    orderForm,
+    stageForm
   },
   emits: ['show-modal'],
   props: {

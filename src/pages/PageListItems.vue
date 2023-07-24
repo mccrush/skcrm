@@ -76,13 +76,15 @@ import TheNavbar from './../components/interface/TheNavbar.vue'
 import clientList from './../modules/list/clientList.vue'
 import kotelList from './../modules/list/kotelList2.vue'
 import orderList from './../modules/list/orderList.vue'
+import stageList from './../modules/list/stageList.vue'
 
 export default {
   components: {
     TheNavbar,
     clientList,
     kotelList,
-    orderList
+    orderList,
+    stageList
   },
   emits: ['show-modal'],
   data() {

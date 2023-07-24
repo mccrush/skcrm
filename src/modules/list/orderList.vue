@@ -1,6 +1,10 @@
 <template>
   <div class="cover-stage d-flex overflow-x-auto">
-    <div v-for="stage in stages" :key="stage.id" class="list-colum ps-2 pe-2">
+    <div
+      v-for="stage in stageSorted"
+      :key="stage.id"
+      class="list-colum ps-2 pe-2"
+    >
       <div
         class="header text-center fw-bold border-bottom border-4 pb-3"
         :class="stage.border"
@@ -13,6 +17,7 @@
 </template>
 
 <script>
+import { sortMethod } from './../../helpers/sortMethod'
 import orderItems from './orderItems.vue'
 
 export default {
@@ -27,6 +32,9 @@ export default {
   computed: {
     stages() {
       return this.$store.getters.stage
+    },
+    stageSorted() {
+      return sortMethod(this.stages, 'asc', 'position')
     }
   },
   mounted() {
