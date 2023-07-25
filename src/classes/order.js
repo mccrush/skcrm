@@ -9,5 +9,6 @@ export default class order extends ClassBasic {
   stageId = ''
   price = 0
   prePrice = 0
+  dateDue = ''
   dateFinish = ''
 }

@@ -26,14 +26,25 @@
           getLocaleDateFromDateDigit(item.dateCreate)
         }}</span>
         <span
-          class="d-block fw-bold text-end"
+          class="d-block text-end"
           :class="{
-            'text-success': getCountLastDays(item.dateCreate) < 28,
-            'text-warning': getCountLastDays(item.dateCreate) >= 28,
-            'text-danger': getCountLastDays(item.dateCreate) > 35
+            'text-success fw-bold':
+              getCountLastDays(item.dateCreate, item.dateFinish) < 28 &&
+              !item.dateFinish,
+            'text-warning fw-bold':
+              getCountLastDays(item.dateCreate, item.dateFinish) >= 28 &&
+              !item.dateFinish,
+            'text-danger fw-bold':
+              getCountLastDays(item.dateCreate, item.dateFinish) > 35 &&
+              !item.dateFinish
           }"
+          >{{ getLocaleDateFromDateDigit(item.dateDue) }} ({{
+            getCountLastDays(item.dateDue, item.dateFinish)
+          }})</span
+        >
+        <span class="d-block text-end"
           >{{ getLocaleDateFromDateDigit(item.dateFinish) }} ({{
-            getCountLastDays(item.dateCreate)
+            getCountLastDays(item.dateCreate, item.dateFinish)
           }})</span
         >
       </div>

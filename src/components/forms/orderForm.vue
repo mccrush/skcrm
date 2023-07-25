@@ -134,6 +134,20 @@
       </div>
     </div>
 
+    <!-- Дедлайн -->
+    <div class="col-12 col-md-4 mt-2 pe-md-1">
+      <div class="form-floating">
+        <input
+          type="datetime-local"
+          id="dateDue"
+          class="form-control form-control-sm"
+          v-model="item.dateDue"
+          @change="$emit('save-item')"
+        />
+        <label for="dateDue">Дедлайн</label>
+      </div>
+    </div>
+
     <!-- Срок отправки -->
     <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
       <div class="form-floating">
@@ -217,7 +231,7 @@ export default {
   },
   methods: {
     setDate() {
-      this.item.dateFinish = getDueDate(this.item.dateCreate)
+      this.item.dateDue = getDueDate(this.item.dateCreate)
       this.$emit('save-item')
     },
     getClient(clientId) {
