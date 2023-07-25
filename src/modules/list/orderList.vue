@@ -77,7 +77,8 @@ export default {
 /* Ширина экрана больше или равна 768 */
 @media (min-width: 768px) {
   .list-colum {
-    width: calc(20vw);
+    /* width: calc(35vw); */
+    min-width: 320px;
   }
 }
 </style>
