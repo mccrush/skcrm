@@ -148,7 +148,7 @@
       </div>
     </div>
 
-    <!-- Срок отправки -->
+    <!-- Дата отгрузки -->
     <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
       <div class="form-floating">
         <input
@@ -158,18 +158,18 @@
           v-model="item.dateFinish"
           @change="$emit('save-item')"
         />
-        <label for="dateFinish">Срок отправки</label>
+        <label for="dateFinish">Дата отгрузки</label>
       </div>
     </div>
 
     <!-- Этап -->
-    <div class="col-12 col-md-4 mt-2 ps-md-1">
+    <div class="col-12 col-md-4 mt-2">
       <div class="form-floating">
         <select
           class="form-select"
           id="inputStageId"
           v-model="item.stageId"
-          @change="$emit('save-item')"
+          @change="setStage"
         >
           <option v-for="stage in stages" :key="stage.id" :value="stage.id">
             {{ stage.title }}
@@ -197,6 +197,7 @@
 
 <script>
 import { getDueDate } from './../../helpers/getDueDate'
+import { getFormateInputDate } from './../../helpers/getFormateInputDate'
 import BtnOpenClient from './../buttons/BtnOpenClient.vue'
 
 export default {
@@ -234,6 +235,14 @@ export default {
       this.item.dateDue = getDueDate(this.item.dateCreate)
       this.$emit('save-item')
     },
+
+    setStage() {
+      if (this.item.stageId === this.stages[this.stages.length - 1].id) {
+        this.item.dateFinish = getFormateInputDate(new Date())
+      }
+      this.$emit('save-item')
+    },
+
     getClient(clientId) {
       const client = this.clients.find(item => item.id === clientId)
       return client
@@ -241,7 +250,7 @@ export default {
   },
   watch: {
     item() {
-      if (!this.item.dateFinish) this.setDate()
+      if (!this.item.dateDue) this.setDate()
     }
   }
 }
