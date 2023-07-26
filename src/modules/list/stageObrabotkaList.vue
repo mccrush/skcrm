@@ -5,6 +5,7 @@
       :key="item.id"
       :item="item"
       @save-item="saveItem"
+      @remove-item="removeItem"
     />
   </div>
 </template>
@@ -27,6 +28,11 @@ export default {
   methods: {
     saveItem({ item }) {
       this.$store.dispatch('updateItem', { item })
+    },
+    removeItem({ item }) {
+      if (confirm('Точно удалить?')) {
+        this.$store.dispatch('removeItem', { item })
+      }
     },
     setFilterMethod({ filterType, filterValue }) {
       this.$emit('set-filter-method', { filterType, filterValue })
