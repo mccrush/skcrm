@@ -61,6 +61,7 @@ import kotelForm from './../forms/kotelFormModal.vue'
 import orderForm from './../forms/orderForm.vue'
 import stageForm from './../forms/stageForm.vue'
 import stageObrabotkaForm from './../forms/stageObrabotkaForm.vue'
+import userForm from './../forms/userForm.vue'
 
 export default {
   components: {
@@ -68,7 +69,8 @@ export default {
     kotelForm,
     orderForm,
     stageForm,
-    stageObrabotkaForm
+    stageObrabotkaForm,
+    userForm
   },
   emits: ['show-modal'],
   props: {

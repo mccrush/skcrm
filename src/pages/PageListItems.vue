@@ -78,6 +78,7 @@ import kotelList from './../modules/list/kotelList2.vue'
 import orderList from './../modules/list/orderList.vue'
 import stageList from './../modules/list/stageList.vue'
 import stageObrabotkaList from './../modules/list/stageObrabotkaList.vue'
+import userList from './../modules/list/userList.vue'
 
 export default {
   components: {
@@ -86,7 +87,8 @@ export default {
     kotelList,
     orderList,
     stageList,
-    stageObrabotkaList
+    stageObrabotkaList,
+    userList
   },
   emits: ['show-modal'],
   data() {
