@@ -3,8 +3,8 @@ import kotel from './../classes/kotel'
 import order from './../classes/order'
 import stage from './../classes/stage'
 import stageObrabotka from './../classes/stageObrabotka'
-import user from './../classes/user'
 import obrabotka from './../classes/obrabotka'
+import user from './../classes/user'
 
 export const modelsFactory = (type) => {
   let newObject = {}
@@ -25,12 +25,13 @@ export const modelsFactory = (type) => {
     case 'stageObrabotka':
       newObject = new stageObrabotka()
       break
-    case 'user':
-      newObject = new user()
-      break
     case 'obrabotka':
       newObject = new obrabotka()
       break
+    case 'user':
+      newObject = new user()
+      break
+
   }
 
   return Object.assign({}, newObject)

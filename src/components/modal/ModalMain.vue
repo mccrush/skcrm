@@ -60,13 +60,15 @@ import clientForm from './../forms/clientForm.vue'
 import kotelForm from './../forms/kotelFormModal.vue'
 import orderForm from './../forms/orderForm.vue'
 import stageForm from './../forms/stageForm.vue'
+import stageObrabotkaForm from './../forms/stageObrabotkaForm.vue'
 
 export default {
   components: {
     clientForm,
     kotelForm,
     orderForm,
-    stageForm
+    stageForm,
+    stageObrabotkaForm
   },
   emits: ['show-modal'],
   props: {

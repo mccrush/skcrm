@@ -5,5 +5,7 @@ export const dataModels = [
   { id: '04', type: 'kotel', title: 'Котлы', menu: true },
   { id: '05', type: 'ograda', title: 'Оградки', menu: false },
   { id: '06', type: 'stage', title: 'Этапы', menu: true },
-  { id: '07', type: 'colum', title: 'Столбцы', menu: false }
+  { id: '07', type: 'stageObrabotka', title: 'Этапы О', menu: true },
+  { id: '08', type: 'obrabotka', title: 'Обработки', menu: true },
+  { id: '09', type: 'user', title: 'Пользователи', menu: true },
 ]

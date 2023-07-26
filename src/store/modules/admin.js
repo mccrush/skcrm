@@ -10,7 +10,10 @@ export default {
     kotel: [],
     order: [],
     ograda: [],
-    stage: []
+    stage: [],
+    stageObrabotka: [],
+    obrabotka: [],
+    user: []
   },
 
   mutations: {
@@ -88,7 +91,9 @@ export default {
     kotel: state => state.kotel,
     order: state => state.order,
     ograda: state => state.ograda,
-    stage: state => state.stage
-
+    stage: state => state.stage,
+    stageObrabotka: state => state.stageObrabotka,
+    obrabotka: state => state.obrabotka,
+    user: state => state.user
   }
 }
