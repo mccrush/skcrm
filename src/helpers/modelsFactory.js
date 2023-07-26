@@ -2,6 +2,9 @@ import client from './../classes/client'
 import kotel from './../classes/kotel'
 import order from './../classes/order'
 import stage from './../classes/stage'
+import stageObrabotka from './../classes/stageObrabotka'
+import user from './../classes/user'
+import obrabotka from './../classes/obrabotka'
 
 export const modelsFactory = (type) => {
   let newObject = {}
@@ -18,6 +21,15 @@ export const modelsFactory = (type) => {
       break
     case 'stage':
       newObject = new stage()
+      break
+    case 'stageObrabotka':
+      newObject = new stageObrabotka()
+      break
+    case 'user':
+      newObject = new user()
+      break
+    case 'obrabotka':
+      newObject = new obrabotka()
       break
   }
 
