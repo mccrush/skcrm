@@ -1,7 +1,7 @@
 <template>
   <div class="row bg-white rounded mb-3 mb-xl-1 p-2 p-xl-0 pb-xl-1">
     <!-- Имя пользователя -->
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 col-xl-2">
       <div class="form-floating">
         <input
           type="text"
@@ -15,7 +15,7 @@
     </div>
 
     <!-- Email -->
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 col-xl-2">
       <div class="form-floating">
         <input
           type="text"
@@ -59,7 +59,7 @@
     </div>
 
     <!-- Должность -->
-    <div class="col-4 ps-md-1 pe-0 pe-md-2">
+    <div class="col-4 col-xl-1 ps-md-1 pe-0 pe-md-2">
       <div class="form-floating">
         <select
           class="form-select"
@@ -80,7 +80,7 @@
     </div>
 
     <!-- Комментарий -->
-    <div class="col-11 mt-0">
+    <div class="col-11 col-xl-4 mt-0">
       <div class="form-floating">
         <textarea
           class="form-control form-control-sm border-0 h-auto"

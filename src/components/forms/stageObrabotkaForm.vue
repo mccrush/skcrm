@@ -1,7 +1,7 @@
 <template>
   <div class="row bg-white rounded mb-3 mb-xl-1 p-2 p-xl-0 pb-xl-1">
     <!-- Название этапа -->
-    <div class="col-12">
+    <div class="col-12 col-md-3">
       <div class="form-floating">
         <input
           type="text"
