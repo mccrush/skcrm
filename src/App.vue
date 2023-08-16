@@ -81,7 +81,7 @@ export default {
   border-bottom: 1px solid #dee2e685;
   /* border-radius: 0; */
   background: #ffffff;
-  box-shadow: none;
+  /* box-shadow: none; */
   height: auto;
   min-height: 0;
   padding-bottom: 4px;

@@ -55,8 +55,11 @@
       v-for="item in listItems"
       :key="item.id"
       :item="item"
-      class="rounded mb-2 p-2"
-      :class="{ 'border border-success': item.metall }"
+      mod="edit"
+      class="rounded mb-3 p-0"
+      :class="{
+        'border-top border-2 border-success shadow-sm': item.metall
+      }"
     />
   </div>
 </template>

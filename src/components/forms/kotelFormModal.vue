@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row bg-light">
     <!-- Тип котла -->
     <div class="col-4 mt-2 pe-1">
       <div class="form-floating">
@@ -184,7 +184,7 @@
     </div> -->
 
     <!-- Комментарий -->
-    <div class="col-12 mt-2">
+    <div class="col-12 mt-2 mb-1">
       <div class="form-floating">
         <textarea
           class="form-control form-control-sm border-0 h-auto"
@@ -195,6 +195,14 @@
         ></textarea>
         <label for="inputDescription">Комментарий</label>
       </div>
+    </div>
+
+    <!-- Футер -->
+    <div
+      v-if="mod === 'edit'"
+      class="col-12 d-flex justify-content-end border-top border-white rounded-bottom bg-light-subtle mt-2 pt-2 pb-2"
+    >
+      <BtnDelete class="btn-sm text-secondary" />
     </div>
   </div>
 </template>
@@ -208,12 +216,18 @@ import {
   dataObyom
 } from './../../data/dataForClient'
 
+import BtnDelete from './../buttons/BtnDelete.vue'
+
 export default {
+  components: {
+    BtnDelete
+  },
   props: {
     item: {
       type: Object,
       require: true
-    }
+    },
+    mod: String
   },
   emits: ['save-item'],
   data() {
