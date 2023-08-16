@@ -1,5 +1,8 @@
 <template>
-  <div class="row bg-white rounded mb-3 mb-xl-1 p-2 p-xl-0 pb-xl-1">
+  <div
+    class="row bg-white rounded mb-3 mb-xl-1 p-2 p-xl-0 pb-xl-1"
+    :class="{ 'border border-success': item.metall }"
+  >
     <!-- Тип котла -->
     <div class="col-4 col-md-2 col-xl-1 mt-1 pe-1">
       <div class="form-floating">

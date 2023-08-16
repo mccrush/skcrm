@@ -115,7 +115,7 @@
           class="form-control form-control-sm"
           id="inputPrePrice"
           v-model.number="item.prePrice"
-          @change="$emit('save-item')"
+          @change="setPrePrice"
         />
         <label for="inputPrePrice">Предоплата</label>
       </div>
@@ -128,7 +128,7 @@
           type="number"
           class="form-control form-control-sm"
           id="inputOstatok"
-          :value="item.price - item.prePrice"
+          v-model.number="item.ostPrice"
         />
         <label for="inputOstatok">Остаток</label>
       </div>
@@ -245,6 +245,10 @@ export default {
     }
   },
   methods: {
+    setPrePrice() {
+      this.item.ostPrice = this.item.price - this.item.prePrice
+      this.$emit('save-item')
+    },
     setPrice(kotelId) {
       const kotelPrice = this.kotels.find(item => item.id === kotelId).price
       this.item.price = kotelPrice
