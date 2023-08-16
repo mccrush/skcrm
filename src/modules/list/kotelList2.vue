@@ -51,12 +51,18 @@
   </table> -->
 
   <div class="p-0 p-md-2">
-    <kotelForm v-for="item in listItems" :key="item.id" :item="item" />
+    <kotelForm
+      v-for="item in listItems"
+      :key="item.id"
+      :item="item"
+      class="rounded mb-2 p-2"
+      :class="{ 'border border-success': item.metall }"
+    />
   </div>
 </template>
 
 <script>
-import kotelForm from './../../components/forms/kotelForm2.vue'
+import kotelForm from './../../components/forms/kotelFormModal.vue'
 //import kotelRow from './kotelRow2.vue'
 
 export default {
