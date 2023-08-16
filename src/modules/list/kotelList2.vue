@@ -57,10 +57,7 @@
       :key="item.id"
       :item="item"
       mod="edit"
-      class="rounded mb-3 p-0"
-      :class="{
-        'border-top border-2 border-success shadow-sm': item.metall
-      }"
+      class="rounded border-top border-2 border-white shadow-sm mb-3 p-0"
       @save-item="saveItem({ item })"
       @remove-item="removeItem({ item })"
     />
