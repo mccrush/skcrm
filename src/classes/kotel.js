@@ -4,6 +4,7 @@ export default class kotel extends ClassBasic {
   type = 'kotel'
   typek = ''
   power = 0
+  metall = 0
   square = 0
   size = ''
   bunker = 0

@@ -30,29 +30,46 @@
             {{ power }}
           </option>
         </select>
-        <label for="inputPower">Мощность</label>
+        <label for="inputPower">Мощность кВт</label>
       </div>
     </div>
 
-    <!-- Отпаливаемая Площадь -->
+    <!-- Толщина метала -->
     <div class="col-4 mt-2 ps-1">
       <div class="form-floating">
         <select
           class="form-select"
+          id="inputMetall"
+          v-model.number="item.metall"
+          @change="$emit('save-item')"
+        >
+          <option v-for="metall in dataMetall" :key="metall" :value="metall">
+            {{ metall }}
+          </option>
+        </select>
+        <label for="inputMetall">Металл мм</label>
+      </div>
+    </div>
+
+    <!-- Отпаливаемая Площадь -->
+    <div class="col-4 mt-2 pe-1">
+      <div class="form-floating">
+        <select
+          class="form-select"
           id="inputSquare"
-          v-model="item.square"
+          v-model.number="item.square"
           @change="$emit('save-item')"
         >
           <option v-for="square in dataSquare" :key="square" :value="square">
             {{ square }}
           </option>
         </select>
-        <label for="inputSquare">Площадь</label>
+        <label for="inputSquare">Площадь м2</label>
       </div>
     </div>
 
     <!-- Размеры котла -->
-    <div class="col-12 col-md-4 mt-2 pe-md-1">
+    <div class="col-4 mt-2 ps-1 pe-1">
       <div class="form-floating">
         <input
           type="text"
@@ -61,12 +78,12 @@
           v-model.trim="item.size"
           @change="$emit('save-item')"
         />
-        <label for="inputSize">Размеры</label>
+        <label for="inputSize">Размеры мм</label>
       </div>
     </div>
 
     <!-- Бункер -->
-    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
+    <div class="col-4 mt-2 ps-1">
       <div class="form-floating">
         <input
           type="number"
@@ -75,12 +92,26 @@
           v-model.number="item.bunker"
           @change="$emit('save-item')"
         />
-        <label for="inputBunker">Бункер</label>
+        <label for="inputBunker">Бункер л</label>
+      </div>
+    </div>
+
+    <!-- Прайс -->
+    <div class="col-12 col-md-4 mt-2 pe-md-1">
+      <div class="form-floating">
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          id="inputPrice"
+          v-model.number="item.price"
+          @change="$emit('save-item')"
+        />
+        <label for="inputPrice">Прайс тыс.</label>
       </div>
     </div>
 
     <!-- Вес котла -->
-    <div class="col-12 col-md-4 mt-2 ps-md-1">
+    <div class="col-4 mt-2 ps-1 pe-1">
       <div class="form-floating">
         <input
           type="number"
@@ -89,12 +120,12 @@
           v-model.number="item.weight"
           @change="$emit('save-item')"
         />
-        <label for="inputWeight">Вес</label>
+        <label for="inputWeight">Вес кг</label>
       </div>
     </div>
 
     <!-- Автоматика -->
-    <div class="col-12 mt-2">
+    <div class="col-12 col-md-4 mt-2 ps-md-1">
       <div class="form-floating">
         <input
           type="text"
@@ -108,7 +139,7 @@
     </div>
 
     <!-- Прайс 3 -->
-    <div class="col-12 col-md-4 mt-2 pe-md-1">
+    <!-- <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="form-floating">
         <input
           type="number"
@@ -119,10 +150,10 @@
         />
         <label for="inputPrice3">Прайс 3</label>
       </div>
-    </div>
+    </div> -->
 
     <!-- Прайс 4 -->
-    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
+    <!-- <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
       <div class="form-floating">
         <input
           type="number"
@@ -133,10 +164,10 @@
         />
         <label for="inputPrice3">Прайс 4</label>
       </div>
-    </div>
+    </div> -->
 
     <!-- Прайс 5 -->
-    <div class="col-12 col-md-4 mt-2 ps-md-1">
+    <!-- <div class="col-12 col-md-4 mt-2 ps-md-1">
       <div class="form-floating">
         <input
           type="number"
@@ -147,7 +178,7 @@
         />
         <label for="inputPrice3">Прайс 5</label>
       </div>
-    </div>
+    </div> -->
 
     <!-- Комментарий -->
     <div class="col-12 mt-2">
@@ -170,7 +201,8 @@ import {
   dataSourses,
   dataKotelType,
   dataPower,
-  dataSquare
+  dataSquare,
+  dataMetall
 } from './../../data/dataForClient'
 
 export default {
@@ -186,7 +218,8 @@ export default {
       dataSourses,
       dataKotelType,
       dataPower,
-      dataSquare
+      dataSquare,
+      dataMetall
     }
   }
 }
