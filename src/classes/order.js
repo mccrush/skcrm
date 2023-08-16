@@ -6,9 +6,11 @@ export default class order extends ClassBasic {
   kotelId = ''
   bunkerPos = ''
   petliPos = ''
+  nadduvPos = ''
   stageId = ''
   price = 0
   prePrice = 0
+  ostPrice = 0
   dateDue = ''
   dateFinish = ''
 }
