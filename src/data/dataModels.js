@@ -1,5 +1,4 @@
 export const dataModels = [
-  { id: '01', type: 'user', title: 'Пользователи', menu: false },
   { id: '02', type: 'client', title: 'Клиенты', menu: true },
   { id: '03', type: 'order', title: 'Заказы', menu: true },
   { id: '04', type: 'kotel', title: 'Котлы', menu: true },
