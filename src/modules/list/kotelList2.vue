@@ -51,6 +51,7 @@
   </table> -->
 
   <div class="p-0 p-md-2">
+    <div class="mb-2">Всего элементов: {{ listItems.length }}</div>
     <kotelForm
       v-for="item in listItems"
       :key="item.id"
@@ -60,6 +61,8 @@
       :class="{
         'border-top border-2 border-success shadow-sm': item.metall
       }"
+      @save-item="saveItem({ item })"
+      @remove-item="removeItem({ item })"
     />
   </div>
 </template>
@@ -77,10 +80,14 @@ export default {
     sortUp: String
   },
   emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
+
   mounted() {
     this.$emit('set-sort-method', { sortUp: 'asc', sortBy: 'square' })
   },
   methods: {
+    saveItem({ item }) {
+      this.$store.dispatch('updateItem', { item })
+    },
     editItem({ type, item }) {
       this.$emit('show-modal', { type, item, mod: 'edit' })
     },
@@ -90,6 +97,12 @@ export default {
     setSortMethod(type) {
       const sortUp = this.sortUp === 'desc' ? 'asc' : 'desc'
       this.$emit('set-sort-method', { sortUp: sortUp, sortBy: type })
+    },
+    removeItem({ item }) {
+      if (confirm('Точно удалить?')) {
+        this.$store.dispatch('removeItem', { item })
+        console.log('Delete')
+      }
     }
   }
 }

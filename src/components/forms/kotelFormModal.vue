@@ -202,7 +202,7 @@
       v-if="mod === 'edit'"
       class="col-12 d-flex justify-content-end border-top border-white rounded-bottom bg-light-subtle mt-3 pt-2 pb-2"
     >
-      <BtnDelete class="btn-sm text-secondary" />
+      <BtnDelete class="btn-sm text-secondary" @click="$emit('remove-item')" />
     </div>
   </div>
 </template>
@@ -229,7 +229,7 @@ export default {
     },
     mod: String
   },
-  emits: ['save-item'],
+  emits: ['save-item', 'remove-item'],
   data() {
     return {
       dataKotelType,
