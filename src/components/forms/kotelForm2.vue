@@ -152,6 +152,37 @@
       </div>
     </div>
 
+    <!-- Прайс -->
+    <div class="col-12 col-md-4 mt-2 pe-md-1">
+      <div class="form-floating">
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          id="inputPrice"
+          v-model.number="item.price"
+          @change="$emit('save-item')"
+        />
+        <label for="inputPrice">Прайс тыс.</label>
+      </div>
+    </div>
+
+    <!-- Толщина метала -->
+    <div class="col-4 mt-2 ps-1">
+      <div class="form-floating">
+        <select
+          class="form-select"
+          id="inputMetall"
+          v-model.number="item.metall"
+          @change="$emit('save-item')"
+        >
+          <option v-for="metall in dataMetall" :key="metall" :value="metall">
+            {{ metall }}
+          </option>
+        </select>
+        <label for="inputMetall">Металл мм</label>
+      </div>
+    </div>
+
     <!-- Комментарий -->
     <div class="col-12 col-xl-1 mt-0">
       <div class="form-floating">
@@ -173,7 +204,8 @@ import {
   dataSourses,
   dataKotelType,
   dataPower,
-  dataSquare
+  dataSquare,
+  dataMetall
 } from './../../data/dataForClient'
 
 export default {
@@ -189,7 +221,8 @@ export default {
       dataSourses,
       dataKotelType,
       dataPower,
-      dataSquare
+      dataSquare,
+      dataMetall
     }
   }
 }

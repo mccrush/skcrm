@@ -76,6 +76,22 @@
       </div>
     </div>
 
+    <!-- Наддув позиция -->
+    <div class="col-12 col-md-4 mt-2 ps-md-1">
+      <div class="form-floating">
+        <select
+          class="form-select"
+          id="inputNadduvPos"
+          v-model="item.nadduvPos"
+          @change="$emit('save-item')"
+        >
+          <option value="left">Слева</option>
+          <option value="right">Справа</option>
+        </select>
+        <label for="inputNadduvPos">Наддув л/п</label>
+      </div>
+    </div>
+
     <!-- Стоимость новая -->
     <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="form-floating">
