@@ -85,13 +85,16 @@
     <!-- Бункер -->
     <div class="col-4 mt-2 ps-1">
       <div class="form-floating">
-        <input
-          type="number"
-          class="form-control form-control-sm"
+        <select
+          class="form-select"
           id="inputBunker"
           v-model.number="item.bunker"
           @change="$emit('save-item')"
-        />
+        >
+          <option v-for="bunker in dataObyom" :key="bunker" :value="bunker">
+            {{ bunker }}
+          </option>
+        </select>
         <label for="inputBunker">Бункер л</label>
       </div>
     </div>
@@ -198,11 +201,11 @@
 
 <script>
 import {
-  dataSourses,
   dataKotelType,
   dataPower,
+  dataMetall,
   dataSquare,
-  dataMetall
+  dataObyom
 } from './../../data/dataForClient'
 
 export default {
@@ -215,11 +218,11 @@ export default {
   emits: ['save-item'],
   data() {
     return {
-      dataSourses,
       dataKotelType,
       dataPower,
+      dataMetall,
       dataSquare,
-      dataMetall
+      dataObyom
     }
   }
 }
