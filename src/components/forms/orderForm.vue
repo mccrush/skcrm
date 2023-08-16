@@ -34,10 +34,10 @@
           class="form-select"
           id="inputKotelId"
           v-model="item.kotelId"
-          @change="$emit('save-item')"
+          @change="setPrice(item.kotelId)"
         >
           <option v-for="kotel in kotels" :key="kotel.id" :value="kotel.id">
-            {{ kotel.typek + ' - ' + kotel.power + ' - ' + kotel.square }}
+            {{ kotel.typek + ' - ' + kotel.power + ' - ' + kotel.metall }}
           </option>
         </select>
         <label for="inputKotelId">Котел</label>
@@ -56,7 +56,7 @@
           <option value="left">Слева</option>
           <option value="right">Справа</option>
         </select>
-        <label for="inputBunkerPos">Бункер</label>
+        <label for="inputBunkerPos">Бункер л/п</label>
       </div>
     </div>
 
@@ -72,7 +72,21 @@
           <option value="left">Слева</option>
           <option value="right">Справа</option>
         </select>
-        <label for="inputPetliPos">Петли</label>
+        <label for="inputPetliPos">Петли л/п</label>
+      </div>
+    </div>
+
+    <!-- Стоимость новая -->
+    <div class="col-12 col-md-4 mt-2 pe-md-1">
+      <div class="form-floating">
+        <input
+          type="number"
+          class="form-control"
+          id="inputPrice"
+          v-model.number="item.price"
+          @change="$emit('save-item')"
+        />
+        <label for="inputPrice">Стоимость 2</label>
       </div>
     </div>
 
@@ -231,6 +245,11 @@ export default {
     }
   },
   methods: {
+    setPrice(kotelId) {
+      const kotelPrice = this.kotels.find(item => item.id === kotelId).price
+      this.item.price = kotelPrice
+      this.$emit('save-item')
+    },
     setDate() {
       this.item.dateDue = getDueDate(this.item.dateCreate)
       this.$emit('save-item')
