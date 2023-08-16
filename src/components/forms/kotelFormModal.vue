@@ -1,5 +1,5 @@
 <template>
-  <div class="row bg-light">
+  <div class="row bg-light pt-2">
     <!-- Тип котла -->
     <div class="col-4 mt-2 pe-1">
       <div class="form-floating">
@@ -184,7 +184,7 @@
     </div> -->
 
     <!-- Комментарий -->
-    <div class="col-12 mt-2 mb-1">
+    <div class="col-12 mt-2" :class="{ 'mb-3': !mod }">
       <div class="form-floating">
         <textarea
           class="form-control form-control-sm border-0 h-auto"
@@ -200,7 +200,7 @@
     <!-- Футер -->
     <div
       v-if="mod === 'edit'"
-      class="col-12 d-flex justify-content-end border-top border-white rounded-bottom bg-light-subtle mt-2 pt-2 pb-2"
+      class="col-12 d-flex justify-content-end border-top border-white rounded-bottom bg-light-subtle mt-3 pt-2 pb-2"
     >
       <BtnDelete class="btn-sm text-secondary" />
     </div>
