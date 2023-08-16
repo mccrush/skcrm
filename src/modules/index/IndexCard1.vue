@@ -1,6 +1,8 @@
 <template>
-  <div class="card rounded bg-white shadow-sm p-2 pt-1">
-    <div class="d-flex justify-content-between align-items-center">
+  <div class="card rounded bg-white p-0">
+    <div
+      class="d-flex justify-content-between align-items-center rounded-top p-2"
+    >
       <h6 class="m-0">
         {{ getTitle() }}
       </h6>
@@ -9,7 +11,7 @@
         @click="$router.push('/list/' + type)"
       />
     </div>
-    <div>
+    <div class="bg-light rounded-bottom border-white border-top shadow-sm p-2">
       <span>{{ items.length }} шт.</span>
     </div>
   </div>
