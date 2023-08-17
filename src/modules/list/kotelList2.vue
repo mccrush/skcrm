@@ -51,7 +51,55 @@
   </table> -->
 
   <div class="p-0 p-md-2">
-    <div class="mb-2">Всего элементов: {{ listItems.length }}</div>
+    <div class="row mb-3">
+      <div class="col-2">Всего: {{ listItems.length }}</div>
+      <div class="col-2">
+        <div class="btn-group btn-group-sm ms-2">
+          <button
+            class="btn btn-light"
+            @click="setFilterMethod({ filterType: 'typek', filterValue: 'П' })"
+          >
+            П
+          </button>
+          <button
+            class="btn btn-light"
+            @click="setFilterMethod({ filterType: 'typek', filterValue: 'А' })"
+          >
+            А
+          </button>
+          <button
+            class="btn btn-light"
+            @click="setFilterMethod({ filterType: '', filterValue: '' })"
+          >
+            Все
+          </button>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="dropdown">
+          <button
+            class="btn btn-sm btn-light dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Мощность
+          </button>
+          <ul class="dropdown-menu">
+            <li
+              v-for="power in dataPower"
+              :key="power"
+              :value="power"
+              @click="
+                setFilterMethod({ filterType: 'power', filterValue: power })
+              "
+            >
+              <span class="cursor-pointer dropdown-item">{{ power }} кВт</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <kotelForm
       v-for="item in listItems"
       :key="item.id"
@@ -65,6 +113,8 @@
 </template>
 
 <script>
+import { dataPower } from './../../data/dataForClient'
+
 import kotelForm from './../../components/forms/kotelFormModal.vue'
 //import kotelRow from './kotelRow2.vue'
 
@@ -77,7 +127,11 @@ export default {
     sortUp: String
   },
   emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
-
+  data() {
+    return {
+      dataPower
+    }
+  },
   mounted() {
     this.$emit('set-sort-method', { sortUp: 'asc', sortBy: 'square' })
   },
