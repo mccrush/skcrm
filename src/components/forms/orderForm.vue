@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row bg-light pt-2">
     <!-- Клиент -->
     <div class="col-10 pe-md-1">
       <select
@@ -37,31 +37,23 @@
           @change="setPrice(item.kotelId)"
         >
           <option v-for="kotel in kotels" :key="kotel.id" :value="kotel.id">
-            {{ kotel.typek + ' - ' + kotel.power + ' - ' + kotel.metall }}
+            {{
+              kotel.typek +
+              ' - ' +
+              kotel.power +
+              ' - ' +
+              kotel.metall +
+              ' - ' +
+              kotel.description
+            }}
           </option>
         </select>
         <label for="inputKotelId">Котел</label>
       </div>
     </div>
 
-    <!-- Бункер -->
-    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
-      <div class="form-floating">
-        <select
-          class="form-select"
-          id="inputBunkerPos"
-          v-model="item.bunkerPos"
-          @change="$emit('save-item')"
-        >
-          <option value="left">Слева</option>
-          <option value="right">Справа</option>
-        </select>
-        <label for="inputBunkerPos">Бункер л/п</label>
-      </div>
-    </div>
-
     <!-- Петли -->
-    <div class="col-12 col-md-4 mt-2 ps-md-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -76,8 +68,25 @@
       </div>
     </div>
 
-    <!-- Наддув позиция -->
+    <!-- Бункер -->
     <div class="col-12 col-md-4 mt-2 ps-md-1">
+      <div class="form-floating">
+        <select
+          class="form-select"
+          id="inputBunkerPos"
+          v-model="item.bunkerPos"
+          @change="$emit('save-item')"
+        >
+          <option value="left">Слева</option>
+          <option value="right">Справа</option>
+        </select>
+        <label for="inputBunkerPos">Бункер л/п</label>
+      </div>
+    </div>
+
+    <!-- Наддув позиция -->
+    <!-- Пока не используем -->
+    <!-- <div class="col-12 col-md-4 mt-2 ps-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -90,7 +99,7 @@
         </select>
         <label for="inputNadduvPos">Наддув л/п</label>
       </div>
-    </div>
+    </div> -->
 
     <!-- Стоимость новая -->
     <div class="col-12 col-md-4 mt-2 pe-md-1">
@@ -107,7 +116,7 @@
     </div>
 
     <!-- Стоимость -->
-    <div class="col-12 col-md-4 mt-2 pe-md-1">
+    <!-- <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -121,7 +130,7 @@
         </select>
         <label for="inputPrice">Стоимость</label>
       </div>
-    </div>
+    </div> -->
 
     <!-- Предоплата -->
     <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
@@ -165,7 +174,7 @@
     </div>
 
     <!-- Дедлайн -->
-    <div class="col-12 col-md-4 mt-2 pe-md-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
       <div class="form-floating">
         <input
           type="datetime-local"
@@ -179,7 +188,7 @@
     </div>
 
     <!-- Дата отгрузки -->
-    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-1">
       <div class="form-floating">
         <input
           type="datetime-local"
@@ -192,8 +201,22 @@
       </div>
     </div>
 
+    <!-- Комментарий -->
+    <div class="col-12 col-md-8 mt-2 pe-1" :class="{ 'mb-3': !mod }">
+      <div class="form-floating">
+        <textarea
+          class="form-control form-control-sm border-0 h-auto"
+          id="inputDescription"
+          rows="4"
+          v-model.trim="item.description"
+          @change="$emit('save-item')"
+        ></textarea>
+        <label for="inputDescription">Комментарий</label>
+      </div>
+    </div>
+
     <!-- Этап -->
-    <div class="col-12 col-md-4 mt-2">
+    <div class="col-12 col-md-4 mt-2 ps-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -206,20 +229,6 @@
           </option>
         </select>
         <label for="inputStageId">Этап</label>
-      </div>
-    </div>
-
-    <!-- Комментарий -->
-    <div class="col-12 mt-2">
-      <div class="form-floating">
-        <textarea
-          class="form-control form-control-sm border-0 h-auto"
-          id="inputDescription"
-          rows="4"
-          v-model.trim="item.description"
-          @change="$emit('save-item')"
-        ></textarea>
-        <label for="inputDescription">Комментарий</label>
       </div>
     </div>
   </div>
@@ -238,7 +247,8 @@ export default {
     item: {
       type: Object,
       require: true
-    }
+    },
+    mod: String
   },
   emits: ['save-item', 'show-modal'],
   computed: {

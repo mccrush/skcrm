@@ -44,7 +44,12 @@
             type="button"
             class="btn btn-sm btn-success ms-2"
             data-bs-dismiss="modal"
-            :disabled="item.type === 'order' && !item.stageId ? true : false"
+            :disabled="
+              item.type === 'order' &&
+              (!item.stageId || !item.clientId || !item.kotelId)
+                ? true
+                : false
+            "
             @click="createItem"
           >
             Создать
