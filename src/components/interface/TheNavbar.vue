@@ -24,8 +24,10 @@
       </button>
     </div>
     <div class="col-12">
-      <div class="row">
-        <slot></slot>
+      <div class="row d-flex">
+        <slot name="filter"></slot>
+        <slot name="filterSelect"></slot>
+        <slot name="search"></slot>
       </div>
     </div>
   </div>

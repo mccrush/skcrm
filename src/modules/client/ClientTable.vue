@@ -1,5 +1,5 @@
 <template>
-  <table class="table table-striped table-light shadow-sm small">
+  <table class="table table-striped table-light shadow-sm small mt-3">
     <thead>
       <tr>
         <th scope="col" class="small ps-3" width="20%">

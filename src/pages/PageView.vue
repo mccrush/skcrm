@@ -6,6 +6,7 @@
       :listItems="sortItems"
       :sortUp="sortUp"
       @set-filter-method="setFilterMethod"
+      @set-search-method="setSearchMethod"
       @set-sort-method="setSortMethod"
     />
   </div>
@@ -82,6 +83,9 @@ export default {
     setFilterMethod({ filterType, filterValue }) {
       this.filterType = filterType
       this.filterValue = filterValue
+    },
+    setSearchMethod({ searchValue }) {
+      this.searchValue = searchValue
     },
     clearFilter() {
       this.filterType = ''
