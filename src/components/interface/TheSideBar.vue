@@ -92,7 +92,8 @@ export default {
 }
 
 .logo:hover {
-  background: -webkit-linear-gradient(#e85d04, #d00000);
+  /* background: -webkit-linear-gradient(#e85d04, #d00000); */
+  background: -webkit-linear-gradient(#f48c06, #d00000);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

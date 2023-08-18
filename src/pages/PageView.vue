@@ -15,11 +15,21 @@
 import { searchMethod } from './../helpers/searchMethod'
 import { sortMethod } from './../helpers/sortMethod'
 
+import ViewClient from './../views/ViewClient.vue'
 import ViewKotel from './../views/ViewKotel.vue'
+import ViewOrder from './../views/ViewOrder.vue'
+import ViewStage from './../views/ViewStage.vue'
+import ViewStageObrabotka from './../views/ViewStageObrabotka.vue'
+import ViewUser from './../views/ViewUser.vue'
 
 export default {
   components: {
-    ViewKotel
+    ViewClient,
+    ViewKotel,
+    ViewOrder,
+    ViewStage,
+    ViewStageObrabotka,
+    ViewUser
   },
   data() {
     return {
