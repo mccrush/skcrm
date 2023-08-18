@@ -1,16 +1,22 @@
 <template>
   <div class="view">
-    <!-- <KotelFilter :listItems="listItems" /> -->
+    <TheNavbar>
+      <OrderFilter />
+    </TheNavbar>
+
     <OrderKanban :listItems="listItems" />
   </div>
 </template>
 
 <script>
-//import KotelFilter from './../modules/kotel/KotelFilter.vue'
+import TheNavbar from './../components/interface/TheNavbar.vue'
+import OrderFilter from './../modules/order/OrderFilter.vue'
 import OrderKanban from './../modules/order/OrderKanban.vue'
 
 export default {
   components: {
+    TheNavbar,
+    OrderFilter,
     OrderKanban
   },
   props: {

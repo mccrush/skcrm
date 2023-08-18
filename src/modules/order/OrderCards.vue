@@ -17,7 +17,9 @@
           ' ' +
           getKotel(item.kotelId).typek +
           '-' +
-          getKotel(item.kotelId).power
+          getKotel(item.kotelId).power +
+          ' ' +
+          getKotel(item.kotelId).description
         }}</span
       >
       <hr class="m-0 mt-1 mb-1" />

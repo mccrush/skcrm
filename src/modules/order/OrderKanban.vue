@@ -1,5 +1,5 @@
 <template>
-  <div class="cover-stage d-flex overflow-x-auto">
+  <div class="cover-stage d-flex overflow-x-auto pt-3">
     <div
       v-for="stage in stageSorted"
       :key="stage.id"
@@ -16,7 +16,10 @@
         </div>
         <div v-else>-</div>
       </div>
-      <OrderCards :items="getItems(stage.id)" @show-modal="showModal" />
+      <OrderCards
+        :items="sortMethod(getItems(stage.id), 'asc', 'dateCreate')"
+        @show-modal="showModal"
+      />
     </div>
   </div>
 </template>
@@ -48,6 +51,7 @@ export default {
     this.$emit('set-sort-method', { sortUp: 'asc', sortBy: 'dateCreate' })
   },
   methods: {
+    sortMethod,
     getTottalSum,
     getItems(stageId) {
       return this.listItems.filter(item => item.stageId === stageId)
@@ -74,7 +78,7 @@ export default {
 <style scoped>
 .cover-stage {
   /* height: calc(100vh - 96px); */
-  height: calc(100vh - 0px);
+  height: calc(100vh - 56px);
 }
 /* Ширина экрана меньше или равна 768 */
 @media (max-width: 767px) {
