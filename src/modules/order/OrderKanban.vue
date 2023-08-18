@@ -6,10 +6,14 @@
       class="list-colum ps-2 pe-2"
     >
       <div
-        class="header text-center fw-bold border-bottom border-4 pb-3"
+        class="header text-center fw-bold border-bottom border-4 pb-2"
         :class="stage.border"
       >
         {{ stage.title }}
+        <div class="fw-normal">
+          {{ getItems(stage.id).length }} шт. -
+          {{ getTottalSum(getItems(stage.id), 'price') }} ₽
+        </div>
       </div>
       <OrderCards :items="getItems(stage.id)" @show-modal="showModal" />
     </div>
@@ -18,6 +22,8 @@
 
 <script>
 import { sortMethod } from './../../helpers/sortMethod'
+import { getTottalSum } from './../../helpers/getTottalSum'
+
 import OrderCards from './OrderCards.vue'
 
 export default {
@@ -41,6 +47,7 @@ export default {
     this.$emit('set-sort-method', { sortUp: 'asc', sortBy: 'dateCreate' })
   },
   methods: {
+    getTottalSum,
     getItems(stageId) {
       return this.listItems.filter(item => item.stageId === stageId)
     },
@@ -65,7 +72,8 @@ export default {
 
 <style scoped>
 .cover-stage {
-  height: calc(100vh - 96px);
+  /* height: calc(100vh - 96px); */
+  height: calc(100vh - 0px);
 }
 /* Ширина экрана меньше или равна 768 */
 @media (max-width: 767px) {

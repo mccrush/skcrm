@@ -9,7 +9,7 @@
       <TheSideBar @show-modal="showModal" />
     </div>
 
-    <div class="container-fluid overflow-x-hidden">
+    <div class="container-fluid overflow-x-hidden p-0">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" @show-modal="showModal" />

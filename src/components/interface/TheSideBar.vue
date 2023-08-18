@@ -13,14 +13,14 @@
           <button
             class="btn btn-dark rounded-0 w-75 d-md-none"
             data-bs-dismiss="offcanvas"
-            @click="$router.push('/list/' + item.type)"
+            @click="$router.push('/view/' + item.type)"
           >
             {{ item.title }}
           </button>
 
           <button
             class="btn btn-dark rounded-0 w-75 d-none d-md-block"
-            @click="$router.push('/list/' + item.type)"
+            @click="$router.push('/view/' + item.type)"
           >
             {{ item.title }}
           </button>
