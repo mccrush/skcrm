@@ -10,10 +10,11 @@
         :class="stage.border"
       >
         {{ stage.title }}
-        <div class="fw-normal">
+        <div v-if="getItems(stage.id).length" class="fw-normal">
           {{ getItems(stage.id).length }} шт. -
-          {{ getTottalSum(getItems(stage.id), 'price') }} ₽
+          {{ getTottalSum(getItems(stage.id), 'price') }} 000 ₽
         </div>
+        <div v-else>-</div>
       </div>
       <OrderCards :items="getItems(stage.id)" @show-modal="showModal" />
     </div>
