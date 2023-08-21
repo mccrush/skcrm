@@ -86,8 +86,15 @@ export default {
     BtnEditSmallWhite
   },
   props: {
-    listItems: Array
+    listItems: Array,
+    sortUp: String
   },
-  emits: ['edit-item']
+  emits: ['edit-item', 'set-sort-method'],
+  methods: {
+    setSortMethod(type) {
+      const sortUp = this.sortUp === 'desc' ? 'asc' : 'desc'
+      this.$emit('set-sort-method', { sortUp: sortUp, sortBy: type })
+    }
+  }
 }
 </script>

@@ -14,7 +14,12 @@
       </template> -->
     </TheNavbar>
 
-    <KotelTable :listItems="listItems" @edit-item="showModal" />
+    <KotelTable
+      :listItems="listItems"
+      :sortUp="sortUp"
+      @edit-item="showModal"
+      @set-sort-method="setSortMethod"
+    />
   </div>
 </template>
 
@@ -30,15 +35,19 @@ export default {
     KotelTable
   },
   props: {
-    listItems: Array
+    listItems: Array,
+    sortUp: String
   },
-  emits: ['show-modal', 'set-filter-method'],
+  emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
   methods: {
     showModal({ type, item, mod }) {
       this.$emit('show-modal', { type, item, mod })
     },
     setFilterMethod({ filterType, filterValue }) {
       this.$emit('set-filter-method', { filterType, filterValue })
+    },
+    setSortMethod({ sortUp, sortBy }) {
+      this.$emit('set-sort-method', { sortUp, sortBy })
     }
   }
 }

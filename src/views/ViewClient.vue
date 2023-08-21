@@ -8,7 +8,13 @@
       </template>
     </TheNavbar>
 
-    <ClientTable :listItems="listItems" @show-modal="showModal" />
+    <ClientTable
+      :listItems="listItems"
+      :sortUp="sortUp"
+      @show-modal="showModal"
+      @set-filter-method="setFilterMethod"
+      @set-sort-method="setSortMethod"
+    />
   </div>
 </template>
 
@@ -26,9 +32,15 @@ export default {
     ClientTable
   },
   props: {
-    listItems: Array
+    listItems: Array,
+    sortUp: String
   },
-  emits: ['set-search-method', 'show-modal'],
+  emits: [
+    'set-search-method',
+    'show-modal',
+    'set-filter-method',
+    'set-sort-method'
+  ],
   data() {
     return {
       searchValue: ''
@@ -37,6 +49,12 @@ export default {
   methods: {
     showModal({ type, item, mod }) {
       this.$emit('show-modal', { type, item, mod })
+    },
+    setFilterMethod({ filterType, filterValue }) {
+      this.$emit('set-filter-method', { filterType, filterValue })
+    },
+    setSortMethod({ sortUp, sortBy }) {
+      this.$emit('set-sort-method', { sortUp, sortBy })
     }
   },
   watch: {
