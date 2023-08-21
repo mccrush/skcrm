@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-start">
-    <div class="">Всего: {{ listItems.length }}</div>
+    <!-- <div class="">Всего: {{ listItems.length }}</div> -->
     <div class="d-flex p-0">
       <div class="btn-group btn-group-sm ms-2">
         <button
@@ -28,11 +28,22 @@
         <button
           class="btn btn-light"
           @click="
+            $emit('set-filter-method', {
+              filterType: 'typek',
+              filterValue: 'АМ'
+            })
+          "
+        >
+          АМ
+        </button>
+        <!-- <button
+          class="btn btn-light"
+          @click="
             $emit('set-filter-method', { filterType: '', filterValue: '' })
           "
         >
           Все
-        </button>
+        </button> -->
       </div>
 
       <div class="dropdown ms-2">

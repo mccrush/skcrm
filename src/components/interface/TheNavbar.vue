@@ -24,10 +24,13 @@
       </button>
     </div>
     <div class="col-12">
-      <div class="row d-flex">
-        <slot name="filter"></slot>
-        <slot name="filterSelect"></slot>
-        <slot name="search"></slot>
+      <div class="row">
+        <div class="col-1"><slot name="count"></slot></div>
+        <div class="col-3"><slot name="filter"></slot></div>
+        <div class="col-3 ps-0 pe-0">
+          <slot name="filterSelect"></slot>
+        </div>
+        <div class="col-5"><slot name="search"></slot></div>
       </div>
     </div>
   </div>

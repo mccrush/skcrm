@@ -1,17 +1,23 @@
 <template>
   <div class="view">
     <TheNavbar>
-      <!-- <template #filter>
-        
-      </template> -->
+      <template #count>
+        <div class="small pt-1">{{ listItems.length }} шт.</div>
+      </template>
+      <template #filter>
+        <FilterValues
+          @clear-filter="clearFilter"
+          :filterType="filterType"
+          :filterValue="filterValue"
+        />
+      </template>
       <template #filterSelect>
         <KotelFilter
           :listItems="listItems"
           @set-filter-method="setFilterMethod"
         />
       </template>
-      <!-- <template #search>
-      </template> -->
+      <template #search></template>
     </TheNavbar>
 
     <KotelTable
@@ -25,26 +31,33 @@
 
 <script>
 import TheNavbar from './../components/interface/TheNavbar.vue'
+import FilterValues from './../components/elements/FilterValues.vue'
 import KotelFilter from './../modules/kotel/KotelFilter.vue'
 import KotelTable from './../modules/kotel/KotelTable.vue'
 
 export default {
   components: {
     TheNavbar,
+    FilterValues,
     KotelFilter,
     KotelTable
   },
   props: {
     listItems: Array,
+    filterType: String,
+    filterValue: String,
     sortUp: String
   },
-  emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
+  emits: ['show-modal', 'set-filter-method', 'clear-filter', 'set-sort-method'],
   methods: {
     showModal({ type, item, mod }) {
       this.$emit('show-modal', { type, item, mod })
     },
     setFilterMethod({ filterType, filterValue }) {
       this.$emit('set-filter-method', { filterType, filterValue })
+    },
+    clearFilter({ filterType, filterValue }) {
+      this.$emit('clear-filter', { filterType, filterValue })
     },
     setSortMethod({ sortUp, sortBy }) {
       this.$emit('set-sort-method', { sortUp, sortBy })
