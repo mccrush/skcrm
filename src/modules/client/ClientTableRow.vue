@@ -61,7 +61,7 @@
         class="btn-check-order btn-sm btn-light text-success lh-1 p-0 ps-1 pe-1"
         data-bs-toggle="modal"
         data-bs-target="#modalWindow"
-        @click="$emit('edit-item', { type: 'order', item: order })"
+        @click="$emit('edit-item', { type: 'order', item: order, mod: 'edit' })"
       />
     </td>
     <td class="text-center">
