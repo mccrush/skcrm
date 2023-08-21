@@ -29,6 +29,7 @@
         }}</span>
         <span
           class="d-block text-end"
+          title="- дней на производства / + просрочено"
           :class="{
             'text-success fw-bold':
               getCountLastDays(item.dateCreate, item.dateFinish) < 28 &&
@@ -44,7 +45,7 @@
             getCountLastDays(item.dateDue, item.dateFinish)
           }})</span
         >
-        <span class="d-block text-end"
+        <span class="d-block text-end" title="Всего дней выполнялся заказ"
           >{{ getLocaleDateFromDateDigit(item.dateFinish) }} ({{
             getCountLastDays(item.dateCreate, item.dateFinish)
           }})</span

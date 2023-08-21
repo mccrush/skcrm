@@ -4,7 +4,7 @@
       <OrderFilter />
     </TheNavbar>
 
-    <OrderKanban :listItems="listItems" />
+    <OrderKanban :listItems="listItems" @show-modal="showModal" />
   </div>
 </template>
 
@@ -21,6 +21,11 @@ export default {
   },
   props: {
     listItems: Array
+  },
+  methods: {
+    showModal({ type, item, mod }) {
+      this.$emit('show-modal', { type, item, mod })
+    }
   }
 }
 </script>
