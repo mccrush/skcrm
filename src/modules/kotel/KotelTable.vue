@@ -68,16 +68,26 @@
         <td>{{ item.price }}</td>
         <td>{{ item.weight }}</td>
         <td class="lh-1">{{ item.automation }}</td>
-        <td><button class="btn btn-sm">E</button></td>
+        <td>
+          <BtnEditSmallWhite
+            @click="$emit('edit-item', { type: item.type, item, mod: 'edit' })"
+          />
+        </td>
       </tr>
     </tbody>
   </table>
 </template>
 
 <script>
+import BtnEditSmallWhite from './../../components/buttons/BtnEditSmallWhite.vue'
+
 export default {
+  components: {
+    BtnEditSmallWhite
+  },
   props: {
     listItems: Array
-  }
+  },
+  emits: ['edit-item']
 }
 </script>

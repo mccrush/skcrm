@@ -108,8 +108,8 @@ export default {
       const order = this.orders.find(item => item.clientId === itemId)
       return order
     },
-    editItem({ type, item }) {
-      this.$emit('show-modal', { type, item, mod: 'edit' })
+    editItem({ type, item, mod }) {
+      this.$emit('show-modal', { type, item, mod })
     },
     setFilterMethod({ filterType, filterValue }) {
       //console.log('filterType, filterValue', filterType, filterValue)

@@ -8,6 +8,7 @@
       @set-filter-method="setFilterMethod"
       @set-search-method="setSearchMethod"
       @set-sort-method="setSortMethod"
+      @show-modal="showModal"
     />
   </div>
 </template>
@@ -32,6 +33,7 @@ export default {
     ViewStageObrabotka,
     ViewUser
   },
+  emits: ['show-modal'],
   data() {
     return {
       filterType: '',
@@ -94,6 +96,9 @@ export default {
     setSortMethod({ sortUp, sortBy }) {
       this.sortUp = sortUp
       this.sortBy = sortBy
+    },
+    showModal({ type, item, mod }) {
+      this.$emit('show-modal', { type, item, mod })
     }
   }
 }

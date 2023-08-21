@@ -1,7 +1,7 @@
 <template>
   <div class="view">
     <KotelFilter :listItems="listItems" />
-    <KotelTable :listItems="listItems" />
+    <KotelTable :listItems="listItems" @edit-item="showModal" />
   </div>
 </template>
 
@@ -16,6 +16,12 @@ export default {
   },
   props: {
     listItems: Array
+  },
+  emits: ['show-modal'],
+  methods: {
+    showModal({ type, item, mod }) {
+      this.$emit('show-modal', { type, item, mod })
+    }
   }
 }
 </script>

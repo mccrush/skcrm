@@ -65,24 +65,21 @@
       />
     </td>
     <td class="text-center">
-      <button
-        class="btn btn-sm btn-light p-0 ps-2 pe-2"
-        data-bs-toggle="modal"
-        data-bs-target="#modalWindow"
-        @click="$emit('edit-item', { type: item.type, item })"
-      >
-        Ed
-      </button>
+      <BtnEditSmallWhite
+        @click="$emit('edit-item', { type: item.type, item, mod: 'edit' })"
+      />
     </td>
   </tr>
 </template>
 
 <script>
 import BtnCheckOrder from './../../components/buttons/BtnCheckOrder.vue'
+import BtnEditSmallWhite from './../../components/buttons/BtnEditSmallWhite.vue'
 
 export default {
   components: {
-    BtnCheckOrder
+    BtnCheckOrder,
+    BtnEditSmallWhite
   },
   props: {
     item: Object,

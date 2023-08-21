@@ -8,7 +8,7 @@
       </template>
     </TheNavbar>
 
-    <ClientTable :listItems="listItems" />
+    <ClientTable :listItems="listItems" @show-modal="showModal" />
   </div>
 </template>
 
@@ -28,13 +28,17 @@ export default {
   props: {
     listItems: Array
   },
-  emits: ['set-search-method'],
+  emits: ['set-search-method', 'show-modal'],
   data() {
     return {
       searchValue: ''
     }
   },
-  methods: {},
+  methods: {
+    showModal({ type, item, mod }) {
+      this.$emit('show-modal', { type, item, mod })
+    }
+  },
   watch: {
     searchValue() {
       this.$emit('set-search-method', { searchValue: this.searchValue })
