@@ -1,7 +1,12 @@
 <template>
   <div class="view">
     <TheNavbar>
-      <OrderFilter />
+      <template #count>
+        <div class="small pt-1">{{ listItems.length }} шт.</div>
+      </template>
+      <template #filter> </template>
+      <template #filterSelect> </template>
+      <template #search></template>
     </TheNavbar>
 
     <OrderKanban :listItems="listItems" @show-modal="showModal" />
@@ -10,13 +15,12 @@
 
 <script>
 import TheNavbar from './../components/interface/TheNavbar.vue'
-import OrderFilter from './../modules/order/OrderFilter.vue'
+// import OrderFilter from './../modules/order/OrderFilter.vue'
 import OrderKanban from './../modules/order/OrderKanban.vue'
 
 export default {
   components: {
     TheNavbar,
-    OrderFilter,
     OrderKanban
   },
   props: {
