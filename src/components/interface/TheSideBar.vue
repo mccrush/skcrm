@@ -9,6 +9,15 @@
       </div>
 
       <div class="list-items">
+        <div>
+          <button
+            class="btn btn-dark rounded-0 w-100 d-md-none"
+            data-bs-dismiss="offcanvas"
+            @click="$router.push('/')"
+          >
+            Главная
+          </button>
+        </div>
         <div v-for="item in menuItems" :key="item.id" class="btn-group w-100">
           <button
             class="btn btn-dark rounded-0 w-75 d-md-none"
@@ -101,7 +110,8 @@ export default {
 /* Ширина экрана меньше или равна 768 */
 @media (max-width: 767px) {
   .side-bar {
-    height: calc(100vh - 66px);
+    /* height: calc(100vh - 66px); */
+    height: 100%;
   }
 }
 

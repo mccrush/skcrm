@@ -8,7 +8,7 @@
       </h6>
       <BtnOpenList
         class="btn-sm btn-light text-secondary p-0 ps-1 pe-1 pb-1"
-        @click="$router.push('/list/' + type)"
+        @click="$router.push('/view/' + type)"
       />
     </div>
     <div class="bg-light rounded-bottom border-white border-top shadow-sm p-2">
