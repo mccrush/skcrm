@@ -24,6 +24,7 @@
             mod: 'edit'
           })
         "
+        :disabled="!item.clientId"
       />
     </div>
 
