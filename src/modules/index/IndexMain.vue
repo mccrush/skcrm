@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row p-3">
     <div class="col-12 col-md-3">
       <IndexCard1 type="order" />
     </div>

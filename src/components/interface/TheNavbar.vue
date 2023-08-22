@@ -1,5 +1,5 @@
 <template>
-  <div class="row bg-light shadow-sm z-2 p-2 pt-3 pb-3">
+  <div class="navbar row bg-white shadow-sm z-2 p-2 pt-3 pb-3">
     <div class="col-12 d-md-none d-flex justify-content-between">
       <button
         class="btn btn-sm btn-light ps-3 pe-3"
@@ -47,3 +47,9 @@ export default {
   emits: ['show-modal']
 }
 </script>
+
+<style scoped>
+.navbar {
+  min-height: 61px;
+}
+</style>
