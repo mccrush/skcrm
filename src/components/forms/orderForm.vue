@@ -63,13 +63,19 @@
 
     <!-- Бункер -->
     <div class="col-12 col-md-4 mt-2 ps-md-1">
-      <div class="form-floating">
+      <div
+        v-if="
+          item.kotelId &&
+          (getKotel(item.kotelId).typek === 'А' ||
+            getKotel(item.kotelId).typek === 'АМ')
+        "
+        class="form-floating"
+      >
         <select
           class="form-select"
           id="inputBunkerPos"
           v-model="item.bunkerPos"
           @change="$emit('save-item')"
-          :disabled="item.kotelId && getKotel(item.kotelId).typek === 'П'"
         >
           <option value="left">Слева</option>
           <option value="right">Справа</option>
@@ -100,7 +106,7 @@
       <div class="form-floating">
         <input
           type="number"
-          class="form-control"
+          class="form-control form-control-sm"
           id="inputPrice"
           v-model.number="item.price"
           @change="$emit('save-item')"
