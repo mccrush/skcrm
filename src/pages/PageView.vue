@@ -61,7 +61,7 @@ export default {
     filterItems() {
       if (this.filterType && this.filterValue) {
         return this.listItems.filter(
-          item => item[this.filterType] === this.filterValue
+          item => item[this.filterType] == this.filterValue
         )
       } else {
         return this.listItems

@@ -95,7 +95,9 @@ export default {
       this.$store.dispatch('addItem', { item: this.item })
     },
     removeItem() {
-      this.$store.dispatch('removeItem', { item: this.item })
+      if (confirm('Точно удалить?')) {
+        this.$store.dispatch('removeItem', { item: this.item })
+      }
     },
     saveItem() {
       if (this.mod === 'edit') {

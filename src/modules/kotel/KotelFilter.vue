@@ -63,7 +63,7 @@
             @click="
               $emit('set-filter-method', {
                 filterType: 'power',
-                filterValue: power
+                filterValue: '' + power
               })
             "
           >
