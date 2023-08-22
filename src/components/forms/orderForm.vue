@@ -68,6 +68,7 @@
           id="inputBunkerPos"
           v-model="item.bunkerPos"
           @change="$emit('save-item')"
+          :disabled="item.kotelId && getKotel(item.kotelId).typek === 'П'"
         >
           <option value="left">Слева</option>
           <option value="right">Справа</option>
@@ -146,6 +147,7 @@
           class="form-control form-control-sm"
           id="inputOstatok"
           v-model.number="item.ostPrice"
+          disabled
         />
         <label for="inputOstatok">Остаток тыс.</label>
       </div>
@@ -268,8 +270,12 @@ export default {
       this.$emit('save-item')
     },
     setPrice(kotelId) {
-      const kotelPrice = this.kotels.find(item => item.id === kotelId).price
-      this.item.price = kotelPrice
+      const kotel = this.getKotel(kotelId)
+
+      if (kotel.typek === 'П') {
+        this.item.bunkerPos = ''
+      }
+      this.item.price = kotel.price
       this.$emit('save-item')
     },
     setDate() {
@@ -287,6 +293,10 @@ export default {
     getClient(clientId) {
       const client = this.clients.find(item => item.id === clientId)
       return client
+    },
+    getKotel(kotelId) {
+      const kotel = this.kotels.find(item => item.id === kotelId)
+      return kotel
     }
   },
   watch: {
