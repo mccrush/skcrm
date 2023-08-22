@@ -38,7 +38,6 @@
         >
           <option v-for="kotel in kotels" :key="kotel.id" :value="kotel.id">
             {{ kotel.typek + ' - ' + kotel.power + ' - ' + kotel.metall }}
-            {{ kotel.description ? ' - ' + kotel.description : '' }}
           </option>
         </select>
         <label for="inputKotelId">Котел</label>
