@@ -10,14 +10,14 @@ const routes = [
       requiresAuth: true
     }
   },
-  {
-    path: '/list/:type',
-    name: 'list',
-    component: () => import('../pages/PageListItems.vue'),
-    meta: {
-      requiresAuth: true
-    }
-  },
+  // {
+  //   path: '/list/:type',
+  //   name: 'list',
+  //   component: () => import('../pages/PageListItems.vue'),
+  //   meta: {
+  //     requiresAuth: true
+  //   }
+  // },
   {
     path: '/view/:type',
     name: 'view',
