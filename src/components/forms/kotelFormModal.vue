@@ -1,7 +1,7 @@
 <template>
   <div class="row bg-light pt-2">
     <!-- Тип котла -->
-    <div class="col-4 mt-2 pe-1">
+    <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -18,7 +18,7 @@
     </div>
 
     <!-- Мощность котла -->
-    <div class="col-4 mt-2 ps-1 pe-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -35,7 +35,7 @@
     </div>
 
     <!-- Толщина метала -->
-    <div class="col-4 mt-2 ps-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -52,7 +52,7 @@
     </div>
 
     <!-- Отпаливаемая Площадь -->
-    <div class="col-4 mt-2 pe-1">
+    <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -69,7 +69,7 @@
     </div>
 
     <!-- Размеры котла -->
-    <div class="col-4 mt-2 ps-1 pe-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
       <div class="form-floating">
         <input
           type="text"
@@ -83,7 +83,7 @@
     </div>
 
     <!-- Бункер -->
-    <div class="col-4 mt-2 ps-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -114,7 +114,7 @@
     </div>
 
     <!-- Вес котла -->
-    <div class="col-4 mt-2 ps-1 pe-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
       <div class="form-floating">
         <input
           type="number"
