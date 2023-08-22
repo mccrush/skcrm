@@ -24,13 +24,15 @@
       </button>
     </div>
     <div class="col-12">
-      <div class="row">
-        <div class="col-1"><slot name="count"></slot></div>
-        <div class="col-3"><slot name="filter"></slot></div>
-        <div class="col-3 ps-0 pe-0">
+      <div class="row mt-2 mt-md-0">
+        <div class="col-4 col-md-1"><slot name="count"></slot></div>
+        <div class="col-8 col-md-3"><slot name="filter"></slot></div>
+        <div class="col-12 col-md-3 mt-2 mt-md-0 ps-0 pe-0">
           <slot name="filterSelect"></slot>
         </div>
-        <div class="col-5"><slot name="search"></slot></div>
+        <div class="col-12 col-md-5 mt-2 mt-md-0">
+          <slot name="search"></slot>
+        </div>
       </div>
     </div>
   </div>

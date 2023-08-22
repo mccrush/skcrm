@@ -12,7 +12,7 @@
       <div v-if="item" class="modal-content bg-white border-0">
         <div class="modal-header p-2 ps-3 pe-3">
           <h1 class="modal-title fs-5" id="staticBackdropLabel">
-            {{ type }}
+            {{ getModalTitle(type) }}
           </h1>
           <button
             type="button"
@@ -104,6 +104,15 @@ export default {
     },
     showModal({ type, item, mod }) {
       this.$emit('show-modal', { type, item, mod })
+    },
+
+    getModalTitle(type) {
+      const titles = {
+        client: 'Клиент',
+        kotel: 'Котел',
+        order: 'Заказ'
+      }
+      return titles[type]
     }
   }
 }
