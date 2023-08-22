@@ -208,7 +208,7 @@
     </div>
 
     <!-- Этап -->
-    <div class="col-12 col-md-4 mt-2 ps-1" :class="{ 'mb-3': !mod }">
+    <div class="col-12 col-md-4 mt-2 ps-md-1" :class="{ 'mb-3': !mod }">
       <div class="form-floating">
         <select
           class="form-select"
