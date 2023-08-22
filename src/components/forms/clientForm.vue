@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row bg-light pt-2">
     <!-- город клиента -->
     <div class="col-12 col-md-4 pe-md-1">
       <div class="form-floating">
@@ -64,7 +64,7 @@
     </div>
 
     <!-- Дата общения -->
-    <div class="col-6 col-md-4 mt-2 ps-md-2 pe-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-2 pe-md-1">
       <div class="form-floating">
         <input
           type="datetime-local"
@@ -78,7 +78,7 @@
     </div>
 
     <!-- Заказы -->
-    <div class="col-6 col-md-4 mt-2 ps-md-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-1">
       <div v-if="clientOrders.length" class="dropdown">
         <button
           class="btn btn-light dropdown-toggle w-100"
@@ -106,8 +106,9 @@
         </ul>
       </div>
     </div>
+
     <!-- Тип котла -->
-    <div class="col-4 mt-2 pe-1">
+    <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -124,7 +125,7 @@
     </div>
 
     <!-- Мощность котла -->
-    <div class="col-4 mt-2 ps-1 pe-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -141,7 +142,7 @@
     </div>
 
     <!-- источник контакта -->
-    <div class="col-4 mt-2 ps-1">
+    <div class="col-12 col-md-4 mt-2 ps-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -158,7 +159,7 @@
     </div>
 
     <!-- Комментарий -->
-    <div class="col-12 mt-2">
+    <div class="col-12 mt-2" :class="{ 'mb-3': !mod }">
       <div class="form-floating">
         <textarea
           class="form-control form-control-sm border-0 h-auto"
@@ -186,7 +187,8 @@ export default {
     item: {
       type: Object,
       require: true
-    }
+    },
+    mod: String
   },
   emits: ['save-item', 'show-modal'],
   data() {

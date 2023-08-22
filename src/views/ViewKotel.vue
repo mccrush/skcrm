@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-    <TheNavbar>
+    <TheNavbar @show-modal="showModal">
       <template #count>
         <div class="small pt-1">{{ listItems.length }} шт.</div>
       </template>

@@ -17,7 +17,11 @@
         data-bs-toggle="modal"
         data-bs-target="#modalWindow"
         @click="
-          $emit('show-modal', { type: $route.params.type, mod: 'create' })
+          $emit('show-modal', {
+            type: $route.params.type,
+            item: null,
+            mod: 'create'
+          })
         "
       >
         +

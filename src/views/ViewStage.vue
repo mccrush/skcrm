@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-    <TheNavbar />
+    <TheNavbar @show-modal="showModal" />
 
     <StageTable :listItems="listItems" />
   </div>

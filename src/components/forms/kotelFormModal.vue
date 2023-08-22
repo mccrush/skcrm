@@ -141,48 +141,6 @@
       </div>
     </div>
 
-    <!-- Прайс 3 -->
-    <!-- <div class="col-12 col-md-4 mt-2 pe-md-1">
-      <div class="form-floating">
-        <input
-          type="number"
-          class="form-control form-control-sm"
-          id="inputPrice3"
-          v-model.number="item.price3"
-          @change="$emit('save-item')"
-        />
-        <label for="inputPrice3">Прайс 3</label>
-      </div>
-    </div> -->
-
-    <!-- Прайс 4 -->
-    <!-- <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
-      <div class="form-floating">
-        <input
-          type="number"
-          class="form-control form-control-sm"
-          id="inputPrice4"
-          v-model.number="item.price4"
-          @change="$emit('save-item')"
-        />
-        <label for="inputPrice3">Прайс 4</label>
-      </div>
-    </div> -->
-
-    <!-- Прайс 5 -->
-    <!-- <div class="col-12 col-md-4 mt-2 ps-md-1">
-      <div class="form-floating">
-        <input
-          type="number"
-          class="form-control form-control-sm"
-          id="inputPrice5"
-          v-model.number="item.price5"
-          @change="$emit('save-item')"
-        />
-        <label for="inputPrice3">Прайс 5</label>
-      </div>
-    </div> -->
-
     <!-- Комментарий -->
     <div class="col-12 mt-2" :class="{ 'mb-3': !mod }">
       <div class="form-floating">
