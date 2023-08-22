@@ -3,7 +3,7 @@
     <div
       v-for="item in items"
       :key="item.id"
-      class="list-item cursor-pointer small rounded bg-white shadow-sm mt-3 p-2"
+      class="list-item cursor-pointer small rounded bg-white shadow-sm mt-2 p-2"
       data-bs-toggle="modal"
       data-bs-target="#modalWindow"
       @click="$emit('show-modal', { type: item.type, item, mod: 'edit' })"
