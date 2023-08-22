@@ -1,5 +1,5 @@
 <template>
-  <div class="p-md-3">
+  <div class="table-responsive p-md-3">
     <table class="table table-striped table-light shadow-sm small">
       <thead>
         <tr>

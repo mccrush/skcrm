@@ -1,5 +1,5 @@
 <template>
-  <div class="p-md-3">
+  <div class="table-responsive p-md-3">
     <table class="table table-striped table-light shadow-sm small">
       <thead>
         <tr>
@@ -39,7 +39,7 @@
               ⇅
             </button>
           </th>
-          <th scope="col" class="text-center small lh-lg" width="15%">
+          <th scope="col" class="text-center small lh-1 lh-md-lg" width="15%">
             Разм (ш*г*в)
           </th>
           <th scope="col" class="text-center small lh-lg" width="10%">
@@ -56,7 +56,7 @@
             </button>
           </th>
           <th scope="col" class="text-center small lh-lg" width="15%">
-            Автом.
+            Автомат
           </th>
           <th scope="col" class="text-center" width="5%">---</th>
         </tr>
@@ -68,7 +68,10 @@
           <td>{{ item.power }}</td>
           <td>{{ item.metall }}</td>
           <td>{{ item.square }}</td>
-          <td>{{ item.size }}</td>
+          <td class="lh-1">
+            {{ item.size.split('*')[0] }} {{ '*' + item.size.split('*')[1] }}
+            {{ '*' + item.size.split('*')[2] }}
+          </td>
           <td>{{ item.bunker }}</td>
           <td>{{ item.price }}</td>
           <td>{{ item.weight }}</td>
