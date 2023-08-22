@@ -78,7 +78,7 @@ export default {
 <style scoped>
 .cover-stage {
   /* height: calc(100vh - 96px); */
-  height: calc(100vh - 56px);
+  height: calc(100vh - 63px);
 }
 /* Ширина экрана меньше или равна 768 */
 @media (max-width: 767px) {

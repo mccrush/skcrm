@@ -25,6 +25,7 @@
           <component
             :is="myForm"
             :item="item"
+            :mod="mod"
             @save-item="saveItem"
             @show-modal="showModal"
           />

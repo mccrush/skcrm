@@ -196,7 +196,7 @@
     </div>
 
     <!-- Комментарий -->
-    <div class="col-12 col-md-8 mt-2 pe-md-1">
+    <div class="col-12 col-md-8 mt-2 mb-md-3 pe-md-1">
       <div class="form-floating">
         <textarea
           class="form-control form-control-sm border-0 h-auto"
@@ -210,7 +210,7 @@
     </div>
 
     <!-- Этап -->
-    <div class="col-12 col-md-4 mt-2 ps-md-1" :class="{ 'mb-3': !mod }">
+    <div class="col-12 col-md-4 mt-2 mb-3 ps-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -245,6 +245,9 @@ export default {
     mod: String
   },
   emits: ['save-item', 'show-modal'],
+  mounted() {
+    if (!this.item.dateDue) this.setDate()
+  },
   computed: {
     clients() {
       return this.$store.getters.client

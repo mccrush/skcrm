@@ -39,7 +39,13 @@
             class="btn btn-dark rounded-0 d-none d-md-block w-25"
             data-bs-toggle="modal"
             data-bs-target="#modalWindow"
-            @click="$emit('show-modal', { type: item.type, mod: 'create' })"
+            @click="
+              $emit('show-modal', {
+                type: item.type,
+                item: null,
+                mod: 'create'
+              })
+            "
           >
             +
           </button>
