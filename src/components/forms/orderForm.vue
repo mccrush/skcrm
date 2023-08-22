@@ -103,7 +103,7 @@
           v-model.number="item.price"
           @change="$emit('save-item')"
         />
-        <label for="inputPrice">Стоимость 2</label>
+        <label for="inputPrice">Стоимость тыс.</label>
       </div>
     </div>
 
@@ -134,7 +134,7 @@
           v-model.number="item.prePrice"
           @change="setPrePrice"
         />
-        <label for="inputPrePrice">Предоплата</label>
+        <label for="inputPrePrice">Предоплата тыс.</label>
       </div>
     </div>
 
@@ -147,7 +147,7 @@
           id="inputOstatok"
           v-model.number="item.ostPrice"
         />
-        <label for="inputOstatok">Остаток</label>
+        <label for="inputOstatok">Остаток тыс.</label>
       </div>
     </div>
 

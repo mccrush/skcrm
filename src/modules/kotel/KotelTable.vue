@@ -45,7 +45,9 @@
           <th scope="col" class="text-center small lh-lg" width="10%">
             Бункер
           </th>
-          <th scope="col" class="text-center small lh-lg" width="10%">Цена</th>
+          <th scope="col" class="text-center small lh-1 lh-md-lg" width="10%">
+            Цена тыс.
+          </th>
           <th scope="col" class="text-center small" width="10%">
             Вес
             <button

@@ -109,7 +109,7 @@
           v-model.number="item.price"
           @change="$emit('save-item')"
         />
-        <label for="inputPrice">Прайс тыс.</label>
+        <label for="inputPrice">Цена тыс.</label>
       </div>
     </div>
 
