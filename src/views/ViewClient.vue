@@ -31,7 +31,6 @@
 import TheNavbar from './../components/interface/TheNavbar.vue'
 import FilterValues from './../components/elements/FilterValues.vue'
 import InputSearch from './../components/elements/InputSearch.vue'
-// import ClientFilter from './../modules/client/ClientFilter.vue'
 import ClientTable from './../modules/client/ClientTable.vue'
 
 export default {

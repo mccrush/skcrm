@@ -1,9 +1,14 @@
 <template>
-  <div class="row">
-    <div class="col-12">
-      <TheNavbar />
+  <div class="div">
+    <div class="view">
+      <TheNavbar>
+        <template #count></template>
+        <template #filter></template>
+        <template #filterSelect></template>
+        <template #search></template>
+      </TheNavbar>
     </div>
-    <div class="col-12 p-3">
+    <div>
       <IndexMain />
     </div>
   </div>

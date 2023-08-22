@@ -15,7 +15,6 @@
 
 <script>
 import TheNavbar from './../components/interface/TheNavbar.vue'
-// import OrderFilter from './../modules/order/OrderFilter.vue'
 import OrderKanban from './../modules/order/OrderKanban.vue'
 
 export default {
