@@ -1,7 +1,7 @@
 <template>
   <div class="row bg-light pt-2">
     <!-- Клиент -->
-    <div class="col-10 pe-md-1">
+    <div class="col-9 col-md-10 pe-md-1">
       <select
         class="form-select"
         id="inputClientId"
@@ -14,7 +14,7 @@
       </select>
     </div>
 
-    <div class="col-2 ps-md-1">
+    <div class="col-3 col-md-2 ps-0 ps-md-1">
       <BtnOpenClient
         class="btn btn-light text-secondary lh-1 p-2 w-100"
         @click="
@@ -194,7 +194,7 @@
     </div>
 
     <!-- Комментарий -->
-    <div class="col-12 col-md-8 mt-2 pe-1" :class="{ 'mb-3': !mod }">
+    <div class="col-12 col-md-8 mt-2 pe-md-1">
       <div class="form-floating">
         <textarea
           class="form-control form-control-sm border-0 h-auto"
@@ -208,7 +208,7 @@
     </div>
 
     <!-- Этап -->
-    <div class="col-12 col-md-4 mt-2 ps-1">
+    <div class="col-12 col-md-4 mt-2 ps-1" :class="{ 'mb-3': !mod }">
       <div class="form-floating">
         <select
           class="form-select"
