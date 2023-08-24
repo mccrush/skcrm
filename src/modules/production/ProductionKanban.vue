@@ -40,11 +40,11 @@ export default {
   },
   emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
   computed: {
-    stages() {
-      return this.$store.getters.stage
+    stageProduction() {
+      return this.$store.getters.stageProduction
     },
     stageSorted() {
-      return sortMethod(this.stages, 'asc', 'position')
+      return sortMethod(this.stageProduction, 'asc', 'position')
     }
   },
   mounted() {
