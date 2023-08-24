@@ -2,7 +2,7 @@ import fireApp from './../../firebase'
 import { getFirestore, doc, setDoc, updateDoc, deleteDoc, collection, query, getDocs } from "firebase/firestore"
 const db = getFirestore(fireApp)
 
-import { dataModels } from './../../data/dataModels'
+//import { dataModels } from './../../data/dataModels'
 
 export default {
   state: {
@@ -12,7 +12,7 @@ export default {
     order: [],
     production: [],
     stage: [],
-    stageObrabotka: [],
+    stageProduction: [],
     obrabotka: [],
     user: []
   },
@@ -94,7 +94,7 @@ export default {
     production: state => state.production,
     ograda: state => state.ograda,
     stage: state => state.stage,
-    stageObrabotka: state => state.stageObrabotka,
+    stageProduction: state => state.stageProduction,
     obrabotka: state => state.obrabotka,
     user: state => state.user
   }
