@@ -1,5 +1,5 @@
 <template>
-  <div class="p-0 p-md-2">
+  <div class="cover-overflow overflow-x-hidden overflow-y-auto p-0 p-md-2">
     <stageForm
       v-for="item in listItems"
       :key="item.id"

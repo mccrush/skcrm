@@ -1,5 +1,5 @@
 <template>
-  <div class="cover-stage d-flex overflow-x-auto pt-3">
+  <div class="cover-overflow d-flex overflow-x-auto pt-3">
     <div
       v-for="stage in stageSorted"
       :key="stage.id"
@@ -79,10 +79,6 @@ export default {
 </script>
 
 <style scoped>
-.cover-stage {
-  /* height: calc(100vh - 96px); */
-  height: calc(100vh - 63px);
-}
 /* Ширина экрана меньше или равна 768 */
 @media (max-width: 767px) {
   .list-colum {

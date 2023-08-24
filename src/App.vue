@@ -105,6 +105,10 @@ export default {
   cursor: default;
 }
 
+.cover-overflow {
+  height: calc(100vh - 63px);
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;
