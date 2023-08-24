@@ -23,7 +23,7 @@ import { sortMethod } from './../helpers/sortMethod'
 import ViewClient from './../views/ViewClient.vue'
 import ViewKotel from './../views/ViewKotel.vue'
 import ViewOrder from './../views/ViewOrder.vue'
-import ViewProduction from './../views/ViewProduction.vue'
+import ViewProduction from './../views/ViewOrder.vue'
 import ViewStage from './../views/ViewStage.vue'
 import ViewStageProduction from './../views/ViewStage.vue'
 import ViewUser from './../views/ViewUser.vue'
@@ -54,7 +54,7 @@ export default {
         'View' +
         this.$route.params.type.substr(0, 1).toUpperCase() +
         this.$route.params.type.slice(1)
-      console.log('component View = ', component)
+      //console.log('component View = ', component)
       return component
     },
     listItems() {

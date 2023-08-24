@@ -41,6 +41,9 @@ export default {
   emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
   computed: {
     stages() {
+      if (this.$route.params.type === 'production') {
+        return this.$store.getters.stageProduction
+      }
       return this.$store.getters.stage
     },
     stageSorted() {
