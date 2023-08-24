@@ -25,7 +25,7 @@ import ViewKotel from './../views/ViewKotel.vue'
 import ViewOrder from './../views/ViewOrder.vue'
 import ViewProduction from './../views/ViewProduction.vue'
 import ViewStage from './../views/ViewStage.vue'
-import ViewStageProduction from './../views/ViewStageProduction.vue'
+import ViewStageProduction from './../views/ViewStage.vue'
 import ViewUser from './../views/ViewUser.vue'
 
 export default {

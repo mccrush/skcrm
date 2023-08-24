@@ -60,7 +60,7 @@ import clientForm from './../forms/clientForm.vue'
 import kotelForm from './../forms/kotelFormModal.vue'
 import orderForm from './../forms/orderForm.vue'
 import stageForm from './../forms/stageForm.vue'
-import stageProductionForm from './../forms/stageProductionForm.vue'
+import stageProductionForm from './../forms/stageForm.vue'
 import userForm from './../forms/userForm.vue'
 
 import BtnRemoveItem from './../buttons/BtnRemoveItem.vue'
