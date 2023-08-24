@@ -12,7 +12,7 @@
       <div v-if="item" class="modal-content bg-white border-0">
         <div class="modal-header p-2 ps-3 pe-3">
           <h1 class="modal-title fs-5" id="staticBackdropLabel">
-            {{ getModalTitle(type) }}
+            {{ getModalTitle }}
           </h1>
           <button
             type="button"
@@ -31,19 +31,13 @@
           />
         </div>
         <div class="modal-footer p-2">
-          <button
+          <BtnRemoveItem
             v-if="mod === 'edit'"
-            type="button"
-            class="btn btn-sm btn-danger"
             data-bs-dismiss="modal"
             @click="removeItem"
-          >
-            Удалить
-          </button>
-          <button
+          />
+          <BtnCreateItem
             v-if="mod === 'create'"
-            type="button"
-            class="btn btn-sm btn-success ms-2"
             data-bs-dismiss="modal"
             :disabled="
               item.type === 'order' &&
@@ -52,9 +46,7 @@
                 : false
             "
             @click="createItem"
-          >
-            Создать
-          </button>
+          />
         </div>
       </div>
     </div>
@@ -62,12 +54,17 @@
 </template>
 
 <script>
+import { dataModels } from './../../data/dataModels'
+
 import clientForm from './../forms/clientForm.vue'
 import kotelForm from './../forms/kotelFormModal.vue'
 import orderForm from './../forms/orderForm.vue'
 import stageForm from './../forms/stageForm.vue'
 import stageProductionForm from './../forms/stageProductionForm.vue'
 import userForm from './../forms/userForm.vue'
+
+import BtnRemoveItem from './../buttons/BtnRemoveItem.vue'
+import BtnCreateItem from './../buttons/BtnCreateItem.vue'
 
 export default {
   components: {
@@ -76,7 +73,9 @@ export default {
     orderForm,
     stageForm,
     stageProductionForm,
-    userForm
+    userForm,
+    BtnRemoveItem,
+    BtnCreateItem
   },
   emits: ['show-modal'],
   props: {
@@ -89,6 +88,9 @@ export default {
       const component = this.type + 'Form'
       //console.log('component = ', component)
       return component
+    },
+    getModalTitle() {
+      return dataModels.find(item => item.type === this.type).title
     }
   },
   methods: {
@@ -107,15 +109,6 @@ export default {
     },
     showModal({ type, item, mod }) {
       this.$emit('show-modal', { type, item, mod })
-    },
-
-    getModalTitle(type) {
-      const titles = {
-        client: 'Клиент',
-        kotel: 'Котел',
-        order: 'Заказ'
-      }
-      return titles[type]
     }
   }
 }
