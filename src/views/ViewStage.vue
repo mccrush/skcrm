@@ -2,7 +2,7 @@
   <div class="view">
     <TheNavbar @show-modal="showModal" />
 
-    <StageTable :listItems="listItemsSorted" />
+    <StageTable :listItems="listItems" @set-sort-method="setSortMethod" />
   </div>
 </template>
 
@@ -18,16 +18,16 @@ export default {
     StageTable
   },
   props: {
-    listItems: Array
-  },
-  computed: {
-    listItemsSorted() {
-      return sortMethod(this.listItems, 'asc', 'position')
-    }
+    listItems: Array,
+    sortUp: String
   },
   methods: {
+    sortMethod,
     showModal({ type, item, mod }) {
       this.$emit('show-modal', { type, item, mod })
+    },
+    setSortMethod({ sortUp, sortBy }) {
+      this.$emit('set-sort-method', { sortUp, sortBy })
     }
   }
 }
