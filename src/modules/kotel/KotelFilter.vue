@@ -4,38 +4,19 @@
     <div class="d-flex p-0">
       <div class="btn-group btn-group-sm ms-2">
         <button
+          v-for="typek in dataKotelType"
+          :key="typek"
           class="btn btn-light"
           @click="
             $emit('set-filter-method', {
               filterType: 'typek',
-              filterValue: 'П'
+              filterValue: typek
             })
           "
         >
-          П
+          {{ typek }}
         </button>
-        <button
-          class="btn btn-light"
-          @click="
-            $emit('set-filter-method', {
-              filterType: 'typek',
-              filterValue: 'А'
-            })
-          "
-        >
-          А
-        </button>
-        <button
-          class="btn btn-light"
-          @click="
-            $emit('set-filter-method', {
-              filterType: 'typek',
-              filterValue: 'АМ'
-            })
-          "
-        >
-          АМ
-        </button>
+
         <!-- <button
           class="btn btn-light"
           @click="
@@ -77,7 +58,7 @@
 </template>
 
 <script>
-import { dataPower } from './../../data/dataForClient'
+import { dataKotelType, dataPower } from './../../data/dataForClient'
 
 export default {
   props: {
@@ -86,6 +67,7 @@ export default {
   emits: ['set-filter-method'],
   data() {
     return {
+      dataKotelType,
       dataPower
     }
   }
