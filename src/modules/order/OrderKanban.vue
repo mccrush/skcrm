@@ -1,5 +1,8 @@
 <template>
-  <div class="cover-overflow d-flex overflow-x-auto pt-3">
+  <div
+    v-if="stageSorted.length"
+    class="cover-overflow d-flex overflow-x-auto pt-3"
+  >
     <div
       v-for="stage in stageSorted"
       :key="stage.id"
@@ -10,14 +13,16 @@
         :class="stage.border"
       >
         {{ stage.title }}
-        <div v-if="getItems(stage.id).length" class="fw-normal">
-          {{ getItems(stage.id).length }} шт. -
-          {{ getTottalSum(getItems(stage.id), 'price') }} 000 ₽
+        <div v-if="getItems(stage.id, stage.position).length" class="fw-normal">
+          {{ getItems(stage.id, stage.position).length }} шт. -
+          {{ getTottalSum(getItems(stage.id, stage.position), 'price') }} 000 ₽
         </div>
         <div v-else>-</div>
       </div>
       <OrderCards
-        :items="sortMethod(getItems(stage.id), 'asc', 'dateCreate')"
+        :items="
+          sortMethod(getItems(stage.id, stage.position), 'asc', 'dateCreate')
+        "
         @show-modal="showModal"
       />
     </div>
@@ -40,11 +45,18 @@ export default {
   },
   emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
   computed: {
+    stagesProduction() {
+      return this.$store.getters.stageProduction
+    },
+    stagesOrder() {
+      return this.$store.getters.stage
+    },
     stages() {
       if (this.$route.params.type === 'production') {
-        return this.$store.getters.stageProduction
+        return this.stagesProduction
+      } else if (this.$route.params.type === 'order') {
+        return this.stagesOrder
       }
-      return this.$store.getters.stage
     },
     stageSorted() {
       return sortMethod(this.stages, 'asc', 'position')
@@ -56,8 +68,44 @@ export default {
   methods: {
     sortMethod,
     getTottalSum,
-    getItems(stageId) {
-      return this.listItems.filter(item => item.stageId === stageId)
+    getItems(stageId, stagePosition) {
+      //return this.listItems.filter(item => item.stageId === stageId)
+      if (this.$route.params.type === 'production') {
+        return this.listItems.filter(item => item.stageId === stageId)
+      } else if (this.$route.params.type === 'order') {
+        if (stagePosition === 2) {
+          const stagesProductionId = this.stagesProduction.filter(
+            item => item.position >= 2 && item.position <= 10
+          )
+
+          let itemsForOrder = []
+
+          stagesProductionId.forEach(el => {
+            itemsForOrder.concat(
+              this.listItems.filter(item => item.stageId === el.id)
+            )
+          })
+          console.log('itemsForOrder = ', itemsForOrder)
+          return itemsForOrder
+        } else {
+          let stageIdForOrder = ''
+          if (stagePosition == 1) {
+            stageIdForOrder = this.stagesProduction.find(
+              item => item.position == 1
+            ).id
+          } else if (stagePosition == 3) {
+            stageIdForOrder = this.stagesProduction.find(
+              item => item.position == 11
+            ).id
+          } else if (stagePosition == 4) {
+            stageIdForOrder = this.stagesProduction.find(
+              item => item.position == 12
+            ).id
+          }
+          console.log('stageIdForOrder = ', stageIdForOrder)
+          return this.listItems.filter(item => item.stageId === stageIdForOrder)
+        }
+      }
     },
     editItem({ type, item }) {
       this.$emit('show-modal', { type, item, mod: 'edit' })

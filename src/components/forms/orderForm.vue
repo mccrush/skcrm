@@ -225,7 +225,11 @@
           v-model="item.stageId"
           @change="setStage"
         >
-          <option v-for="stage in stages" :key="stage.id" :value="stage.id">
+          <option
+            v-for="stage in stageProduction"
+            :key="stage.id"
+            :value="stage.id"
+          >
             {{ stage.title }}
           </option>
         </select>
@@ -264,6 +268,9 @@ export default {
     },
     stages() {
       return this.$store.getters.stage
+    },
+    stageProduction() {
+      return this.$store.getters.stageProduction
     },
     prices() {
       if (this.item.kotelId) {
