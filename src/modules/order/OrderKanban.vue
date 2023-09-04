@@ -89,19 +89,17 @@ export default {
           return itemsForOrder
         } else {
           let stageIdForOrder = ''
+          let stageItem = null
+
           if (stagePosition == 1) {
-            stageIdForOrder = this.stagesProduction.find(
-              item => item.position == 1
-            ).id
+            stageItem = this.stagesProduction.find(item => item.position == 1)
           } else if (stagePosition == 3) {
-            stageIdForOrder = this.stagesProduction.find(
-              item => item.position == 11
-            ).id
+            stageItem = this.stagesProduction.find(item => item.position == 11)
           } else if (stagePosition == 4) {
-            stageIdForOrder = this.stagesProduction.find(
-              item => item.position == 12
-            ).id
+            stageItem = this.stagesProduction.find(item => item.position == 12)
           }
+
+          if (stageItem) stageIdForOrder = stageItem.id
           console.log('stageIdForOrder = ', stageIdForOrder)
           return this.listItems.filter(item => item.stageId === stageIdForOrder)
         }
