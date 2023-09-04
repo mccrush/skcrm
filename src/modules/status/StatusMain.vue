@@ -7,6 +7,11 @@
       >
         {{ stage.title }}
       </div>
+      <div
+        :items="
+          sortMethod(getItems(stage.id, stage.position), 'asc', 'dateCreate')
+        "
+      ></div>
     </div>
   </div>
 </template>
@@ -15,12 +20,20 @@
 import { sortMethod } from './../../helpers/sortMethod'
 
 export default {
+  props: {
+    listItems: Array
+  },
   computed: {
     stages() {
       return this.$store.getters.stageProduction
     },
     stageSorted() {
       return sortMethod(this.stages, 'asc', 'position')
+    }
+  },
+  methods: {
+    getItems(stageId, stagePosition) {
+      return this.listItems.filter(item => item.stageId === stageId)
     }
   }
 }
