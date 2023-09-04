@@ -69,23 +69,23 @@ export default {
     sortMethod,
     getTottalSum,
     getItems(stageId, stagePosition) {
-      //return this.listItems.filter(item => item.stageId === stageId)
       if (this.$route.params.type === 'production') {
         return this.listItems.filter(item => item.stageId === stageId)
       } else if (this.$route.params.type === 'order') {
         if (stagePosition === 2) {
+          //console.log('stagePosition 2 = ', stagePosition)
           const stagesProductionId = this.stagesProduction.filter(
             item => item.position >= 2 && item.position <= 10
           )
 
+          //console.log('stagesProductionId = ', stagesProductionId)
           let itemsForOrder = []
 
           stagesProductionId.forEach(el => {
-            itemsForOrder.concat(
+            itemsForOrder = itemsForOrder.concat(
               this.listItems.filter(item => item.stageId === el.id)
             )
           })
-          console.log('itemsForOrder = ', itemsForOrder)
           return itemsForOrder
         } else {
           let stageIdForOrder = ''
@@ -100,7 +100,6 @@ export default {
           }
 
           if (stageItem) stageIdForOrder = stageItem.id
-          console.log('stageIdForOrder = ', stageIdForOrder)
           return this.listItems.filter(item => item.stageId === stageIdForOrder)
         }
       }
@@ -109,7 +108,6 @@ export default {
       this.$emit('show-modal', { type, item, mod: 'edit' })
     },
     setFilterMethod({ filterType, filterValue }) {
-      //console.log('filterType, filterValue', filterType, filterValue)
       this.$emit('set-filter-method', { filterType, filterValue })
     },
     setSortMethod(type) {
@@ -117,7 +115,6 @@ export default {
       this.$emit('set-sort-method', { sortUp: sortUp, sortBy: type })
     },
     showModal({ type, item, mod }) {
-      //console.log('type, item ', type, item)
       this.$emit('show-modal', { type, item, mod })
     }
   }
