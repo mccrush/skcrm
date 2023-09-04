@@ -8,7 +8,10 @@
         <div class="pt-1">Статус производства котла</div>
       </template>
       <template #search>
-        <InputSearch placeholder="Введите свой номер телефона: 89997776655" />
+        <InputSearch
+          v-model="searchValue"
+          placeholder="Введите свой номер телефона: 89997776655"
+        />
       </template>
     </TheNavbar>
 
@@ -27,6 +30,12 @@ export default {
     TheNavbar,
     InputSearch,
     StatusMain
+  },
+  emits: ['set-search-method'],
+  watch: {
+    searchValue() {
+      this.$emit('set-search-method', { searchValue: this.searchValue })
+    }
   }
 }
 </script>
