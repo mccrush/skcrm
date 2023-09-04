@@ -29,7 +29,7 @@
         }}</span>
         <span
           class="d-block text-end"
-          title="- дней на производства / + просрочено"
+          title="- дней на производство / + просрочено"
           :class="{
             'text-success fw-bold':
               getCountLastDays(item.dateCreate, item.dateFinish) < 28 &&

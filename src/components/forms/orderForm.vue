@@ -226,7 +226,7 @@
           @change="setStage"
         >
           <option
-            v-for="stage in stageProduction"
+            v-for="stage in stageSorted"
             :key="stage.id"
             :value="stage.id"
           >
@@ -240,6 +240,7 @@
 </template>
 
 <script>
+import { sortMethod } from './../../helpers/sortMethod'
 import { getDueDate } from './../../helpers/getDueDate'
 import { getFormateInputDate } from './../../helpers/getFormateInputDate'
 import BtnOpenClient from './../buttons/BtnOpenClient.vue'
@@ -271,6 +272,9 @@ export default {
     },
     stageProduction() {
       return this.$store.getters.stageProduction
+    },
+    stageSorted() {
+      return sortMethod(this.stageProduction, 'asc', 'position')
     },
     prices() {
       if (this.item.kotelId) {
