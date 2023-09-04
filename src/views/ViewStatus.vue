@@ -32,6 +32,11 @@ export default {
     StatusMain
   },
   emits: ['set-search-method'],
+  data() {
+    return {
+      searchValue: ''
+    }
+  },
   watch: {
     searchValue() {
       this.$emit('set-search-method', { searchValue: this.searchValue })
