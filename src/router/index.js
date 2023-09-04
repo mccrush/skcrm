@@ -36,11 +36,11 @@ const routes = [
     name: 'login',
     component: () => import('../pages/PageLogin.vue')
   },
-  // {
-  //   path: '/translation',
-  //   name: 'translation',
-  //   component: () => import('../pages/PageTranslation.vue')
-  // },
+  {
+    path: '/status',
+    name: 'status',
+    component: () => import('../pages/PageStatus.vue')
+  },
   // {
   //   path: '/naprav/:alias',
   //   name: 'naprav',

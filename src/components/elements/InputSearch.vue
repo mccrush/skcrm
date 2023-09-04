@@ -5,6 +5,7 @@
       id="inputSearchList"
       :value="modelValue"
       class="form-control form-control-sm"
+      :placeholder="placeholder"
       @input="$emit('update:modelValue', $event.target.value)"
     />
     <button
@@ -18,7 +19,7 @@
 
 <script>
 export default {
-  props: ['modelValue'],
+  props: ['modelValue', 'placeholder'],
   emits: ['update:modelValue']
 }
 </script>
