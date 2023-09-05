@@ -14,6 +14,18 @@ export const searchMethod = (array, type, searchValue) => {
     else if (type === 'order') {
       return array
     }
+    if (type === 'clientStatus') {
+      return array.filter(
+        item =>
+          item.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+          item.phone.toLowerCase() == searchValue.toLowerCase()
+      )
+    }
+    else if (type === 'status') {
+      return array.filter(
+        item =>
+          item.clientId === searchValue)
+    }
     else {
       return array
     }

@@ -19,19 +19,32 @@ export default {
     }
   },
   computed: {
+    clients() {
+      return this.$store.getters.client
+    },
     listItems() {
       return this.$store.getters.order
     },
     searchItems() {
-      //console.log('pre Search items = ', this.filterItems)
-      return searchMethod(
-        this.listItems,
-        this.$route.params.type,
-        this.searchValue
-      )
+      if (!this.searchValue) {
+        return []
+      } else {
+        // Найти клиента
+        const clientId =
+          searchMethod(this.clients, 'clientStatus', this.searchValue) || []
+        //Найти заказ
+        if (clientId.length) {
+          return searchMethod(this.listItems, 'status', clientId[0].id)
+        }
+        return []
+      }
     }
   },
   methods: {
+    // getClient(clientId) {
+    //   const client = this.clients.find(item => item.id === clientId)
+    //   return client
+    // },
     setSearchMethod({ searchValue }) {
       this.searchValue = searchValue
     }

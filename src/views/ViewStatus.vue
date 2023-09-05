@@ -10,7 +10,7 @@
       <template #search>
         <InputSearch
           v-model="searchValue"
-          placeholder="Введите номер телефона: 89997776655"
+          placeholder="Фамилия или телефон: 89997776655"
         />
       </template>
     </TheNavbar>
