@@ -10,12 +10,12 @@
       <template #search>
         <InputSearch
           v-model="searchValue"
-          placeholder="Введите свой номер телефона: 89997776655"
+          placeholder="Введите номер телефона: 89997776655"
         />
       </template>
     </TheNavbar>
 
-    <StatusMain />
+    <StatusMain :listItems="listItems" />
   </div>
 </template>
 
@@ -30,6 +30,9 @@ export default {
     TheNavbar,
     InputSearch,
     StatusMain
+  },
+  props: {
+    listItems: Array
   },
   emits: ['set-search-method'],
   data() {

@@ -1,10 +1,12 @@
 <template>
   <div>
-    <ViewStatus @set-search-method="setSearchMethod" />
+    <ViewStatus :listItems="searchItems" @set-search-method="setSearchMethod" />
   </div>
 </template>
 
 <script>
+import { searchMethod } from './../helpers/searchMethod'
+
 import ViewStatus from './../views/ViewStatus.vue'
 
 export default {
@@ -14,6 +16,19 @@ export default {
   data() {
     return {
       searchValue: ''
+    }
+  },
+  computed: {
+    listItems() {
+      return this.$store.getters.order
+    },
+    searchItems() {
+      //console.log('pre Search items = ', this.filterItems)
+      return searchMethod(
+        this.listItems,
+        this.$route.params.type,
+        this.searchValue
+      )
     }
   },
   methods: {

@@ -7,11 +7,16 @@
       >
         {{ stage.title }}
       </div>
-      <div
-        :items="
-          sortMethod(getItems(stage.id, stage.position), 'asc', 'dateCreate')
-        "
-      ></div>
+
+      <StatusCard
+        v-for="item in sortMethod(
+          getItems(stage.id, stage.position),
+          'asc',
+          'dateCreate'
+        )"
+        :key="item.id"
+        :item="item"
+      />
     </div>
   </div>
 </template>
@@ -19,7 +24,10 @@
 <script>
 import { sortMethod } from './../../helpers/sortMethod'
 
+import StatusCard from './StatusCard.vue'
+
 export default {
+  components: { StatusCard },
   props: {
     listItems: Array
   },
@@ -32,6 +40,7 @@ export default {
     }
   },
   methods: {
+    sortMethod,
     getItems(stageId, stagePosition) {
       return this.listItems.filter(item => item.stageId === stageId)
     }
@@ -51,7 +60,7 @@ export default {
 @media (min-width: 768px) {
   .list-colum {
     /* width: calc(35vw); */
-    min-width: 124px;
+    min-width: 128px;
   }
 }
 </style>
