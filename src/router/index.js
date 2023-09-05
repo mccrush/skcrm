@@ -3,7 +3,7 @@ import store from './../store'
 
 const routes = [
   {
-    path: '/',
+    path: '/index',
     name: 'index',
     component: () => import('../pages/PageIndex.vue'),
     meta: {
@@ -37,7 +37,7 @@ const routes = [
     component: () => import('../pages/PageLogin.vue')
   },
   {
-    path: '/status',
+    path: '/',
     name: 'status',
     component: () => import('../pages/PageStatus.vue')
   },

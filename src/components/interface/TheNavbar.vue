@@ -1,6 +1,9 @@
 <template>
   <div class="navbar row bg-white shadow-sm z-2 p-3">
-    <div class="col-12 d-md-none d-flex justify-content-between">
+    <div
+      v-if="currentUserId"
+      class="col-12 d-md-none d-flex justify-content-between"
+    >
       <button
         class="btn btn-sm btn-light ps-3 pe-3"
         type="button"
@@ -45,7 +48,12 @@
 
 <script>
 export default {
-  emits: ['show-modal']
+  emits: ['show-modal'],
+  computed: {
+    currentUserId() {
+      return this.$store.getters.currentUserId
+    }
+  }
 }
 </script>
 

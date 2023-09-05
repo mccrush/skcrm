@@ -5,7 +5,7 @@
         <div class="fw-bold pt-1">СлавКотёл</div>
       </template>
       <template #filter>
-        <div class="pt-1">Статус производства котла</div>
+        <div class="pt-1">Статус производства</div>
       </template>
       <template #search>
         <InputSearch

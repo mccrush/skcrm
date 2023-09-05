@@ -17,7 +17,7 @@ export const searchMethod = (array, type, searchValue) => {
     if (type === 'clientStatus') {
       return array.filter(
         item =>
-          item.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+          item.name.split(' ')[0].toLowerCase() === searchValue.toLowerCase() ||
           item.phone.toLowerCase() == searchValue.toLowerCase()
       )
     }
