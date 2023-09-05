@@ -1,6 +1,11 @@
 <template>
   <div class="cover-overflow d-flex overflow-x-auto pt-3">
-    <div v-for="stage in stageSorted" :key="stage.id" class="list-colum p-2">
+    <div
+      v-for="stage in stageSorted"
+      :key="stage.id"
+      :id="stage.id"
+      class="list-colum p-2"
+    >
       <div
         class="text-center small border-bottom border-2 lh-1 pb-2"
         :class="stage.border"
@@ -29,7 +34,8 @@ import StatusCard from './StatusCard.vue'
 export default {
   components: { StatusCard },
   props: {
-    listItems: Array
+    listItems: Array,
+    searchValue: String
   },
   computed: {
     stages() {
@@ -43,6 +49,36 @@ export default {
     sortMethod,
     getItems(stageId, stagePosition) {
       return this.listItems.filter(item => item.stageId === stageId)
+    }
+  },
+  watch: {
+    searchValue(pre, next) {
+      const cover = document.getElementsByClassName('cover-overflow')[0]
+      if (this.listItems.length) {
+        const colum = this.listItems[0]
+        //console.log('colum = ', colum)
+
+        const columId = colum.stageId
+        //console.log('columId = ', columId)
+
+        const cor = document.getElementById(columId)
+        //console.log('cor = ', cor)
+
+        const corX = cor.getBoundingClientRect().x
+        //console.log('corX = ', corX)
+
+        cover.scrollTo({
+          top: 0,
+          left: corX,
+          behavior: 'smooth'
+        })
+      } else {
+        cover.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        })
+      }
     }
   }
 }

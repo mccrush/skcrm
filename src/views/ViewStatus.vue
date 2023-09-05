@@ -15,7 +15,7 @@
       </template>
     </TheNavbar>
 
-    <StatusMain :listItems="listItems" />
+    <StatusMain :listItems="listItems" :searchValue="searchValue" />
   </div>
 </template>
 
