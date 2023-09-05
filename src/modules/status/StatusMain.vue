@@ -52,20 +52,13 @@ export default {
     }
   },
   watch: {
-    searchValue(pre, next) {
+    searchValue() {
       const cover = document.getElementsByClassName('cover-overflow')[0]
       if (this.listItems.length) {
         const colum = this.listItems[0]
-        //console.log('colum = ', colum)
-
         const columId = colum.stageId
-        //console.log('columId = ', columId)
-
         const cor = document.getElementById(columId)
-        //console.log('cor = ', cor)
-
         const corX = cor.getBoundingClientRect().x
-        //console.log('corX = ', corX)
 
         cover.scrollTo({
           top: 0,
