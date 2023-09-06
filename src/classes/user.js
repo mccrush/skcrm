@@ -9,4 +9,5 @@ export default class user extends ClassBasic {
   email = ''
   access = 3
   doljnost = ''
+  stages = []
 }

@@ -13,4 +13,5 @@ export default class order extends ClassBasic {
   ostPrice = 0
   dateDue = ''
   dateFinish = ''
+  userId = ''
 }

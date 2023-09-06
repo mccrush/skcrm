@@ -7,5 +7,5 @@ export const dataModels = [
   { id: '06', type: 'stage', title: 'Этапы З', menu: true },
   { id: '07', type: 'stageProduction', title: 'Этапы П', menu: true },
   { id: '08', type: 'obrabotka', title: 'Обработки', menu: false },
-  { id: '09', type: 'user', title: 'Сотрудники', menu: false },
+  { id: '09', type: 'user', title: 'Сотрудники', menu: true },
 ]
