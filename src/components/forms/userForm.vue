@@ -176,7 +176,7 @@ export default {
       if (!this.item.stages) this.item.stages = []
       // console.log('this.item.stages', this.item.stages)
       // console.log('this.stageSelect', this.stageSelect)
-      if (!this.item.stages.includes(this.stageSelect)) {
+      if (this.stageSelect && !this.item.stages.includes(this.stageSelect)) {
         this.item.stages.push(this.stageSelect)
         this.$emit('save-item', { item: this.item })
       }
