@@ -9,7 +9,7 @@
       </div>
 
       <div class="list-items">
-        <div>
+        <!-- <div>
           <button
             class="btn btn-dark rounded-0 w-100 d-md-none"
             data-bs-dismiss="offcanvas"
@@ -17,38 +17,43 @@
           >
             Главная
           </button>
-        </div>
-        <div v-for="item in menuItems" :key="item.id" class="btn-group w-100">
-          <button
-            class="btn btn-dark rounded-0 w-75 d-md-none"
-            data-bs-dismiss="offcanvas"
-            @click="$router.push('/view/' + item.type)"
+        </div> -->
+        <div v-for="item in menuItems" :key="item.id">
+          <div
+            v-if="user && user.access <= item.access"
+            class="btn-group w-100"
           >
-            {{ item.title }}
-          </button>
+            <button
+              class="btn btn-dark rounded-0 w-75 d-md-none"
+              data-bs-dismiss="offcanvas"
+              @click="$router.push('/view/' + item.type)"
+            >
+              {{ item.title }}
+            </button>
 
-          <button
-            class="btn btn-dark rounded-0 w-75 d-none d-md-block"
-            @click="$router.push('/view/' + item.type)"
-          >
-            {{ item.title }}
-          </button>
+            <button
+              class="btn btn-dark rounded-0 w-75 d-none d-md-block"
+              @click="$router.push('/view/' + item.type)"
+            >
+              {{ item.title }}
+            </button>
 
-          <button
-            type="button"
-            class="btn btn-dark rounded-0 d-none d-md-block w-25"
-            data-bs-toggle="modal"
-            data-bs-target="#modalWindow"
-            @click="
-              $emit('show-modal', {
-                type: item.type,
-                item: null,
-                mod: 'create'
-              })
-            "
-          >
-            +
-          </button>
+            <button
+              type="button"
+              class="btn btn-dark rounded-0 d-none d-md-block w-25"
+              data-bs-toggle="modal"
+              data-bs-target="#modalWindow"
+              @click="
+                $emit('show-modal', {
+                  type: item.type,
+                  item: null,
+                  mod: 'create'
+                })
+              "
+            >
+              +
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -81,6 +86,9 @@ import { dataModels } from './../../data/dataModels'
 import { version } from './../../../package.json'
 
 export default {
+  props: {
+    currentUserId: String
+  },
   emits: ['show-modal'],
   data() {
     return {
@@ -90,6 +98,14 @@ export default {
   computed: {
     menuItems() {
       return dataModels.filter(item => item.menu)
+    },
+    users() {
+      return this.$store.getters.user
+    },
+    user() {
+      const usr = this.users.find(item => item.id === this.currentUserId)
+      console.log('usr = ', usr)
+      return usr
     }
   },
   methods: {

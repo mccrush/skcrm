@@ -6,7 +6,7 @@
       class="d-md-none"
     />
     <div v-if="currentUserId" class="col-md-2 col-xxl-1 d-none d-md-block">
-      <TheSideBar @show-modal="showModal" />
+      <TheSideBar @show-modal="showModal" :currentUserId="currentUserId" />
     </div>
 
     <div class="container-fluid overflow-x-hidden p-0">
