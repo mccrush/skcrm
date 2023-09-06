@@ -81,6 +81,41 @@
       </div>
     </div>
 
+    <!-- Закреплен за этапами -->
+    <div class="col-12 col-md-4">
+      <div class="d-flex">
+        <div class="form-floating">
+          <select
+            class="form-select"
+            :id="'inputStages' + item.id"
+            v-model="stageSelect"
+          >
+            <option
+              v-for="stage in stageProduction"
+              :key="stage.id"
+              :value="stage.id"
+            >
+              {{ stage.title }}
+            </option>
+          </select>
+          <label :for="'inputStages' + item.id">Этапы</label>
+        </div>
+        <button class="btn btn-success" @click="addStage">+</button>
+      </div>
+      <ul class="list-group">
+        <li
+          v-for="stage in item.stages"
+          :key="stage"
+          class="list-group-item d-flex justify-content-between align-items-center p-0 ps-1"
+        >
+          <span>{{ getStageTitle(stage) }}</span>
+          <button class="btn btn-sm btn-light" @click="removeStage(stage)">
+            X
+          </button>
+        </li>
+      </ul>
+    </div>
+
     <!-- Комментарий -->
     <div class="col-11 col-xl-4 mt-0">
       <div class="form-floating">
@@ -106,6 +141,7 @@
 </template>
 
 <script>
+import { sortMethod } from './../../helpers/sortMethod'
 import { dataDoljnosts } from './../../data/dataDoljnosts'
 import BtnDelete from './../buttons/BtnDelete.vue'
 
@@ -123,7 +159,31 @@ export default {
   emits: ['save-item', 'remove-item'],
   data() {
     return {
-      dataDoljnosts
+      dataDoljnosts,
+      stageSelect: ''
+    }
+  },
+  computed: {
+    stageProduction() {
+      return sortMethod(this.$store.getters.stageProduction, 'asc', 'position')
+    }
+  },
+  methods: {
+    getStageTitle(stage) {
+      return this.stageProduction.find(item => item.id === stage).title
+    },
+    addStage() {
+      if (!this.item.stages) this.item.stages = []
+      // console.log('this.item.stages', this.item.stages)
+      // console.log('this.stageSelect', this.stageSelect)
+      if (!this.item.stages.includes(this.stageSelect)) {
+        this.item.stages.push(this.stageSelect)
+        this.$emit('save-item', { item: this.item })
+      }
+    },
+    removeStage(stage) {
+      this.item.stages = this.item.stages.filter(item => item !== stage)
+      this.$emit('save-item', { item: this.item })
     }
   }
 }
