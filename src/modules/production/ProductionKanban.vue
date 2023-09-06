@@ -1,5 +1,6 @@
 <template>
   <div class="cover-stage d-flex overflow-x-auto pt-3">
+    {{ user.access }}
     <div
       v-for="stage in stageSorted"
       :key="stage.id"
@@ -40,11 +41,28 @@ export default {
   },
   emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
   computed: {
+    currentUserId() {
+      return this.$store.getters.currentUserId
+    },
+    users() {
+      return this.$store.getters.user
+    },
+    user() {
+      return this.users.find(item => item.id === this.currentUserId)
+    },
     stageProduction() {
       return this.$store.getters.stageProduction
     },
+    stageFiltered() {
+      if (user.access === 3) {
+        return this.stageProduction.filter(item =>
+          user.stages.includes(item.id)
+        )
+      }
+      return this.stageProduction
+    },
     stageSorted() {
-      return sortMethod(this.stageProduction, 'asc', 'position')
+      return sortMethod(this.stageFiltered, 'asc', 'position')
     }
   },
   mounted() {

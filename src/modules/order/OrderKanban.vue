@@ -45,19 +45,38 @@ export default {
   },
   emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
   computed: {
+    currentUserId() {
+      return this.$store.getters.currentUserId
+    },
+    users() {
+      return this.$store.getters.user
+    },
+    user() {
+      return this.users.find(item => item.id === this.currentUserId)
+    },
+
     stagesProduction() {
       return this.$store.getters.stageProduction
+    },
+    stageProductionFiltered() {
+      if (this.user && this.user.access === 3) {
+        return this.stagesProduction.filter(item =>
+          this.user.stages.includes(item.id)
+        )
+      }
+      return this.stagesProduction
     },
     stagesOrder() {
       return this.$store.getters.stage
     },
     stages() {
       if (this.$route.params.type === 'production') {
-        return this.stagesProduction
+        return this.stageProductionFiltered
       } else if (this.$route.params.type === 'order') {
         return this.stagesOrder
       }
     },
+
     stageSorted() {
       return sortMethod(this.stages, 'asc', 'position')
     }
