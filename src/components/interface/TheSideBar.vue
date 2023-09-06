@@ -103,9 +103,7 @@ export default {
       return this.$store.getters.user
     },
     user() {
-      const usr = this.users.find(item => item.id === this.currentUserId)
-      console.log('usr = ', usr)
-      return usr
+      return this.users.find(item => item.id === this.currentUserId)
     }
   },
   methods: {
