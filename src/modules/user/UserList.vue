@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 ps-4 pe-4">
+  <div class="cover-overflow overflow-x-hidden overflow-y-auto p-0 p-md-2">
     <userForm
       v-for="user in users"
       :key="user.id"
@@ -20,6 +20,14 @@ export default {
   },
   props: {
     users: Array
+  },
+  methods: {
+    saveItem({ item }) {
+      this.$store.dispatch('updateItem', { item })
+    },
+    removeItem({ item }) {
+      this.$store.dispatch('removeItem', { item })
+    }
   }
 }
 </script>

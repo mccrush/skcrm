@@ -49,6 +49,8 @@
       <div class="form-floating">
         <input
           type="number"
+          min="1"
+          max="3"
           class="form-control form-control-sm"
           :id="'inputAccess' + item.id"
           v-model.number="item.access"
