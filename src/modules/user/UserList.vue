@@ -26,7 +26,9 @@ export default {
       this.$store.dispatch('updateItem', { item })
     },
     removeItem({ item }) {
-      this.$store.dispatch('removeItem', { item })
+      if (confirm('Точно удалить?')) {
+        this.$store.dispatch('removeItem', { item })
+      }
     }
   }
 }

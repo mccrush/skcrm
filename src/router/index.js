@@ -2,22 +2,15 @@ import { createRouter, createWebHistory } from 'vue-router'
 import store from './../store'
 
 const routes = [
-  {
-    path: '/index',
-    name: 'index',
-    component: () => import('../pages/PageIndex.vue'),
-    meta: {
-      requiresAuth: true
-    }
-  },
   // {
-  //   path: '/list/:type',
-  //   name: 'list',
-  //   component: () => import('../pages/PageListItems.vue'),
+  //   path: '/index',
+  //   name: 'index',
+  //   component: () => import('../pages/PageIndex.vue'),
   //   meta: {
   //     requiresAuth: true
   //   }
   // },
+
   {
     path: '/view/:type',
     name: 'view',
