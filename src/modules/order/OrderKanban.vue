@@ -14,8 +14,12 @@
       >
         {{ stage.title }}
         <div v-if="getItems(stage.id, stage.position).length" class="fw-normal">
-          {{ getItems(stage.id, stage.position).length }} шт. -
-          {{ getTottalSum(getItems(stage.id, stage.position), 'price') }} 000 ₽
+          <span>{{ getItems(stage.id, stage.position).length }} шт.</span>
+          <span v-if="user && this.user.access < 3">
+            -
+            {{ getTottalSum(getItems(stage.id, stage.position), 'price') }} 000
+            ₽</span
+          >
         </div>
         <div v-else>-</div>
       </div>
