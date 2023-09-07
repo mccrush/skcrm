@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-    <TheNavbar @show-modal="showModal">
+    <TheNavbar :user="user" @show-modal="showModal">
       <template #count>
         <div class="small pt-1">{{ listItems.length }} шт.</div>
       </template>
@@ -20,6 +20,7 @@
     <ClientTable
       :listItems="listItems"
       :sortUp="sortUp"
+      :user="user"
       @show-modal="showModal"
       @set-filter-method="setFilterMethod"
       @set-sort-method="setSortMethod"
@@ -44,7 +45,8 @@ export default {
     listItems: Array,
     filterType: String,
     filterValue: String,
-    sortUp: String
+    sortUp: String,
+    user: Object
   },
   emits: [
     'set-search-method',

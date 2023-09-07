@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ViewIndex />
+    <ViewIndex :user="user" />
   </div>
 </template>
 

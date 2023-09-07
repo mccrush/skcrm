@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-    <UserList :users="listItems" />
+    <UserList :users="listItems" :user="user" />
   </div>
 </template>
 
@@ -12,7 +12,8 @@ export default {
     UserList
   },
   props: {
-    listItems: Array
+    listItems: Array,
+    user: Object
   }
 }
 </script>

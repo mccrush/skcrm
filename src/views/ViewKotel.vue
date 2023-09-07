@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-    <TheNavbar @show-modal="showModal">
+    <TheNavbar :user="user" @show-modal="showModal">
       <template #count>
         <div class="small pt-1">{{ listItems.length }} шт.</div>
       </template>
@@ -23,6 +23,7 @@
     <KotelTable
       :listItems="listItems"
       :sortUp="sortUp"
+      :user="user"
       @edit-item="showModal"
       @set-sort-method="setSortMethod"
     />
@@ -46,7 +47,8 @@ export default {
     listItems: Array,
     filterType: String,
     filterValue: String,
-    sortUp: String
+    sortUp: String,
+    user: Object
   },
   emits: ['show-modal', 'set-filter-method', 'clear-filter', 'set-sort-method'],
   methods: {

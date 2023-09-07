@@ -1,7 +1,9 @@
 <template>
   <div class="row bg-light pt-2">
     <div class="col-12 d-flex justify-content-between">
-      <span class="m-0">№ <strong>____</strong></span>
+      <span class="m-0"
+        >№ <strong>{{ item.serialNumber || 0 }}</strong></span
+      >
       <span v-if="getClient(item.clientId)"
         >{{ getClient(item.clientId).phone.substr(0, 7) }}-{{
           getClient(item.clientId).phone.substr(7)
@@ -36,7 +38,7 @@
       />
     </div>
 
-    <!-- Исполнитель -->
+    <!-- Сварщик -->
     <div class="col-12 mt-2">
       <div class="form-floating">
         <select
@@ -46,12 +48,12 @@
           v-model="item.userId"
           @change="$emit('save-item')"
         >
-          <option value="" selected>Назначте исполнителя</option>
+          <option value="" selected>Назначте сварщика</option>
           <option v-for="user in users" :key="user.id" :value="user.id">
             {{ user.name }}
           </option>
         </select>
-        <label for="inputUserId">Исполнитель</label>
+        <label for="inputUserId">Сварщик</label>
       </div>
     </div>
 
@@ -233,7 +235,7 @@
     </div>
 
     <!-- Комментарий -->
-    <div class="col-12 col-md-8 mt-2 mb-md-3 pe-md-1">
+    <div v-if="user.access < 3" class="col-12 col-md-8 mt-2 mb-md-3 pe-md-1">
       <div class="form-floating">
         <textarea
           class="form-control form-control-sm border-0 h-auto"

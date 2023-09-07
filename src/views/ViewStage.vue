@@ -1,8 +1,12 @@
 <template>
   <div class="view">
-    <TheNavbar @show-modal="showModal" />
+    <TheNavbar :user="user" @show-modal="showModal" />
 
-    <StageTable :listItems="listItems" @set-sort-method="setSortMethod" />
+    <StageTable
+      :listItems="listItems"
+      :user="user"
+      @set-sort-method="setSortMethod"
+    />
   </div>
 </template>
 
@@ -17,7 +21,8 @@ export default {
   },
   props: {
     listItems: Array,
-    sortUp: String
+    sortUp: String,
+    user: Object
   },
   methods: {
     showModal({ type, item, mod }) {

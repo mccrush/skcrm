@@ -1,8 +1,8 @@
 <template>
   <div class="view">
-    <TheNavbar />
+    <TheNavbar :user="user" />
 
-    <IndexMain />
+    <IndexMain :user="user" />
   </div>
 </template>
 
@@ -14,6 +14,9 @@ export default {
   components: {
     TheNavbar,
     IndexMain
+  },
+  props: {
+    user: Object
   }
 }
 </script>
