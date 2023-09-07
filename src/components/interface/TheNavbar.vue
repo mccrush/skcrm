@@ -15,7 +15,7 @@
       </button>
 
       <button
-        v-if="$route.params.type"
+        v-if="$route.params.type && $route.params.type !== 'production'"
         type="button"
         class="btn btn-sm btn-dark d-md-none ps-3 pe-3"
         data-bs-toggle="modal"

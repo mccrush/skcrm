@@ -2,6 +2,7 @@
   <div class="app d-flex">
     <TheOffcanvas
       v-if="currentUserId"
+      :currentUserId="currentUserId"
       @show-modal="showModal"
       class="d-md-none"
     />

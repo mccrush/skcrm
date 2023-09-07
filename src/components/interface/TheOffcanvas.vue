@@ -18,7 +18,7 @@
       </button>
     </div>
     <div class="offcanvas-body overflow-y-hidden p-0">
-      <TheSideBar />
+      <TheSideBar :currentUserId="currentUserId" />
     </div>
   </div>
 </template>
@@ -29,6 +29,9 @@ import TheSideBar from './TheSideBar.vue'
 export default {
   components: {
     TheSideBar
+  },
+  props: {
+    currentUserId: String
   }
 }
 </script>
