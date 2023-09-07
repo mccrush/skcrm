@@ -2,7 +2,7 @@
   <div class="row bg-light pt-2">
     <div class="col-12 d-flex justify-content-between">
       <span class="m-0">№ <strong>____</strong></span>
-      <span
+      <span v-if="getClient(item.clientId)"
         >{{ getClient(item.clientId).phone.substr(0, 7) }}-{{
           getClient(item.clientId).phone.substr(7)
         }}</span
@@ -274,9 +274,28 @@
       v-if="user.access === 3"
       class="col-12 d-flex justify-content-between mb-3"
     >
-      <button class="btn btn-warning w-50 text-white">Взять в работу</button>
-      <!-- <button class="btn btn-secondary w-50 text-white">Отменить работу</button> -->
-      <button class="btn btn-success w-50 ms-2">Завершить</button>
+      <button
+        v-if="!item.inwork"
+        class="btn btn-warning w-50 text-white"
+        @click="setStatusInWork"
+      >
+        Взять в работу
+      </button>
+      <button
+        v-if="item.inwork"
+        class="btn btn-secondary w-50 text-white"
+        @click="setStatusAbortWork"
+      >
+        Отменить работу
+      </button>
+      <button
+        class="btn btn-success w-50 ms-2"
+        data-bs-dismiss="modal"
+        :disabled="!item.inwork"
+        @click="setStatusFinishWork"
+      >
+        Завершить
+      </button>
     </div>
   </div>
 </template>
@@ -307,21 +326,15 @@ export default {
     clients() {
       return this.$store.getters.client
     },
-    // currentUserId() {
-    //   return this.$store.getters.currentUserId
-    // },
     users() {
       return this.$store.getters.user
     },
-    // user() {
-    //   return this.users.find(item => item.id === this.currentUserId)
-    // },
     kotels() {
       return this.$store.getters.kotel
     },
-    stages() {
-      return this.$store.getters.stage
-    },
+    // stages() {
+    //   return this.$store.getters.stage
+    // },
     stageProduction() {
       return this.$store.getters.stageProduction
     },
@@ -338,6 +351,21 @@ export default {
     }
   },
   methods: {
+    setStatusInWork() {
+      this.item.inwork = true
+      //this.$emit('save-item')
+    },
+    setStatusAbortWork() {
+      this.item.inwork = false
+      //this.$emit('save-item')
+    },
+    setStatusFinishWork() {
+      this.item.inwork = false
+      // Изменить глабальный статускарточки stageId
+      this.setNextStage(this.item.stageId)
+      // Назначить нового исполнителя?
+      //this.$emit('save-item')
+    },
     setPrePrice() {
       this.item.ostPrice = this.item.price - this.item.prePrice
       this.$emit('save-item')
@@ -357,10 +385,20 @@ export default {
     },
 
     setStage() {
-      if (this.item.stageId === this.stages[this.stages.length - 1].id) {
+      if (
+        this.item.stageId === this.stageProduction[this.stages.length - 1].id
+      ) {
         this.item.dateFinish = getFormateInputDate(new Date())
       }
       this.$emit('save-item')
+    },
+
+    setNextStage(stageId) {
+      const stageIndex = this.stageProduction.findIndex(
+        item => item.id === stageId
+      )
+      this.item.stageId = this.stageProduction[stageIndex + 1].id
+      //this.$emit('save-item')
     },
 
     getClient(clientId) {
