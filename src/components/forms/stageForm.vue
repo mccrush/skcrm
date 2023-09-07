@@ -63,7 +63,7 @@
     </div>
 
     <!-- Комментарий -->
-    <div class="col-12 col-xl-1 mt-0">
+    <div class="col-11 col-xl-1 mt-0">
       <div class="form-floating">
         <textarea
           class="form-control form-control-sm border-0 h-auto"
@@ -75,11 +75,24 @@
         <!-- <label for="inputDescription">Комментарий</label> -->
       </div>
     </div>
+
+    <!-- Кнопка удалить -->
+    <div class="col-1 pt-2">
+      <BtnDelete
+        class="btn-outline-danger"
+        @click="$emit('remove-item', { item })"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import BtnDelete from './../buttons/BtnDelete.vue'
+
 export default {
+  components: {
+    BtnDelete
+  },
   props: {
     item: {
       type: Object,
@@ -87,7 +100,7 @@ export default {
     },
     mod: String
   },
-  emits: ['save-item'],
+  emits: ['save-item', 'remove-item'],
   data() {
     return {
       borderColors: [

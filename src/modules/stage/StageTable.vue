@@ -5,6 +5,7 @@
       :key="item.id"
       :item="item"
       @save-item="saveItem"
+      @remove-item="removeItem"
     />
   </div>
 </template>
@@ -34,6 +35,11 @@ export default {
     setSortMethod(type) {
       const sortUp = this.sortUp === 'desc' ? 'asc' : 'desc'
       this.$emit('set-sort-method', { sortUp: sortUp, sortBy: type })
+    },
+    removeItem({ item }) {
+      if (confirm('Точно удалить?')) {
+        this.$store.dispatch('removeItem', { item })
+      }
     }
   }
 }

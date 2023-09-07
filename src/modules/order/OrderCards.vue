@@ -11,8 +11,11 @@
       <div class="d-flex justify-content-between">
         <span class="m-0"
           >№ <strong>____</strong>
-          <span class="badge bg-secondary rounded-1 ms-2">В очереди</span>
-          <span class="badge bg-warning rounded-1 ms-2">В работе</span>
+
+          <span v-if="item.inwork" class="badge bg-success rounded-1 ms-2"
+            >В работе</span
+          >
+          <span v-else class="badge bg-warning rounded-1 ms-2">В очереди</span>
         </span>
         <span
           >{{ getClient(item.clientId).phone.substr(0, 7) }}-{{

@@ -7,8 +7,6 @@
 </template>
 
 <script>
-import { sortMethod } from './../helpers/sortMethod'
-
 import TheNavbar from './../components/interface/TheNavbar.vue'
 import StageTable from './../modules/stage/StageTable.vue'
 
@@ -22,7 +20,6 @@ export default {
     sortUp: String
   },
   methods: {
-    sortMethod,
     showModal({ type, item, mod }) {
       this.$emit('show-modal', { type, item, mod })
     },
