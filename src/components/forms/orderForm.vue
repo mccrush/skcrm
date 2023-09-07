@@ -28,6 +28,24 @@
       />
     </div>
 
+    <!-- Исполнитель -->
+    <div class="col-12 mt-2">
+      <div class="form-floating">
+        <select
+          class="form-select"
+          id="inputUserId"
+          v-model="item.userId"
+          @change="$emit('save-item')"
+        >
+          <option value="" selected>Назначте исполнителя</option>
+          <option v-for="user in users" :key="user.id" :value="user.id">
+            {{ user.name }}
+          </option>
+        </select>
+        <label for="inputUserId">Исполнитель</label>
+      </div>
+    </div>
+
     <!-- Котел -->
     <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="form-floating">
@@ -263,6 +281,9 @@ export default {
   computed: {
     clients() {
       return this.$store.getters.client
+    },
+    users() {
+      return this.$store.getters.user
     },
     kotels() {
       return this.$store.getters.kotel
