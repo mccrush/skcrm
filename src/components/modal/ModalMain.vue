@@ -26,11 +26,14 @@
             :is="myForm"
             :item="item"
             :mod="mod"
+            :user="user"
             @save-item="saveItem"
             @show-modal="showModal"
           />
         </div>
-        <div class="modal-footer p-2">
+
+        <!-- Footer -->
+        <div v-if="user.access < 3" class="modal-footer p-2">
           <BtnRemoveItem
             v-if="mod === 'edit'"
             data-bs-dismiss="modal"
@@ -81,7 +84,8 @@ export default {
   props: {
     type: String,
     mod: String,
-    item: Object
+    item: Object,
+    user: Object
   },
   computed: {
     myForm() {

@@ -18,7 +18,13 @@
       </router-view>
     </div>
 
-    <ModalMain :type="type" :mod="mod" :item="item" @show-modal="showModal" />
+    <ModalMain
+      :type="type"
+      :mod="mod"
+      :item="item"
+      :user="user"
+      @show-modal="showModal"
+    />
   </div>
 </template>
 
@@ -45,6 +51,12 @@ export default {
   computed: {
     currentUserId() {
       return this.$store.getters.currentUserId
+    },
+    users() {
+      return this.$store.getters.user
+    },
+    user() {
+      return this.users.find(item => item.id === this.currentUserId) || null
     }
   },
   methods: {
