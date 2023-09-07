@@ -2,7 +2,7 @@ import ClassBasic from './ClassBasic'
 
 export default class order extends ClassBasic {
   type = 'order'
-  orderNumber = ''
+  serialNumber = ''
   clientId = ''
   kotelId = ''
   bunkerPos = ''
