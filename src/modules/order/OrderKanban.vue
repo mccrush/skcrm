@@ -29,6 +29,8 @@
           sortMethod(getItems(stage.id, stage.position), 'asc', 'dateCreate')
         "
         :user="user"
+        :stagePosition="stage.position"
+        :stageLength="stagesProduction.length"
         @show-modal="showModal"
       />
     </div>

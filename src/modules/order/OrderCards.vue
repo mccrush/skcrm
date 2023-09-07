@@ -11,17 +11,18 @@
       <div class="d-flex justify-content-between">
         <span class="m-0"
           >№ <strong>{{ item.serialNumber || 0 }}</strong>
-
-          <span
-            v-if="item.inwork"
-            class="badge border border-success text-success rounded-1 ms-2"
-            >В работе</span
-          >
-          <span
-            v-else
-            class="badge border border-warning text-secondary rounded-1 ms-2"
-            >В очереди</span
-          >
+          <span v-if="stagePosition !== stageLength">
+            <span
+              v-if="item.inwork"
+              class="badge border border-success text-success rounded-1 ms-2"
+              >В работе</span
+            >
+            <span
+              v-else
+              class="badge border border-warning text-secondary rounded-1 ms-2"
+              >В очереди</span
+            >
+          </span>
         </span>
         <span
           >{{ getClient(item.clientId).phone.substr(0, 7) }}-{{
@@ -81,7 +82,9 @@ import { getLocaleDateFromDateDigit } from './../../helpers/getDateFormat'
 export default {
   props: {
     items: Array,
-    user: Object
+    user: Object,
+    stagePosition: Number,
+    stageLength: Number
   },
   emits: ['show-modal'],
   computed: {
@@ -90,10 +93,10 @@ export default {
     },
     kotels() {
       return this.$store.getters.kotel
-    },
-    stages() {
-      return this.$store.getters.stage
     }
+    // stages() {
+    //   return this.$store.getters.stage
+    // }
   },
   methods: {
     getCountLastDays,
