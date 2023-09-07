@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-    <TheNavbar>
+    <TheNavbar :user="user">
       <template #count>
         <div class="fw-bold pt-1">СлавКотёл</div>
       </template>
@@ -32,7 +32,8 @@ export default {
     StatusMain
   },
   props: {
-    listItems: Array
+    listItems: Array,
+    user: Object
   },
   emits: ['set-search-method'],
   data() {

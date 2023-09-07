@@ -28,7 +28,7 @@
         +
       </button>
     </div>
-    <div v-if="user && user.access < 3" class="col-12">
+    <div class="col-12">
       <div class="row mt-2 mt-md-0">
         <div class="col-4 col-md-2"><slot name="count"></slot></div>
         <div class="col-8 col-md-3"><slot name="filter"></slot></div>

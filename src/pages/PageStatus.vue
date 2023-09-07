@@ -1,6 +1,10 @@
 <template>
   <div>
-    <ViewStatus :listItems="searchItems" @set-search-method="setSearchMethod" />
+    <ViewStatus
+      :listItems="searchItems"
+      :user="user"
+      @set-search-method="setSearchMethod"
+    />
   </div>
 </template>
 
@@ -12,6 +16,9 @@ import ViewStatus from './../views/ViewStatus.vue'
 export default {
   components: {
     ViewStatus
+  },
+  props: {
+    user: Object
   },
   data() {
     return {
