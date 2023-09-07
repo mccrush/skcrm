@@ -41,19 +41,20 @@ export default {
   },
   props: {
     listItems: Array,
-    sortUp: String
+    sortUp: String,
+    user: Object
   },
   emits: ['show-modal', 'set-filter-method', 'set-sort-method'],
   computed: {
-    currentUserId() {
-      return this.$store.getters.currentUserId
-    },
-    users() {
-      return this.$store.getters.user
-    },
-    user() {
-      return this.users.find(item => item.id === this.currentUserId)
-    },
+    // currentUserId() {
+    //   return this.$store.getters.currentUserId
+    // },
+    // users() {
+    //   return this.$store.getters.user
+    // },
+    // user() {
+    //   return this.users.find(item => item.id === this.currentUserId)
+    // },
 
     stagesProduction() {
       return this.$store.getters.stageProduction

@@ -7,6 +7,7 @@
       :filterType="filterType"
       :filterValue="filterValue"
       :sortUp="sortUp"
+      :user="user"
       @set-filter-method="setFilterMethod"
       @clear-filter="clearFilter"
       @set-search-method="setSearchMethod"
@@ -37,6 +38,9 @@ export default {
     ViewStage,
     ViewStageProduction,
     ViewUser
+  },
+  props: {
+    user: Object
   },
   emits: ['show-modal'],
   data() {

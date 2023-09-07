@@ -1,9 +1,6 @@
 <template>
   <div class="navbar row bg-white shadow-sm z-2 p-3">
-    <div
-      v-if="currentUserId"
-      class="col-12 d-md-none d-flex justify-content-between"
-    >
+    <div v-if="user" class="col-12 d-md-none d-flex justify-content-between">
       <button
         class="btn btn-sm btn-light ps-3 pe-3"
         type="button"
@@ -31,7 +28,7 @@
         +
       </button>
     </div>
-    <div class="col-12">
+    <div v-if="user.access < 3" class="col-12">
       <div class="row mt-2 mt-md-0">
         <div class="col-4 col-md-2"><slot name="count"></slot></div>
         <div class="col-8 col-md-3"><slot name="filter"></slot></div>
@@ -48,12 +45,10 @@
 
 <script>
 export default {
-  emits: ['show-modal'],
-  computed: {
-    currentUserId() {
-      return this.$store.getters.currentUserId
-    }
-  }
+  props: {
+    user: Object
+  },
+  emits: ['show-modal']
 }
 </script>
 

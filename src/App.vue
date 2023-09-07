@@ -6,14 +6,14 @@
       @show-modal="showModal"
       class="d-md-none"
     />
-    <div v-if="currentUserId" class="col-md-2 col-xxl-1 d-none d-md-block">
-      <TheSideBar @show-modal="showModal" :currentUserId="currentUserId" />
+    <div v-if="user" class="col-md-2 col-xxl-1 d-none d-md-block">
+      <TheSideBar @show-modal="showModal" :user="user" />
     </div>
 
     <div class="container-fluid overflow-x-hidden p-0">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
-          <component :is="Component" @show-modal="showModal" />
+          <component :is="Component" @show-modal="showModal" :user="user" />
         </transition>
       </router-view>
     </div>

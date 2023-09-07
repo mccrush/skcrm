@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-    <TheNavbar @show-modal="showModal">
+    <TheNavbar :user="user" @show-modal="showModal">
       <template #count>
         <div class="small pt-1">{{ listItems.length }} шт.</div>
       </template>
@@ -11,7 +11,7 @@
       </template>
     </TheNavbar>
 
-    <OrderKanban :listItems="listItems" @show-modal="showModal" />
+    <OrderKanban :listItems="listItems" :user="user" @show-modal="showModal" />
   </div>
 </template>
 
@@ -27,7 +27,8 @@ export default {
     OrderKanban
   },
   props: {
-    listItems: Array
+    listItems: Array,
+    user: Object
   },
   emits: [
     'set-search-method',
