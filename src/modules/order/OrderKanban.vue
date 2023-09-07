@@ -89,6 +89,12 @@ export default {
     getTottalSum,
     getItems(stageId, stagePosition) {
       if (this.$route.params.type === 'production') {
+        const listItemsFiltered = this.listItems.filter(
+          item => item.stageId === stageId
+        )
+        if (this.user && this.user.access === 3) {
+          return listItemsFiltered.filter(item => item.userId === this.user.id)
+        }
         return this.listItems.filter(item => item.stageId === stageId)
       } else if (this.$route.params.type === 'order') {
         if (stagePosition === 2) {
