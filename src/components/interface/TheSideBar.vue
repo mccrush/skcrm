@@ -88,7 +88,7 @@ import { version } from './../../../package.json'
 
 export default {
   props: {
-    currentUserId: String
+    user: Object
   },
   emits: ['show-modal'],
   data() {
@@ -99,13 +99,13 @@ export default {
   computed: {
     menuItems() {
       return dataModels.filter(item => item.menu)
-    },
-    users() {
-      return this.$store.getters.user
-    },
-    user() {
-      return this.users.find(item => item.id === this.currentUserId)
     }
+    // users() {
+    //   return this.$store.getters.user
+    // },
+    // user() {
+    //   return this.users.find(item => item.id === this.currentUserId)
+    // }
   },
   methods: {
     async logOut() {

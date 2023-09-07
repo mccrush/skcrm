@@ -3,6 +3,7 @@
     <TheOffcanvas
       v-if="currentUserId"
       :currentUserId="currentUserId"
+      :user="user"
       @show-modal="showModal"
       class="d-md-none"
     />

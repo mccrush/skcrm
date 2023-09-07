@@ -18,7 +18,7 @@
       </button>
     </div>
     <div class="offcanvas-body overflow-y-hidden p-0">
-      <TheSideBar :currentUserId="currentUserId" />
+      <TheSideBar :user="user" />
     </div>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
     TheSideBar
   },
   props: {
-    currentUserId: String
+    user: Object
   }
 }
 </script>
