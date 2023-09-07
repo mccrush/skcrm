@@ -80,7 +80,8 @@ import { getLocaleDateFromDateDigit } from './../../helpers/getDateFormat'
 
 export default {
   props: {
-    items: Array
+    items: Array,
+    user: Object
   },
   emits: ['show-modal'],
   computed: {

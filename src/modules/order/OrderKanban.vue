@@ -20,9 +20,11 @@
         <div v-else>-</div>
       </div>
       <OrderCards
+        v-if="user"
         :items="
           sortMethod(getItems(stage.id, stage.position), 'asc', 'dateCreate')
         "
+        :user="user"
         @show-modal="showModal"
       />
     </div>
@@ -93,7 +95,7 @@ export default {
         const listItemsFiltered = this.listItems.filter(
           item => item.stageId === stageId
         )
-        if (this.user && this.user.access === 3) {
+        if (this.user && this.user.access === 3 && stagePosition === 4) {
           return listItemsFiltered.filter(item => item.userId === this.user.id)
         }
         return this.listItems.filter(item => item.stageId === stageId)
