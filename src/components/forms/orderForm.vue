@@ -1,7 +1,7 @@
 <template>
   <div class="row bg-light pt-2">
     <div class="col-12 d-flex justify-content-between">
-      <span class="m-0">№ <strong>1234</strong></span>
+      <span class="m-0">№ <strong>____</strong></span>
       <span
         >{{ getClient(item.clientId).phone.substr(0, 7) }}-{{
           getClient(item.clientId).phone.substr(7)
@@ -267,6 +267,16 @@
         </select>
         <label for="inputStageId">Этап</label>
       </div>
+    </div>
+
+    <!-- Кнопки управления -->
+    <div
+      v-if="user.access === 3"
+      class="col-12 d-flex justify-content-between mb-3"
+    >
+      <button class="btn btn-warning w-50 text-white">Взять в работу</button>
+      <!-- <button class="btn btn-secondary w-50 text-white">Отменить работу</button> -->
+      <button class="btn btn-success w-50 ms-2">Завершить</button>
     </div>
   </div>
 </template>

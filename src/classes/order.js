@@ -15,4 +15,5 @@ export default class order extends ClassBasic {
   dateDue = ''
   dateFinish = ''
   userId = ''
+  inwork = false
 }

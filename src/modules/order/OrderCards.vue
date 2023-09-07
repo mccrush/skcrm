@@ -8,9 +8,19 @@
       data-bs-target="#modalWindow"
       @click="$emit('show-modal', { type: item.type, item, mod: 'edit' })"
     >
-      <span>№ {{ getClient(item.clientId).phone.substr(0, 7) }}-</span>
-      <strong>{{ getClient(item.clientId).phone.substr(7) }}</strong
-      ><br />
+      <div class="d-flex justify-content-between">
+        <span class="m-0"
+          >№ <strong>____</strong>
+          <span class="badge bg-secondary rounded-1 ms-2">В очереди</span>
+          <span class="badge bg-warning rounded-1 ms-2">В работе</span>
+        </span>
+        <span
+          >{{ getClient(item.clientId).phone.substr(0, 7) }}-{{
+            getClient(item.clientId).phone.substr(7)
+          }}</span
+        >
+      </div>
+
       <span>
         {{
           getClient(item.clientId).city +
