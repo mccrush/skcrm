@@ -1,4 +1,5 @@
 import getWeek from './../../helpers/getWeek'
+import getYearEnd from './../../helpers/getYearEnd'
 import fireApp from './../../firebase'
 import { getDatabase, ref, set, onValue, update, remove, query, orderByChild, equalTo, limitToLast } from 'firebase/database'
 const db = getDatabase(fireApp)
@@ -81,10 +82,11 @@ export default {
     orderNumber: state => {
       let number = +state.order.filter(item => item.dateCreateWeek === getWeek()).length + 1 || 1
       if (number < 10) {
-        return '00' + number
+        number = '0' + number
       } else if (number < 100) {
-        return '0' + number
+        number = '' + number
       }
+      return getYearEnd() + getWeek() + number
     },
     parentOrder: state => id => state.order.find(item => item.id === id) || false
   }

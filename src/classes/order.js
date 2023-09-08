@@ -1,6 +1,12 @@
+import getWeek from './../helpers/getWeek'
 import ClassBasic from './ClassBasic'
 
 export default class order extends ClassBasic {
+  constructor() {
+    super()
+    this.dateCreateWeek = getWeek()
+  }
+
   type = 'order'
   serialNumber = 0
   clientId = ''
