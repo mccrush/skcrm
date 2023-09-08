@@ -388,7 +388,8 @@ export default {
 
     setStage() {
       if (
-        this.item.stageId === this.stageProduction[this.stages.length - 1].id
+        this.item.stageId ===
+        this.stageProduction[this.stageProduction.length - 1].id
       ) {
         this.item.dateFinish = getFormateInputDate(new Date())
       }

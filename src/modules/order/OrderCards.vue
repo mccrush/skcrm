@@ -14,12 +14,10 @@
           <span v-if="stagePosition !== stageLength">
             <span
               v-if="item.inwork"
-              class="badge border border-success text-success rounded-1 ms-2"
+              class="badge border text-success rounded-1 ms-2"
               >В работе</span
             >
-            <span
-              v-else
-              class="badge border border-warning text-secondary rounded-1 ms-2"
+            <span v-else class="badge border text-warning rounded-1 ms-2"
               >В очереди</span
             >
           </span>
@@ -47,23 +45,21 @@
         <span class="d-block text-end">{{
           getLocaleDateFromDateDigit(item.dateCreate)
         }}</span>
-        <span
-          class="d-block text-end"
-          title="- дней на производство / + просрочено"
-          :class="{
-            'text-success fw-bold':
-              getCountLastDays(item.dateCreate, item.dateFinish) < 28 &&
-              !item.dateFinish,
-            'text-warning fw-bold':
-              getCountLastDays(item.dateCreate, item.dateFinish) >= 28 &&
-              !item.dateFinish,
-            'text-danger fw-bold':
-              getCountLastDays(item.dateCreate, item.dateFinish) > 35 &&
-              !item.dateFinish
-          }"
-          >{{ getLocaleDateFromDateDigit(item.dateDue) }} ({{
-            getCountLastDays(item.dateDue, item.dateFinish)
-          }})</span
+        <span>
+          <span>{{ getLocaleDateFromDateDigit(item.dateDue) }} </span
+          ><span
+            title="- дней на производство / + просрочено"
+            :class="{
+              'text-warning fw-bold':
+                getCountLastDays(item.dateCreate, item.dateFinish) >= 28 &&
+                !item.dateFinish,
+              'text-danger fw-bold':
+                getCountLastDays(item.dateCreate, item.dateFinish) > 35 &&
+                !item.dateFinish
+            }"
+          >
+            ({{ getCountLastDays(item.dateDue, item.dateFinish) }})</span
+          ></span
         >
         <span class="d-block text-end" title="Всего дней выполнялся заказ"
           >{{ getLocaleDateFromDateDigit(item.dateFinish) }} ({{
