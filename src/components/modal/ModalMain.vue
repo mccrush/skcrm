@@ -99,16 +99,28 @@ export default {
   },
   methods: {
     createItem() {
-      this.$store.dispatch('addItem', { item: this.item })
+      if (this.item.type === 'order') {
+        this.$store.dispatch('addItemRT', { item: this.item })
+      } else {
+        this.$store.dispatch('addItem', { item: this.item })
+      }
     },
     removeItem() {
       if (confirm('Точно удалить?')) {
-        this.$store.dispatch('removeItem', { item: this.item })
+        if (this.item.type === 'order') {
+          this.$store.dispatch('removeItemRT', { item: this.item })
+        } else {
+          this.$store.dispatch('removeItem', { item: this.item })
+        }
       }
     },
     saveItem() {
       if (this.mod === 'edit') {
-        this.$store.dispatch('updateItem', { item: this.item })
+        if (this.item.type === 'order') {
+          this.$store.dispatch('updateItemRT', { item: this.item })
+        } else {
+          this.$store.dispatch('updateItem', { item: this.item })
+        }
       }
     },
     showModal({ type, item, mod }) {

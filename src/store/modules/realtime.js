@@ -1,4 +1,4 @@
-import getWeek from './../../scripts/getWeek'
+import getWeek from './../../helpers/getWeek'
 import fireApp from './../../firebase'
 import { getDatabase, ref, set, onValue, update, remove, query, orderByChild, equalTo, limitToLast } from 'firebase/database'
 const db = getDatabase(fireApp)

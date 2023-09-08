@@ -8,8 +8,6 @@ export default {
   state: {
     client: [],
     kotel: [],
-    order: [],
-    order: [],
     production: [],
     stage: [],
     stageProduction: [],
@@ -90,7 +88,7 @@ export default {
   getters: {
     client: state => state.client,
     kotel: state => state.kotel,
-    order: state => state.order,
+    //order: state => state.order,
     production: state => state.production,
     ograda: state => state.ograda,
     stage: state => state.stage,

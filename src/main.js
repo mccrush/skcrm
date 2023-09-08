@@ -30,9 +30,11 @@ onAuthStateChanged(auth, (user) => {
     store.commit('setCurrentUserId', '')
   }
 
-  // В будущем запрос данных сделать только для авторизованных
+  store.dispatch('getItemsRT', { type: 'order' })
   dataModels.forEach(element => {
-    store.dispatch('getItems', { type: element.type })
+    if (element.type !== 'order') {
+      store.dispatch('getItems', { type: element.type })
+    }
   })
 
 })
