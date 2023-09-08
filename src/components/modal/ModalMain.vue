@@ -96,14 +96,14 @@ export default {
     getModalTitle() {
       return dataModels.find(item => item.type === this.type).title
     },
-    orderNumber() {
-      return this.$store.getters.orderNumber
+    serialNumber() {
+      return this.$store.getters.serialNumber
     }
   },
   methods: {
     createItem() {
       if (this.item.type === 'order') {
-        this.item.serialNumber = this.orderNumber
+        this.item.serialNumber = this.serialNumber
         this.$store.dispatch('addItemRT', { item: this.item })
       } else {
         this.$store.dispatch('addItem', { item: this.item })

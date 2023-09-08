@@ -79,7 +79,7 @@ export default {
     loadingRT: state => state.loadingRT,
     order: state => state.order,
 
-    orderNumber: state => {
+    serialNumber: state => {
       let number = +state.order.filter(item => item.dateCreateWeek === getWeek()).length + 1 || 1
       if (number < 10) {
         number = '0' + number
