@@ -101,6 +101,8 @@ export default {
         const listItemsFiltered = this.listItems.filter(
           item => item.stageId === stageId
         )
+        // stagePosition = 4 должна быть сваркой
+        // чтобы сварщики видели только свои заказы
         if (this.user && this.user.access === 3 && stagePosition === 4) {
           return listItemsFiltered.filter(item => item.userId === this.user.id)
         }

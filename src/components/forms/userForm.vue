@@ -1,7 +1,7 @@
 <template>
-  <div class="row bg-white rounded mb-3 mb-xl-1 p-2 p-xl-0 pb-xl-1">
+  <div class="row bg-white rounded mb-2 mb-xl-1 p-2 p-xl-0 pb-xl-1">
     <!-- Имя пользователя -->
-    <div class="col-12 col-md-6 col-xl-2">
+    <div class="col-12 col-md-4 col-xl-2">
       <div class="form-floating">
         <input
           type="text"
@@ -15,7 +15,7 @@
     </div>
 
     <!-- Email -->
-    <div class="col-12 col-md-6 col-xl-2">
+    <div class="col-12 col-md-4 col-xl-2">
       <div class="form-floating">
         <input
           type="text"

@@ -355,18 +355,18 @@ export default {
   methods: {
     setStatusInWork() {
       this.item.inwork = true
-      //this.$emit('save-item')
+      this.$emit('save-item')
     },
     setStatusAbortWork() {
       this.item.inwork = false
-      //this.$emit('save-item')
+      this.$emit('save-item')
     },
     setStatusFinishWork() {
       this.item.inwork = false
       // Изменить глабальный статускарточки stageId
       this.setNextStage(this.item.stageId)
       // Назначить нового исполнителя?
-      //this.$emit('save-item')
+      this.$emit('save-item')
     },
     setPrePrice() {
       this.item.ostPrice = this.item.price - this.item.prePrice
