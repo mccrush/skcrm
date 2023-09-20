@@ -2,7 +2,7 @@
   <div class="view">
     <TheNavbar :user="user">
       <template #count>
-        <div class="fw-bold pt-1">СлавКотёл</div>
+        <div class="fw-bold pt-1" @click="count++">СлавКотёл</div>
       </template>
       <template #filter>
         <div class="pt-1">Статус производства</div>
@@ -42,12 +42,16 @@ export default {
   emits: ['set-search-method'],
   data() {
     return {
+      count: 0,
       searchValue: ''
     }
   },
   watch: {
     searchValue() {
       this.$emit('set-search-method', { searchValue: this.searchValue })
+    },
+    count(o, n) {
+      if (n >= 5) this.$router.push('/login')
     }
   }
 }

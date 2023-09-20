@@ -31,6 +31,10 @@
 
     <BtnLogin class="w-100 mt-3" @click="login" />
     <BtnResetPass class="w-100 mt-2" @click="resetPass" />
+    <router-link to="/" class="d-block text-center mt-2"
+      >На главную</router-link
+    >
+    <!-- <a href="/">На главную</a> -->
   </div>
 </template>
 
@@ -65,7 +69,7 @@ export default {
       if (this.email && this.password) {
         try {
           const res = await this.$store.dispatch('logIn', formData)
-          if (res) this.$router.push('/')
+          if (res) this.$router.push('/view/production')
         } catch (err) {
           if (err.code === 'auth/invalid-email') {
             this.$store.commit('addMessage', 'lee')
