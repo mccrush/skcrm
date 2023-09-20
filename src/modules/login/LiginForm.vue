@@ -34,7 +34,6 @@
     <router-link to="/" class="d-block text-center mt-2"
       >На главную</router-link
     >
-    <!-- <a href="/">На главную</a> -->
   </div>
 </template>
 
