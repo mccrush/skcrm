@@ -30,6 +30,11 @@ const routes = [
     component: () => import('../pages/PageLogin.vue')
   },
   {
+    path: '/test',
+    name: 'test',
+    component: () => import('../pages/PageTest.vue')
+  },
+  {
     path: '/',
     name: 'status',
     component: () => import('../pages/PageStatus.vue')
