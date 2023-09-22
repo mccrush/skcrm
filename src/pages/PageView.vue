@@ -78,6 +78,9 @@ export default {
     },
     searchItems() {
       //console.log('pre Search items = ', this.filterItems)
+      if (this.$route.params.type === 'production') {
+        return searchMethod(this.filterItems, 'order', this.searchValue)
+      }
       return searchMethod(
         this.filterItems,
         this.$route.params.type,
