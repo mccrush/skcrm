@@ -33,18 +33,16 @@ export default {
       return this.$store.getters.order
     },
     searchItems() {
-      if (!this.searchValue) {
-        return []
-      } else {
-        // Найти клиента
+      if (this.searchValue) {
+        // Сначала находим массив клиентов по полному совпадению
         const clientId =
           searchMethod(this.clients, 'clientStatus', this.searchValue) || []
-        //Найти заказ
+
         if (clientId.length) {
           return searchMethod(this.listItems, 'status', clientId[0].id)
         }
-        return []
       }
+      return []
     }
   },
   methods: {
