@@ -21,7 +21,7 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body pt-0 pb-0">
+        <div class="modal-body">
           <component
             :is="myForm"
             :item="item"

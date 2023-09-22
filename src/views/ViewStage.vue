@@ -24,6 +24,7 @@ export default {
     sortUp: String,
     user: Object
   },
+  emits: ['show-modal', 'set-sort-method'],
   methods: {
     showModal({ type, item, mod }) {
       this.$emit('show-modal', { type, item, mod })

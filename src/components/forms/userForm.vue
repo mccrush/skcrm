@@ -1,7 +1,7 @@
 <template>
   <div class="row bg-white rounded mb-2 mb-xl-1 p-2 p-xl-0 pb-xl-1">
     <!-- Имя пользователя -->
-    <div class="col-12 col-md-4 col-xl-2">
+    <div class="col-12 col-md-4 col-xl-1 mt-md-2 pe-md-1">
       <div class="form-floating">
         <input
           type="text"
@@ -15,7 +15,7 @@
     </div>
 
     <!-- Email -->
-    <div class="col-12 col-md-4 col-xl-2">
+    <div class="col-12 col-md-4 col-xl-2 mt-2 ps-md-1 pe-md-1">
       <div class="form-floating">
         <input
           type="text"
@@ -29,7 +29,7 @@
     </div>
 
     <!-- Статус -->
-    <div class="col-4 col-xl-1 pe-1">
+    <div class="col-4 col-xl-1 mt-2 pe-1 ps-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -45,13 +45,13 @@
     </div>
 
     <!-- Доступ -->
-    <div class="col-4 col-xl-1 pt-1 ps-1">
+    <div class="col-4 col-xl-1 mt-2 ps-xs-1 ps-md-none pe-1">
       <div class="form-floating">
         <input
           type="number"
           min="1"
           max="3"
-          class="form-control form-control-sm"
+          class="form-control"
           :id="'inputAccess' + item.id"
           v-model.number="item.access"
           @change="$emit('save-item', { item })"
@@ -61,7 +61,7 @@
     </div>
 
     <!-- Должность -->
-    <div class="col-4 col-xl-1 ps-md-1 pe-0 pe-md-2">
+    <div class="col-4 col-xl-1 mt-2 ps-1 pe-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -82,7 +82,7 @@
     </div>
 
     <!-- Закреплен за этапами -->
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-4 col-xl-2 mt-2 ps-md-1 pe-md-1">
       <div class="d-flex">
         <div class="form-floating">
           <select
@@ -102,7 +102,7 @@
         </div>
         <button class="btn btn-success" @click="addStage">+</button>
       </div>
-      <ul class="list-group">
+      <ul class="list-group mt-2">
         <li
           v-for="stage in item.stages"
           :key="stage"
@@ -117,7 +117,7 @@
     </div>
 
     <!-- Комментарий -->
-    <div class="col-11 col-xl-4 mt-0">
+    <div class="col-10 col-xl-3 mt-2 pe-1">
       <div class="form-floating">
         <textarea
           class="form-control form-control-sm border-0 h-auto"
@@ -131,7 +131,7 @@
     </div>
 
     <!-- Кнопка удалить -->
-    <div class="col-1 pt-2">
+    <div class="col-2 col-xl-1 pt-2">
       <BtnDelete
         class="btn-outline-danger"
         @click="$emit('remove-item', { item })"
