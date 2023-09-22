@@ -1,7 +1,7 @@
 <template>
   <div class="row bg-white rounded mb-3 mb-xl-1 p-2 p-xl-0 pb-xl-1">
     <!-- Название этапа -->
-    <div class="col-12 col-md-3">
+    <div class="col-6 col-md-3 mt-2 pe-1">
       <div class="form-floating">
         <input
           type="text"
@@ -15,7 +15,7 @@
     </div>
 
     <!-- Статус -->
-    <div class="col-4 col-xl-1 pe-1">
+    <div class="col-6 col-md-3 col-xl-1 mt-2 ps-1 pe-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -31,11 +31,11 @@
     </div>
 
     <!-- Позиция -->
-    <div class="col-4 col-xl-1 pt-1 ps-1">
+    <div class="col-6 col-md-3 mt-2 ps-md-1 pe-1">
       <div class="form-floating">
         <input
           type="number"
-          class="form-control form-control-sm"
+          class="form-control"
           :id="'inputPosition' + item.id"
           v-model.number="item.position"
           @change="$emit('save-item', { item })"
@@ -45,7 +45,7 @@
     </div>
 
     <!-- Цвет -->
-    <div class="col-4 ps-md-1 pe-0 pe-md-2">
+    <div class="col-6 col-md-3 mt-2 ps-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -63,7 +63,7 @@
     </div>
 
     <!-- Комментарий -->
-    <div class="col-11 col-xl-1 mt-0">
+    <div class="col-10 col-xl-1 mt-2 pe-1">
       <div class="form-floating">
         <textarea
           class="form-control form-control-sm border-0 h-auto"
@@ -77,7 +77,7 @@
     </div>
 
     <!-- Кнопка удалить -->
-    <div class="col-1 pt-2">
+    <div class="col-1 ps-1 pt-2">
       <BtnDelete
         class="btn-outline-danger"
         @click="$emit('remove-item', { item })"
