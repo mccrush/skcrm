@@ -1,6 +1,10 @@
 <template>
   <div class="view">
-    <TheNavbar :user="user" @show-modal="showModal" />
+    <TheNavbar :user="user" @show-modal="showModal">
+      <template #count>
+        <div class="small pt-1">{{ listItems.length }} шт.</div>
+      </template>
+    </TheNavbar>
     <UserList :users="listItems" :user="user" />
   </div>
 </template>
