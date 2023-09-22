@@ -1,11 +1,11 @@
 <template>
-  <div class="row bg-white rounded mb-2 mb-xl-1 p-2 p-xl-0 pb-xl-1">
+  <div class="row">
     <!-- Имя пользователя -->
     <div class="col-12 col-md-4 col-xl-1 mt-md-2 pe-md-1">
       <div class="form-floating">
         <input
           type="text"
-          class="form-control form-control-sm"
+          class="form-control"
           :id="'inputName' + item.id"
           v-model.trim="item.name"
           @change="$emit('save-item', { item })"
@@ -19,7 +19,7 @@
       <div class="form-floating">
         <input
           type="text"
-          class="form-control form-control-sm"
+          class="form-control"
           :id="'inputEmail' + item.id"
           v-model.trim="item.email"
           @change="$emit('save-item', { item })"

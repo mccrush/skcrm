@@ -1,5 +1,5 @@
 <template>
-  <div class="row bg-light pt-2">
+  <div class="row">
     <div class="col-12 d-flex justify-content-between">
       <span class="m-0"
         >№ <strong>{{ item.serialNumber || 0 }}</strong></span

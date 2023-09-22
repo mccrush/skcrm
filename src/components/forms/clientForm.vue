@@ -1,5 +1,5 @@
 <template>
-  <div class="row bg-light pt-2">
+  <div class="row">
     <!-- город клиента -->
     <div class="col-12 col-md-4 pe-md-1">
       <div class="form-floating">

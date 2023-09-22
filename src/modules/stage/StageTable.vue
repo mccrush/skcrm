@@ -6,6 +6,7 @@
       :item="item"
       @save-item="saveItem"
       @remove-item="removeItem"
+      class="bg-white mt-2 pb-2"
     />
   </div>
 </template>

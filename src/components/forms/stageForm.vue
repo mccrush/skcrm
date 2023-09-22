@@ -1,11 +1,11 @@
 <template>
-  <div class="row bg-white rounded mb-3 mb-xl-1 p-2 p-xl-0 pb-xl-1">
+  <div class="row">
     <!-- Название этапа -->
     <div class="col-6 col-md-3 mt-2 pe-1">
       <div class="form-floating">
         <input
           type="text"
-          class="form-control form-control-sm"
+          class="form-control"
           :id="'inputTitle' + item.id"
           v-model.trim="item.title"
           @change="$emit('save-item', { item })"
