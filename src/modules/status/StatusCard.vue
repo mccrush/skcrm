@@ -2,10 +2,10 @@
   <div class="bg-white rounded small lh-sm p-2 mt-2">
     <div class="d-flex justify-content-between">
       <span class="m-0"
-        >№ <strong>{{ item.serialNumber || 0 }}</strong>
+        >№&nbsp;<strong>{{ item.serialNumber || 0 }}</strong>
       </span>
       <span
-        >{{ getClient(item.clientId).phone.substr(0, 7) }}-{{
+        >{{ getClient(item.clientId).phone.substr(0, 4) }}ххх-{{
           getClient(item.clientId).phone.substr(7)
         }}</span
       >

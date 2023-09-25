@@ -89,7 +89,7 @@ export default {
 @media (min-width: 768px) {
   .list-colum {
     /* width: calc(35vw); */
-    min-width: 128px;
+    min-width: 196px;
   }
 }
 </style>
