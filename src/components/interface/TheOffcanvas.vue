@@ -7,7 +7,13 @@
     aria-labelledby="staticBackdropLabel"
   >
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="staticBackdropLabel">Меню</h5>
+      <h5
+        class="offcanvas-title"
+        id="staticBackdropLabel"
+        @click="$router.push('/')"
+      >
+        Меню
+      </h5>
       <button
         type="button"
         class="btn btn-sm btn-outline-secondary p-1 ps-3 pe-3"

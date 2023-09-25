@@ -32,7 +32,7 @@
             </button>
 
             <button
-              class="btn btn-dark rounded-0 w-75 d-none d-md-block"
+              class="btn btn-dark rounded-0 w-75 text-start d-none d-md-block ps-3"
               @click="$router.push('/view/' + item.type)"
             >
               {{ item.title }}
