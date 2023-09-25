@@ -1,10 +1,15 @@
 <template>
   <div class="bg-white rounded small lh-sm p-2 mt-2">
-    <span
-      >№ <strong>{{ getClient(item.clientId).phone.substr(7) }}</strong></span
-    >
-
-    <br />
+    <div class="d-flex justify-content-between">
+      <span class="m-0"
+        >№ <strong>{{ item.serialNumber || 0 }}</strong>
+      </span>
+      <span
+        >{{ getClient(item.clientId).phone.substr(0, 7) }}-{{
+          getClient(item.clientId).phone.substr(7)
+        }}</span
+      >
+    </div>
     <span>
       {{
         getClient(item.clientId).city +
