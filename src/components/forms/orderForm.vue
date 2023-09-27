@@ -48,8 +48,8 @@
           v-model="item.userId"
           @change="$emit('save-item')"
         >
-          <option value="" selected>Назначте сварщика</option>
-          <option v-for="user in users" :key="user.id" :value="user.id">
+          <option value="">Не выбран</option>
+          <option v-for="user in usersFilter" :key="user.id" :value="user.id">
             {{ user.name }}
           </option>
         </select>
@@ -330,6 +330,9 @@ export default {
     },
     users() {
       return this.$store.getters.user
+    },
+    usersFilter() {
+      return this.users.filter(item => item.stages && item.stages.length)
     },
     kotels() {
       return this.$store.getters.kotel
