@@ -21,6 +21,11 @@
               >В очереди</span
             >
           </span>
+          <span
+            v-if="item.userId"
+            class="badge text-secondary border border-secondary rounded-pill ms-1"
+            >©</span
+          >
         </span>
         <span
           >{{ getClient(item.clientId).phone.substr(0, 7) }}-{{
@@ -48,7 +53,7 @@
         <span>
           <span>{{ getLocaleDateFromDateDigit(item.dateDue) }} </span
           ><span
-            title="- дней на производство / + просрочено"
+            title="- дней на производство / просрочено"
             :class="{
               'text-warning fw-bold':
                 getCountLastDays(item.dateCreate, item.dateFinish) >= 28 &&
