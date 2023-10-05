@@ -130,9 +130,9 @@ export default {
           if (stagePosition == 1) {
             stageItem = this.stagesProduction.find(item => item.position == 1)
           } else if (stagePosition == 3) {
-            stageItem = this.stagesProduction.find(item => item.position == 11)
+            stageItem = this.stagesProduction.find(item => item.position == 8)
           } else if (stagePosition == 4) {
-            stageItem = this.stagesProduction.find(item => item.position == 12)
+            stageItem = this.stagesProduction.find(item => item.position == 9)
           }
 
           if (stageItem) stageIdForOrder = stageItem.id

@@ -12,7 +12,13 @@
       <div class="d-flex justify-content-between">
         <span class="m-0"
           >№ <strong>{{ item.serialNumber || 0 }}</strong>
-          <span v-if="stagePosition !== stageLength">
+          <span
+            v-if="
+              ($route.params.type === 'production' &&
+                stagePosition !== stageLength) ||
+              ($route.params.type === 'order' && stagePosition !== 4)
+            "
+          >
             <span
               v-if="item.inwork"
               class="badge border text-success rounded-1 ms-2"
