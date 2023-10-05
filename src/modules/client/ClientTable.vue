@@ -21,7 +21,7 @@
               ⇅
             </button>
           </th>
-          <th scope="col" class="text-center small" width="10%">
+          <!-- <th scope="col" class="text-center small" width="10%">
             Тип
             <button
               class="btn btn-sm btn-light p-0 ps-2 pe-2"
@@ -29,8 +29,8 @@
             >
               ⇅
             </button>
-          </th>
-          <th scope="col" class="text-center small" width="10%">
+          </th> -->
+          <!-- <th scope="col" class="text-center small" width="10%">
             Мощ
             <button
               class="btn btn-sm btn-light p-0 ps-2 pe-2"
@@ -38,7 +38,7 @@
             >
               ⇅
             </button>
-          </th>
+          </th> -->
           <th scope="col" class="text-center small lh-lg" width="15%">
             Телефон
           </th>

@@ -50,8 +50,8 @@
             type="text"
             class="form-control form-control-sm"
             id="inputPhone"
-            v-model.trim="item.phone"
-            @change="$emit('save-item')"
+            v-model="item.phone"
+            @blur="clearNumber($event.target.value)"
           />
           <label for="inputPhone">Телефон</label>
         </div>
@@ -108,7 +108,7 @@
     </div>
 
     <!-- Тип котла -->
-    <div class="col-12 col-md-4 mt-2 pe-md-1">
+    <!-- <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -122,10 +122,10 @@
         </select>
         <label for="inputKotelType">Тип котла</label>
       </div>
-    </div>
+    </div> -->
 
     <!-- Мощность котла -->
-    <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
+    <!-- <div class="col-12 col-md-4 mt-2 ps-md-1 pe-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -139,7 +139,7 @@
         </select>
         <label for="inputPower">Мощность</label>
       </div>
-    </div>
+    </div> -->
 
     <!-- источник контакта -->
     <div class="col-12 col-md-4 mt-2 ps-md-1">
@@ -181,6 +181,7 @@ import {
   dataPower
 } from './../../data/dataForClient'
 import { getLocaleDateFromDateDigit } from './../../helpers/getDateFormat'
+import { clearPhoneNumber } from './../../helpers/clearPhoneNumber'
 
 export default {
   props: {
@@ -207,7 +208,11 @@ export default {
     }
   },
   methods: {
-    getLocaleDateFromDateDigit
+    getLocaleDateFromDateDigit,
+    clearNumber(phoneNumber) {
+      this.item.phone = clearPhoneNumber(phoneNumber)
+      this.$emit('save-item')
+    }
   }
 }
 </script>
