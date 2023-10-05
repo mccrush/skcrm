@@ -41,7 +41,7 @@
       </button>
     </td> -->
     <td class="text-center">{{ phone }}</td>
-    <td class="text-center">
+    <!-- <td class="text-center">
       <button
         class="btn btn-sm btn-light p-0 ps-2 pe-2"
         @click="
@@ -53,7 +53,7 @@
       >
         {{ sours }}
       </button>
-    </td>
+    </td> -->
     <td class="text-center">{{ dateLastContact }}</td>
     <td class="text-center">
       <BtnCheckOrder

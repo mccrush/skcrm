@@ -142,7 +142,7 @@
     </div> -->
 
     <!-- источник контакта -->
-    <div class="col-12 col-md-4 mt-2 ps-md-1">
+    <!-- <div class="col-12 col-md-4 mt-2 ps-md-1">
       <div class="form-floating">
         <select
           class="form-select"
@@ -156,7 +156,7 @@
         </select>
         <label for="inputSours">Источник</label>
       </div>
-    </div>
+    </div> -->
 
     <!-- Комментарий -->
     <div class="col-12 mt-2" :class="{ 'mb-3': !mod }">

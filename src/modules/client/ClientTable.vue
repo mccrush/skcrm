@@ -3,7 +3,7 @@
     <table class="table table-striped table-light shadow-sm small">
       <thead>
         <tr>
-          <th scope="col" class="small ps-3" width="20%">
+          <th scope="col" class="small ps-3" width="28%">
             Город
             <button
               class="btn btn-sm btn-light p-0 ps-2 pe-2"
@@ -12,7 +12,7 @@
               ⇅
             </button>
           </th>
-          <th scope="col" class="small" width="15%">
+          <th scope="col" class="small" width="30%">
             Имя
             <button
               class="btn btn-sm btn-light p-0 ps-2 pe-2"
@@ -39,19 +39,19 @@
               ⇅
             </button>
           </th> -->
-          <th scope="col" class="text-center small lh-lg" width="15%">
+          <th scope="col" class="text-center small lh-lg" width="16%">
             Телефон
           </th>
-          <th scope="col" class="text-center small" width="8%">
+          <!-- <th scope="col" class="text-center small" width="8%">
             Источ
-            <!-- <button
+            <button
               class="btn btn-sm btn-light p-0 ps-2 pe-2"
               @click="setSortMethod('sours')"
             >
               ⇅
-            </button> -->
-          </th>
-          <th scope="col" class="text-center small" width="8%">
+            </button>
+          </th> -->
+          <th scope="col" class="text-center small" width="16%">
             Дата
             <button
               class="btn btn-sm btn-light p-0 ps-2 pe-2"
@@ -61,7 +61,7 @@
             </button>
           </th>
           <th scope="col" class="text-center small lh-lg" width="8%">Заказ</th>
-          <th scope="col" class="text-center" width="6%">---</th>
+          <th scope="col" class="text-center" width="8%">---</th>
         </tr>
       </thead>
       <tbody>
