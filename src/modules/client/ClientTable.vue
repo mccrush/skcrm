@@ -44,12 +44,12 @@
           </th>
           <th scope="col" class="text-center small" width="8%">
             Источ
-            <button
+            <!-- <button
               class="btn btn-sm btn-light p-0 ps-2 pe-2"
               @click="setSortMethod('sours')"
             >
               ⇅
-            </button>
+            </button> -->
           </th>
           <th scope="col" class="text-center small" width="8%">
             Дата
