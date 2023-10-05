@@ -2,7 +2,9 @@
   <div class="view">
     <TheNavbar :user="user" @show-modal="showModal">
       <template #count>
-        <div class="small pt-1">{{ listItems.length }} шт.</div>
+        <div v-if="user.access <= 2" class="small pt-1">
+          {{ listItems.length }} шт.
+        </div>
       </template>
       <template #filter> </template>
       <template #filterSelect> </template>
