@@ -22,4 +22,5 @@ export default class order extends ClassBasic {
   dateFinish = ''
   userId = ''
   inwork = false
+  workTimes = {}
 }

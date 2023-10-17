@@ -309,7 +309,8 @@
 <script>
 import { sortMethod } from './../../helpers/sortMethod'
 import { getDueDate } from './../../helpers/getDueDate'
-import { getFormateInputDate } from './../../helpers/getFormateInputDate'
+import getDateNow from './../../helpers/getDateNow'
+
 import BtnOpenClient from './../buttons/BtnOpenClient.vue'
 
 export default {
@@ -362,18 +363,26 @@ export default {
   methods: {
     setStatusInWork() {
       this.item.inwork = true
+      // Уставновить время начала работы
+
+      this.item.workTimes[this.item.stageId].workStart = getDateNow()
       this.$emit('save-item')
     },
     setStatusAbortWork() {
       this.item.inwork = false
+      // Сбросить время начала и окончания работы
+      this.item.workTimes[this.item.stageId] = {}
       this.$emit('save-item')
     },
     setStatusFinishWork() {
       this.item.inwork = false
-      // Изменить глабальный статускарточки stageId
+      // 1. Уставновить время окончания работы
+      this.item.workTimes[this.item.stageId].workEnd = getDateNow()
+      this.item.workTimes[this.item.stageId].stageEnd = getDateNow()
+      // 2. Изменить глабальный статускарточки stageId
       this.setNextStage(this.item.stageId)
       // Назначить нового исполнителя?
-      this.$emit('save-item')
+      //this.$emit('save-item')
     },
     setPrePrice() {
       this.item.ostPrice = this.item.price - this.item.prePrice
@@ -394,11 +403,19 @@ export default {
     },
 
     setStage() {
+      if (!this.item.workTimes) {
+        this.item.workTimes = {}
+      }
+
+      this.item.workTimes[this.item.stageId] = {}
+      this.item.workTimes[this.item.stageId].stageStart = getDateNow()
+
       if (
         this.item.stageId ===
         this.stageProduction[this.stageProduction.length - 1].id
       ) {
-        this.item.dateFinish = getFormateInputDate(new Date())
+        this.item.workTimes[this.item.stageId].stageEnd = getDateNow()
+        this.item.dateFinish = getDateNow()
       }
       this.$emit('save-item')
     },
@@ -408,6 +425,8 @@ export default {
         item => item.id === stageId
       )
       this.item.stageId = this.stageProduction[stageIndex + 1].id
+
+      this.setStage()
       //this.$emit('save-item')
     },
 
