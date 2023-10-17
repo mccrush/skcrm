@@ -111,6 +111,7 @@
         >
           <option value="left">Слева</option>
           <option value="right">Справа</option>
+          <option value="around">Собеих</option>
         </select>
         <label for="inputBunkerPos">Бункер л/п</label>
       </div>
