@@ -273,10 +273,7 @@
     </div>
 
     <!-- Кнопки управления -->
-    <div
-      v-if="user.access === 3"
-      class="col-12 d-flex justify-content-between mb-3"
-    >
+    <div class="col-12 d-flex justify-content-between mb-3">
       <button
         v-if="!item.inwork"
         class="btn btn-warning w-50 text-white"
