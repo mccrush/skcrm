@@ -236,7 +236,7 @@
     </div>
 
     <!-- Комментарий -->
-    <div v-if="user.access < 3" class="col-12 col-md-8 mt-2 mb-md-3 pe-md-1">
+    <div class="col-12 col-md-8 mt-2 mb-md-3 pe-md-1">
       <div class="form-floating">
         <textarea
           class="form-control form-control-sm border-0 h-auto"

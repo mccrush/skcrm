@@ -33,7 +33,7 @@
         </div>
 
         <!-- Footer -->
-        <div v-if="user.access < 3" class="modal-footer p-2">
+        <div v-if="user && user.access < 3" class="modal-footer p-2">
           <BtnRemoveItem
             v-if="mod === 'edit'"
             data-bs-dismiss="modal"
