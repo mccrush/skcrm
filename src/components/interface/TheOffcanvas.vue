@@ -24,7 +24,7 @@
       </button>
     </div>
     <div class="offcanvas-body overflow-y-hidden p-0">
-      <TheSideBar :user="user" />
+      <TheSideBar :user="user" @show-modal="showModal" />
     </div>
   </div>
 </template>
@@ -36,8 +36,19 @@ export default {
   components: {
     TheSideBar
   },
+
   props: {
     user: Object
+  },
+  emits: ['show-modal'],
+  methods: {
+    showModal({ type, item, mod }) {
+      this.$emit('show-modal', {
+        type,
+        item,
+        mod
+      })
+    }
   }
 }
 </script>

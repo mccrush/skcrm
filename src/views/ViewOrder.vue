@@ -13,7 +13,12 @@
       </template>
     </TheNavbar>
 
-    <OrderKanban :listItems="listItems" :user="user" @show-modal="showModal" />
+    <OrderKanban
+      :listItems="listItems"
+      :user="user"
+      @show-modal="showModal"
+      @set-sort-method="setSortMethod"
+    />
   </div>
 </template>
 
@@ -36,7 +41,8 @@ export default {
     'set-search-method',
     'show-modal',
     'set-filter-method',
-    'clear-filter'
+    'clear-filter',
+    'set-sort-method'
   ],
   data() {
     return {
@@ -52,6 +58,9 @@ export default {
     },
     clearFilter({ filterType, filterValue }) {
       this.$emit('clear-filter', { filterType, filterValue })
+    },
+    setSortMethod({ sortUp, sortBy }) {
+      this.$emit('set-sort-method', { sortUp, sortBy })
     }
   },
   watch: {
