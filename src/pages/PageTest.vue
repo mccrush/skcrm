@@ -1,19 +1,29 @@
 <template>
   <div>
     <div>
-      <button class="btn" @click="connectWS">Connect WS</button>
+      <button class="btn" @click="showData">showData</button>
+    </div>
+    <div class="mt-2">
+      <div v-for="item in testData" :key="item.id">{{ item.title }}</div>
     </div>
   </div>
 </template>
 
 <script>
-import { websocket } from './../api/websocket'
-
 export default {
+  data() {
+    return {
+      show: false
+    }
+  },
+  computed: {
+    testData() {
+      return this.$store.getters.testData
+    }
+  },
   methods: {
-    connectWS() {
-      const res = websocket()
-      console.log('res = ', res)
+    showData() {
+      this.$store.dispatch('getData')
     }
   }
 }
