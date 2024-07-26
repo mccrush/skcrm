@@ -41,17 +41,23 @@
         >
       </div>
 
-      <span>
+      <div>
         {{
-          getClient(item.clientId).city +
-          ' ' +
           getKotel(item.kotelId).typek +
           '-' +
           getKotel(item.kotelId).power +
           ', ' +
-          getClient(item.clientId).name
-        }}</span
-      >
+          getKotel(item.kotelId).metall +
+          ' мм, ' +
+          getNavesy(item.petliPos) +
+          ', ' +
+          getBunker(item.bunkerPos)
+        }}
+      </div>
+      <div>
+        <strong>{{ getClient(item.clientId).city }}</strong>
+        {{ ', ' + getClient(item.clientId).name + ' ' }}
+      </div>
       <hr class="m-0 mt-1 mb-1" />
       <div class="d-flex justify-content-between">
         <span class="d-block text-end">{{
@@ -116,6 +122,24 @@ export default {
     getKotel(kotelId) {
       const kotel = this.kotels.find(item => item.id === kotelId)
       return kotel
+    },
+    getNavesy(petliPos) {
+      if (petliPos === 'left') {
+        return 'навесы левые'
+      } else if (petliPos === 'right') {
+        return 'навесы правые'
+      }
+      return ''
+    },
+    getBunker(bunkerPos) {
+      if (bunkerPos === 'left') {
+        return 'бункер слева'
+      } else if (bunkerPos === 'right') {
+        return 'бункер справа'
+      } else if (bunkerPos === 'around') {
+        return 'бункер с обеих'
+      }
+      return ''
     }
   }
 }
