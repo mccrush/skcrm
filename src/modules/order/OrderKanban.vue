@@ -85,9 +85,11 @@ export default {
         return this.stagesOrder
       }
     },
-
+    stageFilteredActive() {
+      return this.stages.filter(item => item.status === 'active')
+    },
     stageSorted() {
-      return sortMethod(this.stages, 'asc', 'position')
+      return sortMethod(this.stageFilteredActive, 'asc', 'position')
     }
   },
   mounted() {
