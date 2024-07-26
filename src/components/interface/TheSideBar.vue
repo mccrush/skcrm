@@ -59,7 +59,7 @@
       </div>
     </div>
     <div>
-      <p class="small text-light text-center">
+      <p v-if="user" class="small text-light text-center">
         <small>{{ user.email }}</small>
       </p>
       <button
