@@ -11,11 +11,12 @@
       >
     </div>
     <!-- Клиент -->
-    <div v-if="user && user.access < 3" class="col-9 col-md-10 pe-md-1">
+    <div class="col-12 col-md-10 pe-md-1">
       <select
         class="form-select"
         id="inputClientId"
         v-model="item.clientId"
+        :disabled="!user || user.access === 3"
         @change="$emit('save-item')"
       >
         <option v-for="client in clients" :key="client.id" :value="client.id">
@@ -44,7 +45,7 @@
         <select
           class="form-select"
           id="inputUserId"
-          :disabled="user && user.access === 3"
+          :disabled="!user || user.access === 3"
           v-model="item.userId"
           @change="$emit('save-item')"
         >
@@ -63,7 +64,7 @@
         <select
           class="form-select"
           id="inputKotelId"
-          :disabled="user && user.access === 3"
+          :disabled="!user || user.access === 3"
           v-model="item.kotelId"
           @change="setPrice(item.kotelId)"
         >
@@ -81,7 +82,7 @@
         <select
           class="form-select"
           id="inputPetliPos"
-          :disabled="user && user.access === 3"
+          :disabled="!user || user.access === 3"
           v-model="item.petliPos"
           @change="$emit('save-item')"
         >
@@ -105,7 +106,7 @@
         <select
           class="form-select"
           id="inputBunkerPos"
-          :disabled="user && user.access === 3"
+          :disabled="!user || user.access === 3"
           v-model="item.bunkerPos"
           @change="$emit('save-item')"
         >
@@ -197,12 +198,13 @@
     </div>
 
     <!-- Дата Заказа -->
-    <div v-if="user && user.access < 3" class="col-12 col-md-4 mt-2 pe-md-1">
+    <div class="col-12 col-md-4 mt-2 pe-md-1">
       <div class="form-floating">
         <input
           type="datetime-local"
           id="dateCreate"
           class="form-control form-control-sm"
+          :disabled="!user || user.access === 3"
           v-model="item.dateCreate"
           @change="setDate"
         />
@@ -248,7 +250,7 @@
           class="form-control form-control-sm border-0 h-auto"
           id="inputDescription"
           rows="3"
-          :disabled="user && user.access === 3"
+          :disabled="!user || user.access === 3"
           v-model.trim="item.description"
           @change="$emit('save-item')"
         ></textarea>
@@ -257,12 +259,15 @@
     </div>
 
     <!-- Этап -->
-    <div class="col-12 col-md-4 mt-2 mb-3 ps-md-1">
+    <div
+      v-if="user && user.access < 3"
+      class="col-12 col-md-4 mt-2 mb-3 ps-md-1"
+    >
       <div class="form-floating">
         <select
           class="form-select"
           id="inputStageId"
-          :disabled="user && user.access === 3"
+          :disabled="!user || user.access === 3"
           v-model="item.stageId"
           @change="setStage"
         >
@@ -279,7 +284,7 @@
     </div>
 
     <!-- Кнопки управления -->
-    <div class="col-12 d-flex justify-content-between mb-3">
+    <div v-if="user" class="col-12 d-flex justify-content-between mb-3">
       <button
         v-if="!item.inwork"
         class="btn btn-warning w-50 text-white"
