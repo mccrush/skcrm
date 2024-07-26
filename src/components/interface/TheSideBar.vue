@@ -59,6 +59,9 @@
       </div>
     </div>
     <div>
+      <p class="small text-light text-center">
+        <small>{{ user.email }}</small>
+      </p>
       <button
         type="button"
         class="btn btn-dark rounded-0 w-100 d-md-none mt-5"
