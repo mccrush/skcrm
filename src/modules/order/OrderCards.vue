@@ -12,7 +12,7 @@
       <div class="d-flex justify-content-between">
         <span class="m-0"
           >№ {{ item.serialNumber || 0 }}
-          <span
+          <!-- <span
             v-if="
               ($route.params.type === 'production' &&
                 stagePosition !== stageLength) ||
@@ -27,7 +27,8 @@
             <span v-else class="badge border text-warning rounded-1 ms-2"
               >В очереди</span
             >
-          </span>
+          </span> -->
+
           <!-- <span
             v-if="item.userId"
             class="badge text-secondary border border-secondary rounded-pill ms-1"
@@ -61,7 +62,7 @@
         <span class="d-block text-end">{{
           getLocaleDateFromDateDigit(item.dateCreate)
         }}</span>
-        <span>
+        <!-- <span>
           <span>{{ getLocaleDateFromDateDigit(item.dateDue) }} </span
           ><span
             title="- дней на производство / просрочено"
@@ -76,11 +77,18 @@
           >
             ({{ getCountLastDays(item.dateDue, item.dateFinish) }})</span
           ></span
-        >
+        > -->
         <span class="d-block text-end" title="Всего дней выполнялся заказ"
-          >{{ getLocaleDateFromDateDigit(item.dateFinish) }} ({{
-            getCountLastDays(item.dateCreate, item.dateFinish)
-          }})</span
+          >{{ getLocaleDateFromDateDigit(item.dateFinish) }}
+        </span>
+        <span
+          :class="{
+            'text-warning fw-bold':
+              getCountLastDays(item.dateCreate, item.dateFinish) > 20,
+            'text-danger  fw-bold':
+              getCountLastDays(item.dateCreate, item.dateFinish) > 30
+          }"
+          >({{ getCountLastDays(item.dateCreate, item.dateFinish) }})</span
         >
       </div>
     </div>
