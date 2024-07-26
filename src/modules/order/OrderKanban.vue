@@ -24,7 +24,6 @@
         <div v-else>-</div>
       </div>
       <OrderCards
-        v-if="user"
         :items="
           sortMethod(getItems(stage.id, stage.position), 'asc', 'dateCreate')
         "

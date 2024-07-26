@@ -15,9 +15,7 @@ const routes = [
     path: '/view/:type',
     name: 'view',
     component: () => import('../pages/PageView.vue'),
-    meta: {
-      requiresAuth: true
-    }
+
   },
   // {
   //   path: '/404', // Первая, для перекрытия остальных
