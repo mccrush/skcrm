@@ -111,7 +111,7 @@ export default {
         if (stagePosition === 2) {
           //console.log('stagePosition 2 = ', stagePosition)
           const stagesProductionId = this.stagesProduction.filter(
-            item => item.position >= 2 && item.position <= 8
+            item => item.position >= 2 && item.position <= 7
           )
 
           //console.log('stagesProductionId = ', stagesProductionId)
