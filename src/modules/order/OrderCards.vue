@@ -11,7 +11,7 @@
     >
       <div class="d-flex justify-content-between">
         <span class="m-0"
-          >№ <strong>{{ item.serialNumber || 0 }}</strong>
+          >№ {{ item.serialNumber || 0 }}
           <span
             v-if="
               ($route.params.type === 'production' &&
@@ -42,17 +42,15 @@
       </div>
 
       <div>
-        {{
+        <strong>{{
           getKotel(item.kotelId).typek +
           '-' +
           getKotel(item.kotelId).power +
           ', ' +
           getKotel(item.kotelId).metall +
-          ' мм, ' +
-          getNavesy(item.petliPos) +
-          ', ' +
-          getBunker(item.bunkerPos)
-        }}
+          ', '
+        }}</strong>
+        {{ getNavesy(item.petliPos) + ', ' + getBunker(item.bunkerPos) }}
       </div>
       <div>
         <strong>{{ getClient(item.clientId).city }}</strong>
