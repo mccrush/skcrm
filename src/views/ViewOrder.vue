@@ -9,11 +9,19 @@
       <template #filter> </template>
       <template #filterSelect> </template>
       <template #search>
-        <InputSearch v-model="searchValue" />
+        <InputSearch v-if="user" v-model="searchValue" />
       </template>
     </TheNavbar>
 
     <OrderKanban
+      v-if="viewMod === 'kanban'"
+      :listItems="listItems"
+      :user="user"
+      @show-modal="showModal"
+      @set-sort-method="setSortMethod"
+    />
+    <OrderTable
+      v-if="viewMod === 'table'"
       :listItems="listItems"
       :user="user"
       @show-modal="showModal"
@@ -26,12 +34,14 @@
 import TheNavbar from './../components/interface/TheNavbar.vue'
 import InputSearch from './../components/elements/InputSearch.vue'
 import OrderKanban from './../modules/order/OrderKanban.vue'
+import OrderTable from './../modules/order_table/OrderTable.vue'
 
 export default {
   components: {
     TheNavbar,
     InputSearch,
-    OrderKanban
+    OrderKanban,
+    OrderTable
   },
   props: {
     listItems: Array,
@@ -46,7 +56,8 @@ export default {
   ],
   data() {
     return {
-      searchValue: ''
+      searchValue: '',
+      viewMod: 'table'
     }
   },
   methods: {

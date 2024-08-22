@@ -12,6 +12,7 @@
         />
         <label :for="'inputTitle' + item.id">Название</label>
       </div>
+      {{ item.id }}
     </div>
 
     <!-- Статус -->
