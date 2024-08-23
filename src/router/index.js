@@ -15,7 +15,9 @@ const routes = [
     path: '/view/:type',
     name: 'view',
     component: () => import('../pages/PageView.vue'),
-
+    meta: {
+      requiresAuth: true
+    }
   },
   // {
   //   path: '/404', // Первая, для перекрытия остальных
@@ -76,7 +78,8 @@ router.beforeEach((to, from, next) => {
   //console.log('currentUserId = ', currentUserId)
   // Проверить, что будет если зайти на стр. логина авторизованному пользователю
   // Сделать так, чтобы перебрасывало в админку
-  if (to.meta.requiresAuth && !currentUserId) next({ name: 'login' })
+  if (to.path === '/view/order') next()
+  else if (to.meta.requiresAuth && !currentUserId) next({ name: 'login' })
   else next()
 })
 
