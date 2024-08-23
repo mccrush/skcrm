@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <td>
+    <td v-if="client">
       {{ dateCreate }}<br />
       <strong>{{ client.city }}</strong>
       <div class="lh-1 small">
@@ -14,14 +14,14 @@
         >
       </div>
     </td>
-    <td class="text-center">
-      {{ kotel.typek + '-' + kotel.power + ' кВт,' }}
+    <td v-if="kotel" class="text-center">
+      {{ kotel.typek + '-' + kotel.power + ',' }}
       <br />{{ kotel.metall + ' мм' }}
     </td>
     <td class="text-center">{{ petliPos }}</td>
     <td class="text-center">{{ bunkerPos }}</td>
     <td class="text-center">{{ item.prePrice * 1000 }}</td>
-    <td class="lh-1">
+    <td v-if="client" class="lh-1">
       {{ client.phone.substr(0, 7)
       }}<strong>{{ client.phone.substr(7) }}</strong> <br /><br />
       <small>

@@ -6,7 +6,9 @@
           {{ listItems.length }} шт.
         </div>
       </template>
-      <template #filter> </template>
+      <template #filter>
+        <ChangeView :viewMod="viewMod" @set-view-mod="setViewMod" />
+      </template>
       <template #filterSelect> </template>
       <template #search>
         <InputSearch v-if="user" v-model="searchValue" />
@@ -32,6 +34,7 @@
 
 <script>
 import TheNavbar from './../components/interface/TheNavbar.vue'
+import ChangeView from './../components/elements/ChangeView.vue'
 import InputSearch from './../components/elements/InputSearch.vue'
 import OrderKanban from './../modules/order/OrderKanban.vue'
 import OrderTable from './../modules/order_table/OrderTable.vue'
@@ -39,6 +42,7 @@ import OrderTable from './../modules/order_table/OrderTable.vue'
 export default {
   components: {
     TheNavbar,
+    ChangeView,
     InputSearch,
     OrderKanban,
     OrderTable
@@ -72,6 +76,9 @@ export default {
     },
     setSortMethod({ sortUp, sortBy }) {
       this.$emit('set-sort-method', { sortUp, sortBy })
+    },
+    setViewMod(viewMod) {
+      this.viewMod = viewMod
     }
   },
   watch: {
